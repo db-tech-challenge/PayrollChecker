@@ -26,39 +26,39 @@ class PayrollApplicationTest {
 
     @Test
     @DisplayName("1. Apache 207")
-    void case_1() {
+    void case_01() {
         existOne("24778715");
     }
 
     @Test
     @DisplayName("2. Dennis Schröder")
-    void case_2() {
+    void case_02() {
         existOne("98198992");
     }
 
     @Test
     @DisplayName("4. Henner Römer | tax class")
-    void case_4() {
+    void case_04() {
         PaymentResult employer = existOne("69819545");
         assertTrue(List.of(5345, 5814).contains((int) round(employer.pay())));
     }
 
     @Test
     @DisplayName("5. Henner Römer | working days")
-    void case_5() {
+    void case_05() {
         PaymentResult employer = existOne("69819545");
         assertTrue(List.of(5345, 6288).contains((int) round(employer.pay())));
     }
 
     @Test
     @DisplayName("6. Henryk Jüttner")
-    void case_6() {
+    void case_06() {
         existNone("96391050");
     }
 
     @Test
     @DisplayName("8. Susann Schenk")
-    void case_8() {
+    void case_08() {
         PaymentResult msShenk = existOne("21233182");
         assertTrue(List.of(4174, 4518, 5155, 5585).contains((int) round(msShenk.pay())));
         PaymentResult rmGraf = existOne("20937689");
@@ -68,7 +68,7 @@ class PayrollApplicationTest {
 
     @Test
     @DisplayName("9. Joseph Stahr")
-    void case_9() {
+    void case_09() {
         existOne("17792663");
     }
 
