@@ -1,11 +1,26 @@
-name: Hello Webhook
+name: Payroll Checker
 
 on:
   repository_dispatch:
-    types: [test]
+    types: [alpha, beta, gamma, delta]
 
 jobs:
-  hello:
+  check:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "Hello from webhook!"
+    - name: Get team from event
+      run: |
+        TEAM="${{ github.event.action }}"
+        echo "Testing team: $TEAM"
+        echo "TEAM=$TEAM" >> $GITHUB_ENV
+    
+    - name: Clone public repo
+      run: |
+        git clone https://github.com/db-tech-challenge/PayrollCalculator.git
+        cd PayrollCalculator
+        if git checkout $TEAM 2>/dev/null; then
+          echo "✅ Branch $TEAM found"
+          echo "Last commit: $(git log -1 --oneline)"
+        else
+          echo "❌ Branch $TEAM not found"
+        fi
