@@ -1,0 +1,11 @@
+name: Hello Webhook
+
+on:
+  repository_dispatch:
+    types: [test]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Hello from webhook!"
