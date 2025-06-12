@@ -69,4 +69,10 @@ test-all-local:
 	@$(MAKE) test-gamma-local
 	@$(MAKE) test-delta-local
 	@echo "All results combined:"
-	@jq -s 'add' results/*.json > results/all-teams.json
+	@cp -r results docs
+	@jq -s 'add' docs/results/*.json > docs/results/all-teams.json
+
+clean:
+	@echo "Cleaning up..."
+	@rm -rf test-alpha test-beta test-gamma test-delta results docs/results/all-teams.json
+	@echo "Cleanup complete."
