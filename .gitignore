@@ -5,7 +5,6 @@ node_modules/
 .idea
 test-alpha/
 target/
-results/
 test-beta/
 test-delta/
 test-gamma/
