@@ -8,19 +8,49 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-    - name: Get team from event
-      run: |
-        TEAM="${{ github.event.action }}"
-        echo "Testing team: $TEAM"
-        echo "TEAM=$TEAM" >> $GITHUB_ENV
-    
-    - name: Clone public repo
-      run: |
-        git clone https://github.com/db-tech-challenge/PayrollCalculator.git
-        cd PayrollCalculator
-        if git checkout $TEAM 2>/dev/null; then
-          echo "✅ Branch $TEAM found"
-          echo "Last commit: $(git log -1 --oneline)"
-        else
-          echo "❌ Branch $TEAM not found"
-        fi
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get team from event
+        run: |
+          TEAM="${{ github.event.action }}"
+          echo "Testing team: $TEAM"
+          echo "TEAM=$TEAM" >> $GITHUB_ENV
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Clone and test
+        run: |
+          git clone https://github.com/db-tech-challenge/PayrollCalculator.git
+          cd PayrollCalculator
+          
+          if git checkout $TEAM 2>/dev/null; then
+            echo "✅ Branch $TEAM found"
+            echo "Last commit: $(git log -1 --oneline)"
+          
+            # Test compilation
+            if mvn clean compile; then
+              echo "✅ Compilation successful"
+          
+              # Run tests
+              if mvn test; then
+                echo "✅ Tests passed"
+              else
+                echo "❌ Tests failed"
+              fi
+            else
+              echo "❌ Compilation failed"
+            fi
+          else
+            echo "❌ Branch $TEAM not found"
+          fi
+
+      - name: Update GitHub Pages
+        run: |
+          mkdir -p docs
+          cp index.html docs/ 2>/dev/null || echo "index.html not found"
+          echo "GitHub Pages updated"
