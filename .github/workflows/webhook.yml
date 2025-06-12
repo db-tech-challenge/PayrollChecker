@@ -48,9 +48,3 @@ jobs:
           else
             echo "❌ Branch $TEAM not found"
           fi
-
-      - name: Update GitHub Pages
-        run: |
-          mkdir -p docs
-          cp index.html docs/ 2>/dev/null || echo "index.html not found"
-          echo "GitHub Pages updated"
