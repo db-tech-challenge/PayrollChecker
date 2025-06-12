@@ -74,5 +74,5 @@ test-all-local:
 
 clean:
 	@echo "Cleaning up..."
-	@rm -rf test-alpha test-beta test-gamma test-delta results docs/results/all-teams.json
+	@rm -rf test-alpha test-beta test-gamma test-delta results docs/results
 	@echo "Cleanup complete."
