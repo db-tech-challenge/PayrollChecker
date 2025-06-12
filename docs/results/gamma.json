@@ -1,0 +1,114 @@
+{
+  "team": "gamma",
+  "timestamp": "2025-06-12T20:55:16.353825Z",
+  "commit": {
+    "hash": "867e6cdc1dae0371a6cfc6c289d09d988fa25b6e",
+    "message": "Fix for Task 4",
+    "author": "Celebdil",
+    "date": "2025-05-12 12:43:04 +0200"
+  },
+  "results": {
+    "compilation": {
+      "success": true,
+      "status": 0
+    },
+    "execution": {
+      "success": true,
+      "status": 0
+    },
+    "tests": {
+      "automatic": {
+        "success": true,
+        "total": 7,
+        "passed": 7,
+        "failed": 0
+      },
+      "manual": {
+        "total": 3,
+        "passed": 0,
+        "failed": 3,
+        "pending": 0
+      },
+      "all_tests": [
+        {
+          "name": "case_01",
+          "status": "PASSED",
+          "time": 0.018,
+          "message": "Test passed",
+          "type": "automatic"
+        },
+        {
+          "name": "case_02",
+          "status": "PASSED",
+          "time": 0.002,
+          "message": "Test passed",
+          "type": "automatic"
+        },
+        {
+          "name": "case_03",
+          "status": "FAILED",
+          "description": "Manual check for Silvestre Stallone case",
+          "reviewer": null,
+          "notes": "",
+          "type": "manual"
+        },
+        {
+          "name": "case_04",
+          "status": "PASSED",
+          "time": 0.002,
+          "message": "Test passed",
+          "type": "automatic"
+        },
+        {
+          "name": "case_05",
+          "status": "PASSED",
+          "time": 0.002,
+          "message": "Test passed",
+          "type": "automatic"
+        },
+        {
+          "name": "case_06",
+          "status": "PASSED",
+          "time": 0.002,
+          "message": "Test passed",
+          "type": "automatic"
+        },
+        {
+          "name": "case_07",
+          "status": "FAILED",
+          "description": "Manual check for overtime calculation",
+          "reviewer": null,
+          "notes": "",
+          "type": "manual"
+        },
+        {
+          "name": "case_08",
+          "status": "PASSED",
+          "time": 0.001,
+          "message": "Test passed",
+          "type": "automatic"
+        },
+        {
+          "name": "case_09",
+          "status": "PASSED",
+          "time": 0.002,
+          "message": "Test passed",
+          "type": "automatic"
+        },
+        {
+          "name": "case_10",
+          "status": "FAILED",
+          "description": "Check settlement account format",
+          "reviewer": null,
+          "notes": "",
+          "type": "manual"
+        }
+      ]
+    },
+    "score": {
+      "total": 70,
+      "max": 100,
+      "percentage": 70
+    }
+  }
+}
