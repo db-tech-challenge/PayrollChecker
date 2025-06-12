@@ -4,18 +4,23 @@ on:
   repository_dispatch:
     types: [alpha, beta, gamma, delta]
 
+permissions:
+  contents: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
+
+    env:
+      JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+
     steps:
-      - name: Checkout
+      - name: Checkout current repo
         uses: actions/checkout@v4
 
       - name: Get team from event
         run: |
-          TEAM="${{ github.event.action }}"
-          echo "Testing team: $TEAM"
-          echo "TEAM=$TEAM" >> $GITHUB_ENV
+          echo "TEAM=${{ github.event.action }}" >> $GITHUB_ENV
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -23,28 +28,52 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Clone and test
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Clone and test target project
         run: |
-          git clone https://github.com/db-tech-challenge/PayrollCalculator.git
-          cd PayrollCalculator
-          
-          if git checkout $TEAM 2>/dev/null; then
-            echo "✅ Branch $TEAM found"
-            echo "Last commit: $(git log -1 --oneline)"
-          
-            # Test compilation
-            if mvn clean compile; then
-              echo "✅ Compilation successful"
-          
-              # Run tests
-              if mvn test; then
-                echo "✅ Tests passed"
-              else
-                echo "❌ Tests failed"
-              fi
-            else
-              echo "❌ Compilation failed"
-            fi
+          TEAM="${{ env.TEAM }}"
+          echo "▶️ Team: $TEAM"
+
+          git clone https://github.com/db-tech-challenge/PayrollCalculator.git "test-$TEAM"
+          cd "test-$TEAM"
+
+          if git checkout "$TEAM"; then
+            mkdir -p src/test/java/com/payroll
+            cp ../tests/PayrollApplicationTest.java src/test/java/com/payroll/
+
+            echo "🔨 Compiling..."
+            mvn clean compile > ../test-$TEAM/compile.log 2>&1
+            echo $? > ../test-$TEAM/compile.status
+
+            echo "🚀 Running app..."
+            timeout 30s mvn exec:java -Dexec.mainClass="com.payroll.PayrollApplication" > ../test-$TEAM/run.log 2>&1
+            echo $? > ../test-$TEAM/run.status
+
+            echo "🧪 Running tests..."
+            mvn test > ../test-$TEAM/test.log 2>&1
+            echo $? > ../test-$TEAM/test.status
           else
             echo "❌ Branch $TEAM not found"
+            exit 1
           fi
+
+      - name: Generate results JSON
+        run: |
+          python3 .github/scripts/generate_results.py "${{ env.TEAM }}"
+
+      - name: Copy result into docs
+        run: |
+          mkdir -p docs/results
+          cp results/${{ env.TEAM }}.json docs/results/
+
+      - name: Commit updated docs to GitHub Pages
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add docs/results
+          git commit -m "Update results for ${{ env.TEAM }} [skip ci]" || echo "No changes to commit"
+          git push
