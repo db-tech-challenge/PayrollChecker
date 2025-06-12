@@ -63,7 +63,7 @@ jobs:
 
       - name: Generate results JSON
         run: |
-          python3 scripts/generate_results.py "${{ env.TEAM }}"
+          python3 ../scripts/generate_results.py "${{ env.TEAM }}"
 
       - name: Copy result into docs
         run: |
