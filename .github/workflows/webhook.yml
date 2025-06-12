@@ -63,10 +63,7 @@ jobs:
 
       - name: Generate results JSON
         run: |
-          echo "Working directory: $(pwd)"
-          ls -la
-          ls -la scripts
-          python3 scripts/generate_results.py "${{ env.TEAM }}"
+          python3 scripts/generate-results.py "${{ env.TEAM }}"
 
       - name: Copy result into docs
         run: |
