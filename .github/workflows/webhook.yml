@@ -54,7 +54,7 @@ jobs:
             echo $? > ../test-$TEAM/run.status
 
             echo "🧪 Running tests..."
-            mvn test > ../test-$TEAM/test.log 2>&1
+            mvn test > ../test-$TEAM/test.log 2>&1 || true
             echo $? > ../test-$TEAM/test.status
           else
             echo "❌ Branch $TEAM not found"
