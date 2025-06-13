@@ -1,6 +1,6 @@
 {
   "team": "alpha",
-  "timestamp": "2025-06-13T07:40:58.524303Z",
+  "timestamp": "2025-06-13T07:48:24.610223Z",
   "commit": {
     "hash": "11eceafee21dcaaba09331aef71c9989f7330b37",
     "message": "Create main_data_result.csv",
@@ -25,15 +25,15 @@
       },
       "manual": {
         "total": 3,
-        "passed": 1,
-        "failed": 2,
+        "passed": 2,
+        "failed": 1,
         "pending": 0
       },
       "all_tests": [
         {
           "name": "case_01",
           "status": "PASSED",
-          "time": 0.017,
+          "time": 0.022,
           "message": "Test passed",
           "type": "automatic"
         },
@@ -55,7 +55,7 @@
         {
           "name": "case_04",
           "status": "PASSED",
-          "time": 0.001,
+          "time": 0.002,
           "message": "Test passed",
           "type": "automatic"
         },
@@ -84,20 +84,20 @@
         {
           "name": "case_08",
           "status": "FAILED",
-          "time": 0.013,
+          "time": 0.008,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
         {
           "name": "case_09",
           "status": "PASSED",
-          "time": 0.001,
+          "time": 0.002,
           "message": "Test passed",
           "type": "automatic"
         },
         {
           "name": "case_10",
-          "status": "FAILED",
+          "status": "PASSED",
           "description": "Check settlement account format",
           "reviewer": null,
           "notes": "",
@@ -106,9 +106,9 @@
       ]
     },
     "score": {
-      "total": 80,
+      "total": 90,
       "max": 100,
-      "percentage": 80
+      "percentage": 90
     }
   }
 }
