@@ -2,7 +2,7 @@
   "alpha": {
     "test_3": {
       "name": "case_03",
-      "status": "PASSED",
+      "status": "FAILED",
       "description": "Manual check for Silvestre Stallone case",
       "reviewer": null,
       "notes": ""
