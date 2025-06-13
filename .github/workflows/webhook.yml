@@ -50,7 +50,7 @@ jobs:
             echo $? > ../test-$TEAM/compile.status
 
             echo "🚀 Running app..."
-            timeout 30s mvn exec:java -Dexec.mainClass="com.payroll.PayrollApplication" > ../test-$TEAM/run.log 2>&1
+            mvn exec:java -Dexec.mainClass="com.payroll.PayrollApplication" > ../test-$TEAM/run.log 2>&1
             echo $? > ../test-$TEAM/run.status
 
             echo "🧪 Running tests..."

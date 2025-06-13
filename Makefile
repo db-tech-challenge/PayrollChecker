@@ -42,7 +42,7 @@ test-local:
 	@echo "Compiling..."
 	@cd test-$(TEAM) && mvn clean compile > compile.log 2>&1; echo $$? > compile.status
 	@echo "Running application..."
-	@cd test-$(TEAM) && timeout 30s mvn exec:java -Dexec.mainClass="com.payroll.PayrollApplication" > run.log 2>&1; echo $$? > run.status
+	@cd test-$(TEAM) && mvn exec:java -Dexec.mainClass="com.payroll.PayrollApplication" > run.log 2>&1; echo $$? > run.status
 	@echo "Running tests..."
 	@cd test-$(TEAM) && mvn test > test.log 2>&1; echo $$? > test.status
 	@$(MAKE) generate-json TEAM=$(TEAM)

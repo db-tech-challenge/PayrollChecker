@@ -1,6 +1,6 @@
 {
   "team": "delta",
-  "timestamp": "2025-06-12T20:56:58.248335Z",
+  "timestamp": "2025-06-13T07:39:16.289879Z",
   "commit": {
     "hash": "fae1f20b78d36bf0b9772060ae427c78e53d1938",
     "message": "Implement tax factor logic using CSV with variables",
@@ -18,7 +18,7 @@
     },
     "tests": {
       "automatic": {
-        "success": true,
+        "success": false,
         "total": 7,
         "passed": 2,
         "failed": 5
@@ -33,14 +33,14 @@
         {
           "name": "case_01",
           "status": "PASSED",
-          "time": 0.024,
+          "time": 0.006,
           "message": "Test passed",
           "type": "automatic"
         },
         {
           "name": "case_02",
           "status": "PASSED",
-          "time": 0.002,
+          "time": 0.001,
           "message": "Test passed",
           "type": "automatic"
         },
@@ -55,21 +55,21 @@
         {
           "name": "case_04",
           "status": "FAILED",
-          "time": 0.008,
+          "time": 0.003,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
         {
           "name": "case_05",
           "status": "FAILED",
-          "time": 0.003,
+          "time": 0.001,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
         {
           "name": "case_06",
           "status": "FAILED",
-          "time": 0.004,
+          "time": 0.001,
           "message": "Employee with ID 96391050 should not exist ==> expected: <true> but was: <false>",
           "type": "automatic"
         },
@@ -84,14 +84,14 @@
         {
           "name": "case_08",
           "status": "FAILED",
-          "time": 0.002,
+          "time": 0.001,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
         {
           "name": "case_09",
           "status": "FAILED",
-          "time": 0.002,
+          "time": 0.001,
           "message": "Employee with ID 17792663 should exist and be unique ==> expected: <1> but was: <0>",
           "type": "automatic"
         },
@@ -106,9 +106,9 @@
       ]
     },
     "score": {
-      "total": 70,
+      "total": 30,
       "max": 100,
-      "percentage": 70
+      "percentage": 30
     }
   }
 }

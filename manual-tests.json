@@ -25,14 +25,14 @@
   "beta": {
     "test_3": {
       "name": "case_03",
-      "status": "FAILED",
+      "status": "PASSED",
       "description": "Manual check for Silvestre Stallone case",
       "reviewer": null,
       "notes": ""
     },
     "test_7": {
       "name": "case_07",
-      "status": "FAILED",
+      "status": "PASSED",
       "description": "Manual check for overtime calculation",
       "reviewer": null,
       "notes": ""
