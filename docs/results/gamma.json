@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-13T07:39:11.170839Z",
+  "timestamp": "2025-06-13T11:47:26.120548Z",
   "commit": {
-    "hash": "867e6cdc1dae0371a6cfc6c289d09d988fa25b6e",
-    "message": "Fix for Task 4",
-    "author": "Celebdil",
-    "date": "2025-05-12 12:43:04 +0200"
+    "hash": "fa580b4ba5af73ec423c1179c5524b05a4eaa4a1",
+    "message": "trigger",
+    "author": "apozdniakov",
+    "date": "2025-06-13 13:46:42 +0200"
   },
   "results": {
     "compilation": {
@@ -33,14 +33,14 @@
         {
           "name": "case_01",
           "status": "PASSED",
-          "time": 0.008,
+          "time": 0.025,
           "message": "Test passed",
           "type": "automatic"
         },
         {
           "name": "case_02",
           "status": "PASSED",
-          "time": 0.001,
+          "time": 0.002,
           "message": "Test passed",
           "type": "automatic"
         },
@@ -55,21 +55,21 @@
         {
           "name": "case_04",
           "status": "PASSED",
-          "time": 0.001,
+          "time": 0.002,
           "message": "Test passed",
           "type": "automatic"
         },
         {
           "name": "case_05",
           "status": "PASSED",
-          "time": 0.0,
+          "time": 0.002,
           "message": "Test passed",
           "type": "automatic"
         },
         {
           "name": "case_06",
           "status": "PASSED",
-          "time": 0.001,
+          "time": 0.002,
           "message": "Test passed",
           "type": "automatic"
         },
