@@ -1,4 +1,4 @@
-name: Payroll Checker
+name: Run Tests for All Teams
 
 on:
   repository_dispatch:
