@@ -1,6 +1,6 @@
 {
   "team": "alpha",
-  "timestamp": "2025-06-14T21:00:00.025094Z",
+  "timestamp": "2025-06-14T21:10:52.080195Z",
   "commit": {
     "hash": "11eceafee21dcaaba09331aef71c9989f7330b37",
     "message": "Create main_data_result.csv",
@@ -33,7 +33,7 @@
         {
           "name": "case_01",
           "status": "PASSED",
-          "time": 0.021,
+          "time": 0.019,
           "message": "Test passed",
           "type": "automatic"
         },
@@ -69,7 +69,7 @@
         {
           "name": "case_06",
           "status": "PASSED",
-          "time": 0.002,
+          "time": 0.003,
           "message": "Test passed",
           "type": "automatic"
         },
@@ -84,14 +84,14 @@
         {
           "name": "case_08",
           "status": "FAILED",
-          "time": 0.013,
+          "time": 0.009,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
         {
           "name": "case_09",
           "status": "PASSED",
-          "time": 0.002,
+          "time": 0.001,
           "message": "Test passed",
           "type": "automatic"
         },
