@@ -1,6 +1,6 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-14T18:03:16.499007Z",
+  "timestamp": "2025-06-14T18:06:15.424720Z",
   "commit": {
     "hash": "06e612dc2c3875c6bf7c0fd077ff104bd9d5ba42",
     "message": "fix",
@@ -33,14 +33,14 @@
         {
           "name": "case_01",
           "status": "PASSED",
-          "time": 0.018,
+          "time": 0.02,
           "message": "Test passed",
           "type": "automatic"
         },
         {
           "name": "case_02",
           "status": "PASSED",
-          "time": 0.002,
+          "time": 0.001,
           "message": "Test passed",
           "type": "automatic"
         },
@@ -55,14 +55,14 @@
         {
           "name": "case_04",
           "status": "FAILED",
-          "time": 0.015,
+          "time": 0.008,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
         {
           "name": "case_05",
           "status": "FAILED",
-          "time": 0.006,
+          "time": 0.003,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
@@ -84,14 +84,14 @@
         {
           "name": "case_08",
           "status": "FAILED",
-          "time": 0.003,
+          "time": 0.002,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
         {
           "name": "case_09",
           "status": "FAILED",
-          "time": 0.003,
+          "time": 0.002,
           "message": "Employee with ID 17792663 should exist and be unique ==> expected: <1> but was: <0>",
           "type": "automatic"
         },
