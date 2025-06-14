@@ -1,0 +1,114 @@
+{
+  "team": "gamma",
+  "timestamp": "2025-06-14T20:43:37.508352Z",
+  "commit": {
+    "hash": "6c5f2af48c18ff165e6c8247371b35a4dcf2f0de",
+    "message": "fix",
+    "author": "apozdniakov",
+    "date": "2025-06-14 20:07:25 +0200"
+  },
+  "results": {
+    "compilation": {
+      "success": true,
+      "status": 0
+    },
+    "execution": {
+      "success": true,
+      "status": 0
+    },
+    "tests": {
+      "automatic": {
+        "success": true,
+        "total": 7,
+        "passed": 3,
+        "failed": 4
+      },
+      "manual": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "pending": 0
+      },
+      "all_tests": [
+        {
+          "name": "case_01",
+          "status": "PASSED",
+          "time": 0.018,
+          "message": "Test passed",
+          "type": "automatic"
+        },
+        {
+          "name": "case_02",
+          "status": "PASSED",
+          "time": 0.001,
+          "message": "Test passed",
+          "type": "automatic"
+        },
+        {
+          "name": "case_03",
+          "status": "PASSED",
+          "description": "Manual check for Silvestre Stallone case",
+          "reviewer": null,
+          "notes": "",
+          "type": "manual"
+        },
+        {
+          "name": "case_04",
+          "status": "FAILED",
+          "time": 0.016,
+          "message": "expected: <true> but was: <false>",
+          "type": "automatic"
+        },
+        {
+          "name": "case_05",
+          "status": "FAILED",
+          "time": 0.004,
+          "message": "expected: <true> but was: <false>",
+          "type": "automatic"
+        },
+        {
+          "name": "case_06",
+          "status": "PASSED",
+          "time": 0.002,
+          "message": "Test passed",
+          "type": "automatic"
+        },
+        {
+          "name": "case_07",
+          "status": "PASSED",
+          "description": "Manual check for overtime calculation",
+          "reviewer": null,
+          "notes": "",
+          "type": "manual"
+        },
+        {
+          "name": "case_08",
+          "status": "FAILED",
+          "time": 0.003,
+          "message": "expected: <true> but was: <false>",
+          "type": "automatic"
+        },
+        {
+          "name": "case_09",
+          "status": "FAILED",
+          "time": 0.003,
+          "message": "Employee with ID 17792663 should exist and be unique ==> expected: <1> but was: <0>",
+          "type": "automatic"
+        },
+        {
+          "name": "case_10",
+          "status": "PASSED",
+          "description": "Check settlement account format",
+          "reviewer": null,
+          "notes": "",
+          "type": "manual"
+        }
+      ]
+    },
+    "score": {
+      "total": 100,
+      "max": 100,
+      "percentage": 100
+    }
+  }
+}
