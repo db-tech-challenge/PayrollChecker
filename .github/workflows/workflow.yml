@@ -102,11 +102,11 @@ jobs:
 
       - name: Copy results to docs
         run: |
-          mkdir -p docs/results
-          cp -r results-temp/* docs/results/ 2>/dev/null || true
+          mkdir -p docs
+          cp -r results-temp/* docs/ 2>/dev/null || true
           
           echo "Results to commit:"
-          ls -la docs/results/
+          ls -la docs/
           
           touch docs/.nojekyll
 
