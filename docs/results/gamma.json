@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-14T17:55:39.534783Z",
+  "timestamp": "2025-06-14T18:01:08.661971Z",
   "commit": {
-    "hash": "8eec329c40ed8f7911edde67c9d322f262e7d70a",
+    "hash": "06e612dc2c3875c6bf7c0fd077ff104bd9d5ba42",
     "message": "fix",
     "author": "apozdniakov",
-    "date": "2025-06-14 19:33:37 +0200"
+    "date": "2025-06-14 20:00:33 +0200"
   },
   "results": {
     "compilation": {
@@ -20,8 +20,8 @@
       "automatic": {
         "success": true,
         "total": 7,
-        "passed": 1,
-        "failed": 6
+        "passed": 2,
+        "failed": 5
       },
       "manual": {
         "total": 3,
@@ -33,15 +33,15 @@
         {
           "name": "case_01",
           "status": "PASSED",
-          "time": 0.021,
+          "time": 0.017,
           "message": "Test passed",
           "type": "automatic"
         },
         {
           "name": "case_02",
-          "status": "FAILED",
-          "time": 0.009,
-          "message": "Employee with ID 98198992 should exist and be unique ==> expected: <1> but was: <2>",
+          "status": "PASSED",
+          "time": 0.001,
+          "message": "Test passed",
           "type": "automatic"
         },
         {
@@ -55,7 +55,7 @@
         {
           "name": "case_04",
           "status": "FAILED",
-          "time": 0.004,
+          "time": 0.01,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
