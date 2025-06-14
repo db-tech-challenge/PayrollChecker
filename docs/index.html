@@ -182,10 +182,11 @@
 </div>
 
 <script>
-  function getScoreClass(percentage) {
-    if (percentage >= 80) return 'high';
-    if (percentage >= 60) return 'medium';
-    return 'low';
+  function getScoreClass(passed, total) {
+    const percentage = (passed / total) * 100;
+    if (percentage >= 70) return 'high';    // зеленый 70%+
+    if (percentage >= 40) return 'medium';  // желтый  40-69%
+    return 'low';                           // красный <40%
   }
 
   function getStatusClass(success) {
@@ -209,13 +210,15 @@
   function createTeamCard(teamData) {
     const { team, timestamp, commit, results } = teamData;
     const score = results.score;
+    const testsTotal = results.tests.automatic.total + results.tests.manual.total;
+    const testsPassed = results.tests.automatic.passed + results.tests.manual.passed;
 
     return `
                 <div class="team-card ${team}">
                     <div class="team-header">
                         <div class="team-name">${team}</div>
-                        <div class="score ${getScoreClass(score.percentage)}">
-                            ${score.total}/${score.max}
+                        <div class="score ${getScoreClass(testsPassed, testsTotal)}">
+                            ${testsPassed}/${testsTotal}
                         </div>
                     </div>
 
@@ -237,7 +240,7 @@
 
                     <div class="tests-section">
                         <div class="tests-header">
-                            Tests: ${results.tests.automatic.passed + results.tests.manual.passed}/${results.tests.automatic.total + results.tests.manual.total} passed
+                            Tests: ${testsPassed}/${testsTotal} passed
                         </div>
 
                         ${results.tests.all_tests.map(test => `
