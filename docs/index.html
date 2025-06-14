@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Payroll Calculator Leaderboard</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -254,10 +257,11 @@
     try {
       const teams = ['alpha', 'beta', 'gamma', 'delta'];
       const results = [];
+      const timestamp = Date.now();
 
       for (const team of teams) {
         try {
-          const response = await fetch(`${team}.json`);
+          const response = await fetch(`${team}.json?v=${timestamp}`);
           if (response.ok) {
             const data = await response.json();
             results.push(data);
