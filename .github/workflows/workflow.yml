@@ -1,17 +1,21 @@
-name: Manual Review Status
+name: Payroll Checker
 
 on:
+  repository_dispatch:
+    types: [alpha, beta, gamma, delta, check-all]
+
   push:
     branches: [ main, master ]
     paths:
       - 'manual-tests.json'
+
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  update-status:
+  process-all-teams:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -28,6 +32,7 @@ jobs:
       - name: Set team environment
         run: |
           echo "TEAM=${{ matrix.team }}" >> $GITHUB_ENV
+          echo "Processing team: ${{ matrix.team }}"
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -43,7 +48,7 @@ jobs:
       - name: Clone and test target project
         run: |
           TEAM="${{ env.TEAM }}"
-          echo "▶️ Team: $TEAM"
+          echo "Cloning PayrollCalculator for team: $TEAM"
 
           git clone https://github.com/db-tech-challenge/PayrollCalculator.git "test-$TEAM"
           cd "test-$TEAM"
@@ -52,65 +57,93 @@ jobs:
             mkdir -p src/test/java/com/payroll
             cp ../tests/PayrollApplicationTest.java src/test/java/com/payroll/
 
-            echo "🔨 Compiling..."
+            echo "Compiling..."
             mvn clean compile > ../test-$TEAM/compile.log 2>&1
             echo $? > ../test-$TEAM/compile.status
 
-            echo "🚀 Running app..."
+            echo "Running app..."
             mvn exec:java -Dexec.mainClass="com.payroll.PayrollApplication" > ../test-$TEAM/run.log 2>&1
             echo $? > ../test-$TEAM/run.status
 
-            echo "🧪 Running tests..."
+            echo "Running tests..."
             mvn test > ../test-$TEAM/test.log 2>&1 || true
             echo $? > ../test-$TEAM/test.status
           else
-            echo "❌ Branch $TEAM not found"
+            echo "Branch $TEAM not found"
             exit 1
           fi
 
       - name: Generate results JSON
         run: |
+          echo "Generating results for ${{ env.TEAM }}"
           python3 scripts/generate-results.py "${{ env.TEAM }}"
 
-      - name: Copy result into docs
-        run: |
-          mkdir -p docs/results
-          cp results/${{ env.TEAM }}.json docs/results/
-
-      - name: Upload results as artifact
+      - name: Upload team results
         uses: actions/upload-artifact@v4
         with:
           name: results-${{ matrix.team }}
-          path: |
-            docs/results/${{ matrix.team }}.json
+          path: results/${{ matrix.team }}.json
 
   commit-results:
-    needs: update-status
+    needs: process-all-teams
     runs-on: ubuntu-latest
-    if: always()
+    if: always() && (needs.process-all-teams.result == 'success' || needs.process-all-teams.result == 'failure')
 
     steps:
       - name: Checkout current repo
         uses: actions/checkout@v4
 
-      - name: Download all results
+      - name: Download all team results
         uses: actions/download-artifact@v4
         with:
           pattern: results-*
+          path: results-temp/
           merge-multiple: true
 
-      - name: Create .nojekyll file
+      - name: Copy results to docs
         run: |
+          mkdir -p docs/results
+          cp -r results-temp/* docs/results/ 2>/dev/null || true
+          
+          echo "Results to commit:"
+          ls -la docs/results/
+          
           touch docs/.nojekyll
 
-      - name: Commit updated docs to GitHub Pages
+      - name: Determine trigger and commit message
+        id: commit-info
+        run: |
+          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
+            TRIGGER_TEAM="${{ github.event.action }}"
+            echo "message=Update all teams (triggered by $TRIGGER_TEAM) [skip ci]" >> $GITHUB_OUTPUT
+            echo "Triggered by team: $TRIGGER_TEAM"
+          elif [ "${{ github.event_name }}" == "push" ]; then
+            echo "message=Update all teams (manual tests changed) [skip ci]" >> $GITHUB_OUTPUT
+            echo "Triggered by manual-tests.json change"
+          else
+            echo "message=Update all teams (manual run) [skip ci]" >> $GITHUB_OUTPUT
+            echo "Triggered manually"
+          fi
+
+      - name: Commit and push results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          
           git add docs/
+          
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update manual review status for all teams [skip ci]"
+            git commit -m "${{ steps.commit-info.outputs.message }}"
             git push
+            echo "All team results committed and pushed"
           fi
+
+      - name: Summary
+        run: |
+          echo "Completed processing for ALL teams: alpha, beta, gamma, delta" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
+            echo "Triggered by: ${{ github.event.action }} team" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "All results updated on GitHub Pages" >> $GITHUB_STEP_SUMMARY
