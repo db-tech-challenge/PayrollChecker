@@ -115,13 +115,13 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
             TRIGGER_TEAM="${{ github.event.action }}"
-            echo "message=Update all teams (triggered by $TRIGGER_TEAM) [skip ci]" >> $GITHUB_OUTPUT
+            echo "message=Update all teams (triggered by $TRIGGER_TEAM)" >> $GITHUB_OUTPUT
             echo "Triggered by team: $TRIGGER_TEAM"
           elif [ "${{ github.event_name }}" == "push" ]; then
-            echo "message=Update all teams (manual tests changed) [skip ci]" >> $GITHUB_OUTPUT
+            echo "message=Update all teams (manual tests changed)" >> $GITHUB_OUTPUT
             echo "Triggered by manual-tests.json change"
           else
-            echo "message=Update all teams (manual run) [skip ci]" >> $GITHUB_OUTPUT
+            echo "message=Update all teams (manual run)" >> $GITHUB_OUTPUT
             echo "Triggered manually"
           fi
 
@@ -147,3 +147,35 @@ jobs:
             echo "Triggered by: ${{ github.event.action }} team" >> $GITHUB_STEP_SUMMARY
           fi
           echo "All results updated on GitHub Pages" >> $GITHUB_STEP_SUMMARY
+
+  deploy-pages:
+    needs: commit-results
+    runs-on: ubuntu-latest
+    if: always() && (needs.commit-results.result == 'success')
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
