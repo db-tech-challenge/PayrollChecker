@@ -62,7 +62,7 @@
     },
     "test_10": {
       "name": "case_10",
-      "status": "PASSED",
+      "status": "FAILED",
       "description": "Check settlement account format",
       "reviewer": null,
       "notes": ""
