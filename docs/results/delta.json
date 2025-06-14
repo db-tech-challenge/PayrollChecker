@@ -1,6 +1,6 @@
 {
   "team": "delta",
-  "timestamp": "2025-06-14T17:32:28.241504Z",
+  "timestamp": "2025-06-14T17:55:42.437853Z",
   "commit": {
     "hash": "fae1f20b78d36bf0b9772060ae427c78e53d1938",
     "message": "Implement tax factor logic using CSV with variables",
@@ -33,7 +33,7 @@
         {
           "name": "case_01",
           "status": "PASSED",
-          "time": 0.022,
+          "time": 0.021,
           "message": "Test passed",
           "type": "automatic"
         },
@@ -55,7 +55,7 @@
         {
           "name": "case_04",
           "status": "FAILED",
-          "time": 0.014,
+          "time": 0.013,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
@@ -69,7 +69,7 @@
         {
           "name": "case_06",
           "status": "FAILED",
-          "time": 0.004,
+          "time": 0.003,
           "message": "Employee with ID 96391050 should not exist ==> expected: <true> but was: <false>",
           "type": "automatic"
         },
@@ -84,7 +84,7 @@
         {
           "name": "case_08",
           "status": "FAILED",
-          "time": 0.004,
+          "time": 0.002,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
