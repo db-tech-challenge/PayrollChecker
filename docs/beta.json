@@ -1,6 +1,6 @@
 {
   "team": "beta",
-  "timestamp": "2025-06-14T21:10:50.806786Z",
+  "timestamp": "2025-06-14T21:24:36.290278Z",
   "commit": {
     "hash": "0eaf381895d4f5ba482e82f6828c0bd642529110",
     "message": "Update main_data.csv",
@@ -33,14 +33,14 @@
         {
           "name": "case_01",
           "status": "PASSED",
-          "time": 0.017,
+          "time": 0.019,
           "message": "Test passed",
           "type": "automatic"
         },
         {
           "name": "case_02",
           "status": "FAILED",
-          "time": 0.013,
+          "time": 0.008,
           "message": "Employee with ID 98198992 should exist and be unique ==> expected: <1> but was: <2>",
           "type": "automatic"
         },
@@ -55,7 +55,7 @@
         {
           "name": "case_04",
           "status": "FAILED",
-          "time": 0.006,
+          "time": 0.004,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
@@ -84,7 +84,7 @@
         {
           "name": "case_08",
           "status": "FAILED",
-          "time": 0.002,
+          "time": 0.003,
           "message": "expected: <true> but was: <false>",
           "type": "automatic"
         },
