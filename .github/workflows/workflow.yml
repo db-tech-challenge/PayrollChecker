@@ -109,6 +109,24 @@ jobs:
           ls -la docs/
           
           touch docs/.nojekyll
+          
+          # Add cache headers file
+          cat > docs/_headers << EOF
+          /*.json
+            Cache-Control: no-cache, no-store, must-revalidate
+            Pragma: no-cache
+            Expires: 0
+          
+          /index.html
+            Cache-Control: no-cache, no-store, must-revalidate
+            Pragma: no-cache
+            Expires: 0
+          
+          /*.html
+            Cache-Control: no-cache, no-store, must-revalidate
+            Pragma: no-cache
+            Expires: 0
+          EOF
 
       - name: Determine trigger and commit message
         id: commit-info
