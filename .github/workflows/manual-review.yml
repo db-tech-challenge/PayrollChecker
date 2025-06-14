@@ -1,0 +1,108 @@
+name: Payroll Checker - All Teams
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        team: [alpha, beta, gamma, delta]
+      fail-fast: false
+
+    env:
+      JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+
+      - name: Set team environment
+        run: |
+          echo "TEAM=${{ matrix.team }}" >> $GITHUB_ENV
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Clone and test target project
+        run: |
+          TEAM="${{ env.TEAM }}"
+          echo "▶️ Team: $TEAM"
+
+          git clone https://github.com/db-tech-challenge/PayrollCalculator.git "test-$TEAM"
+          cd "test-$TEAM"
+
+          if git checkout "$TEAM"; then
+            mkdir -p src/test/java/com/payroll
+            cp ../tests/PayrollApplicationTest.java src/test/java/com/payroll/
+
+            echo "🔨 Compiling..."
+            mvn clean compile > ../test-$TEAM/compile.log 2>&1
+            echo $? > ../test-$TEAM/compile.status
+
+            echo "🚀 Running app..."
+            mvn exec:java -Dexec.mainClass="com.payroll.PayrollApplication" > ../test-$TEAM/run.log 2>&1
+            echo $? > ../test-$TEAM/run.status
+
+            echo "🧪 Running tests..."
+            mvn test > ../test-$TEAM/test.log 2>&1 || true
+            echo $? > ../test-$TEAM/test.status
+          else
+            echo "❌ Branch $TEAM not found"
+            exit 1
+          fi
+
+      - name: Generate results JSON
+        run: |
+          python3 scripts/generate-results.py "${{ env.TEAM }}"
+
+      - name: Copy result into docs
+        run: |
+          mkdir -p docs/results
+          cp results/${{ env.TEAM }}.json docs/results/
+
+      - name: Upload results as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: results-${{ matrix.team }}
+          path: |
+            docs/results/${{ matrix.team }}.json
+            test-${{ matrix.team }}/
+
+  commit-results:
+    needs: check
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+
+      - name: Download all results
+        uses: actions/download-artifact@v4
+        with:
+          pattern: results-*
+          merge-multiple: true
+
+      - name: Commit updated docs to GitHub Pages
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add docs/results
+          git commit -m "Update results for all teams [skip ci]" || echo "No changes to commit"
+          git push
