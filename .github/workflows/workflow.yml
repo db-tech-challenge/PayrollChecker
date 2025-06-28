@@ -129,6 +129,9 @@ jobs:
       - name: Checkout current repo
         uses: actions/checkout@v4
 
+      - name: Pull latest changes
+        run: git pull origin main
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
