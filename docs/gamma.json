@@ -1,68 +1,22 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-28T21:36:21.897044+00:00",
+  "timestamp": "2025-06-28T21:56:45.119975+00:00",
   "commit": {
-    "hash": "3c4d6e0b8aa360da32ad3a3781a91e20ff50d60b",
-    "message": "fix: correct header casing in main_data.csv and update PayrollCalculator instantiation",
+    "hash": "aedadca8cfc4260100d87f00ca5e96fdf2745fc7",
+    "message": "check",
     "author": "apozdniakov",
-    "date": "2025-06-28 11:21:14 +0200"
+    "date": "2025-06-23 13:41:20 +0200"
   },
-  "build_status": "success",
-  "should_show_tests": true,
+  "build_status": "compilation_failed",
+  "should_show_tests": false,
   "results": {
-    "compiled": true,
-    "executed": true,
-    "tasks": [
-      {
-        "task_id": "01",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "02",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "03",
-        "progress": 100,
-        "type": "manual"
-      },
-      {
-        "task_id": "04",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "05",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "06",
-        "progress": 60,
-        "type": "automatic"
-      },
-      {
-        "task_id": "07",
-        "progress": 77,
-        "type": "manual"
-      },
-      {
-        "task_id": "08",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "09",
-        "progress": 0,
-        "type": "automatic"
-      }
-    ],
+    "compiled": false,
+    "executed": false,
+    "tasks": [],
     "score": {
-      "total": 44,
+      "total": 0,
       "max": 100,
-      "percentage": 44
+      "percentage": 0
     }
   }
 }

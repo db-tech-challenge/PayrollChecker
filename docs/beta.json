@@ -1,22 +1,68 @@
 {
   "team": "beta",
-  "timestamp": "2025-06-28T21:36:17.140564+00:00",
+  "timestamp": "2025-06-28T21:56:52.012040+00:00",
   "commit": {
-    "hash": "caeb228ec453d6b903b5f4497a000a5c70af9f52",
-    "message": "add payroll calculation logic",
-    "author": "apozdniakov",
-    "date": "2025-05-06 22:42:12 +0200"
+    "hash": "0eaf381895d4f5ba482e82f6828c0bd642529110",
+    "message": "Update main_data.csv",
+    "author": "Anatolii",
+    "date": "2025-06-13 09:37:37 +0200"
   },
-  "build_status": "execution_failed",
-  "should_show_tests": false,
+  "build_status": "success",
+  "should_show_tests": true,
   "results": {
     "compiled": true,
-    "executed": false,
-    "tasks": [],
+    "executed": true,
+    "tasks": [
+      {
+        "task_id": "01",
+        "progress": 100,
+        "type": "automatic"
+      },
+      {
+        "task_id": "02",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "03",
+        "progress": 100,
+        "type": "manual"
+      },
+      {
+        "task_id": "04",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "05",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "06",
+        "progress": 40,
+        "type": "automatic"
+      },
+      {
+        "task_id": "07",
+        "progress": 100,
+        "type": "manual"
+      },
+      {
+        "task_id": "08",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "09",
+        "progress": 0,
+        "type": "automatic"
+      }
+    ],
     "score": {
-      "total": 20,
+      "total": 41,
       "max": 100,
-      "percentage": 20
+      "percentage": 41
     }
   }
 }
