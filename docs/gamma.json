@@ -1,68 +1,22 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-28T22:28:43.194908+00:00",
+  "timestamp": "2025-06-28T22:30:17.773229+00:00",
   "commit": {
-    "hash": "883b553125c63a05d6c0608d5dc449e61f91be27",
+    "hash": "69c8c5ada17bf07da4917930cf0eaf764c6e907c",
     "message": "fix: update header casing in main_data.csv",
     "author": "apozdniakov",
-    "date": "2025-06-29 00:10:49 +0200"
+    "date": "2025-06-29 00:29:50 +0200"
   },
-  "build_status": "success",
-  "should_show_tests": true,
+  "build_status": "execution_failed",
+  "should_show_tests": false,
   "results": {
     "compiled": true,
-    "executed": true,
-    "tasks": [
-      {
-        "task_id": "01",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "02",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "03",
-        "progress": 100,
-        "type": "manual"
-      },
-      {
-        "task_id": "04",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "05",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "06",
-        "progress": 60,
-        "type": "automatic"
-      },
-      {
-        "task_id": "07",
-        "progress": 77,
-        "type": "manual"
-      },
-      {
-        "task_id": "08",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "09",
-        "progress": 0,
-        "type": "automatic"
-      }
-    ],
+    "executed": false,
+    "tasks": [],
     "score": {
-      "total": 44,
+      "total": 20,
       "max": 100,
-      "percentage": 44
+      "percentage": 20
     }
   }
 }
