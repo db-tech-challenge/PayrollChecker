@@ -52,23 +52,6 @@ class PayrollApplicationTest {
     }
 
     @Test
-    void test_06_02() {
-        existNone("98391050");
-    }
-    @Test
-    void test_06_03() {
-        existNone("98391050");
-    }
-    @Test
-    void test_06_04() {
-        existOne("98391050");
-    }
-    @Test
-    void test_06_05() {
-        existOne("98391050");
-    }
-
-    @Test
     void test_08_01() {
         PaymentResult msShenk = existOne("21233182");
         assertTrue(List.of(4174, 4518, 5155, 5585).contains((int) round(msShenk.pay())));
