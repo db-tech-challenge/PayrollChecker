@@ -1,0 +1,68 @@
+{
+  "team": "delta",
+  "timestamp": "2025-06-28T21:36:26.826124+00:00",
+  "commit": {
+    "hash": "fae1f20b78d36bf0b9772060ae427c78e53d1938",
+    "message": "Implement tax factor logic using CSV with variables",
+    "author": "Leander Steffan",
+    "date": "2025-05-12 12:20:22 +0200"
+  },
+  "build_status": "success",
+  "should_show_tests": true,
+  "results": {
+    "compiled": true,
+    "executed": true,
+    "tasks": [
+      {
+        "task_id": "01",
+        "progress": 100,
+        "type": "automatic"
+      },
+      {
+        "task_id": "02",
+        "progress": 100,
+        "type": "automatic"
+      },
+      {
+        "task_id": "03",
+        "progress": 100,
+        "type": "manual"
+      },
+      {
+        "task_id": "04",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "05",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "06",
+        "progress": 40,
+        "type": "automatic"
+      },
+      {
+        "task_id": "07",
+        "progress": 100,
+        "type": "manual"
+      },
+      {
+        "task_id": "08",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "09",
+        "progress": 0,
+        "type": "automatic"
+      }
+    ],
+    "score": {
+      "total": 44,
+      "max": 100,
+      "percentage": 44
+    }
+  }
+}

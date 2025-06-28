@@ -1,0 +1,22 @@
+{
+  "team": "alpha",
+  "timestamp": "2025-06-28T21:36:14.402827+00:00",
+  "commit": {
+    "hash": "caeb228ec453d6b903b5f4497a000a5c70af9f52",
+    "message": "add payroll calculation logic",
+    "author": "apozdniakov",
+    "date": "2025-05-06 22:42:12 +0200"
+  },
+  "build_status": "execution_failed",
+  "should_show_tests": false,
+  "results": {
+    "compiled": true,
+    "executed": false,
+    "tasks": [],
+    "score": {
+      "total": 20,
+      "max": 100,
+      "percentage": 20
+    }
+  }
+}

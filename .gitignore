@@ -1,0 +1,14 @@
+.env
+*.log
+node_modules/
+.DS_Store
+.idea
+
+target/
+
+test-alpha/
+test-beta/
+test-delta/
+test-gamma/
+
+#**/*.html
