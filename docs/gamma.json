@@ -1,22 +1,22 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-28T22:31:52.203353+00:00",
+  "timestamp": "2025-06-28T22:35:25.278865+00:00",
   "commit": {
-    "hash": "ede2a99e3a4b66a26db2150fdf05d3d97be11fb8",
-    "message": "fix: update header casing in main_data.csv",
+    "hash": "caeb228ec453d6b903b5f4497a000a5c70af9f52",
+    "message": "add payroll calculation logic",
     "author": "apozdniakov",
-    "date": "2025-06-29 00:31:22 +0200"
+    "date": "2025-05-06 22:42:12 +0200"
   },
-  "build_status": "compilation_failed",
+  "build_status": "execution_failed",
   "should_show_tests": false,
   "results": {
-    "compiled": false,
+    "compiled": true,
     "executed": false,
     "tasks": [],
     "score": {
-      "total": 0,
+      "total": 20,
       "max": 100,
-      "percentage": 0
+      "percentage": 20
     }
   }
 }
