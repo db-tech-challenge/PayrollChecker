@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-28T22:48:07.100902+00:00",
+  "timestamp": "2025-06-28T22:51:23.723516+00:00",
   "commit": {
-    "hash": "f5fb5ad88dc8284186f90ecae41f5c6fb459f9a8",
+    "hash": "3993aa04546481084f5e597fb52d431b2a8b0a9e",
     "message": "fix bug",
     "author": "apozdniakov",
-    "date": "2025-06-29 00:44:01 +0200"
+    "date": "2025-06-29 00:50:48 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -15,7 +15,7 @@
     "tasks": [
       {
         "task_id": "01",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic"
       },
       {
@@ -60,9 +60,9 @@
       }
     ],
     "score": {
-      "total": 31,
+      "total": 34,
       "max": 100,
-      "percentage": 31
+      "percentage": 34
     }
   }
 }
