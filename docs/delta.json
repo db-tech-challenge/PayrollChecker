@@ -1,6 +1,6 @@
 {
   "team": "delta",
-  "timestamp": "2025-06-28T22:44:35.528277+00:00",
+  "timestamp": "2025-06-28T22:48:08.610320+00:00",
   "commit": {
     "hash": "fae1f20b78d36bf0b9772060ae427c78e53d1938",
     "message": "Implement tax factor logic using CSV with variables",
@@ -25,7 +25,7 @@
       },
       {
         "task_id": "03",
-        "progress": 100,
+        "progress": 0,
         "type": "manual"
       },
       {
@@ -45,7 +45,7 @@
       },
       {
         "task_id": "07",
-        "progress": 100,
+        "progress": 0,
         "type": "manual"
       },
       {
@@ -60,9 +60,9 @@
       }
     ],
     "score": {
-      "total": 44,
+      "total": 38,
       "max": 100,
-      "percentage": 44
+      "percentage": 38
     }
   }
 }
