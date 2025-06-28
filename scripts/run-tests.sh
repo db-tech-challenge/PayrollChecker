@@ -39,6 +39,8 @@ cd "test-$TEAM"
 
 if git checkout "$TEAM" > checkout.log 2>&1 ; then
   echo "Successfully checked out branch: $TEAM"
+  git pull origin "$TEAM"
+  echo "Updated to latest commit: $(git rev-parse HEAD)"
 
   mkdir -p src/test/java/com/payroll
   cp ../tests/PayrollApplicationTest.java src/test/java/com/payroll/
