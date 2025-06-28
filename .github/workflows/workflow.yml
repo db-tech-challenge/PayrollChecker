@@ -7,7 +7,7 @@ on:
   push:
     branches: [ main, master ]
     paths:
-      - '../../data/manual-tests.json'
+      - 'data/manual-tests.json'
 
   workflow_dispatch:
 
@@ -29,11 +29,6 @@ jobs:
       - name: Checkout current repo
         uses: actions/checkout@v4
 
-      - name: Set team environment
-        run: |
-          echo "TEAM=${{ matrix.team }}" >> $GITHUB_ENV
-          echo "Processing team: ${{ matrix.team }}"
-
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -45,75 +40,31 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Clone and test target project
+      - name: Create minimal .env file
         run: |
-          TEAM="${{ env.TEAM }}"
-          echo "Cloning PayrollCalculator for team: $TEAM"
+          echo "# GitHub Actions environment" > .env
 
-          mkdir -p "test-$TEAM"
-          
-          git clone https://github.com/db-tech-challenge/PayrollCalculator.git "test-$TEAM"
-          cd "test-$TEAM"
-
-          if git checkout "$TEAM"; then
-            echo "Successfully checked out branch: $TEAM"
-          
-            mkdir -p src/test/java/com/payroll
-            cp ../tests/PayrollApplicationTest.java src/test/java/com/payroll/
-
-            echo "Compiling..."
-            mvn clean compile > compile.log 2>&1 || true
-            COMPILE_STATUS=$?
-            echo $COMPILE_STATUS > compile.status
-            echo "Compilation status: $COMPILE_STATUS"
-
-            if [ $COMPILE_STATUS -eq 0 ]; then
-              echo "Running app..."
-              mvn exec:java -Dexec.mainClass="com.payroll.PayrollApplication" > run.log 2>&1 || true
-              RUN_STATUS=$?
-              echo $RUN_STATUS > run.status
-              echo "Execution status: $RUN_STATUS"
-
-              if [ $RUN_STATUS -eq 0 ]; then
-                echo "Running tests..."
-                mvn test > test.log 2>&1 || true
-                TEST_STATUS=$?
-                echo $TEST_STATUS > test.status
-                echo "Test status: $TEST_STATUS"
-              else
-                echo "Skipping tests due to execution failure"
-                echo 1 > test.status
-              fi
-            else
-              echo "Skipping execution and tests due to compilation failure"
-              echo 1 > run.status
-              echo 1 > test.status
-            fi
-          else
-            echo "Branch $TEAM not found"
-            echo 1 > compile.status
-            echo 1 > run.status
-            echo 1 > test.status
-            echo "Branch checkout failed" > compile.log
-            echo "Branch checkout failed" > run.log
-            echo "Branch checkout failed" > test.log
-          fi
+      - name: Run tests for team
+        run: |
+          chmod +x scripts/run-tests.sh
+          bash scripts/run-tests.sh ${{ matrix.team }}
 
       - name: Generate results JSON
         run: |
-          echo "Generating results for ${{ env.TEAM }}"
-          python3 scripts/generate-results.py "${{ env.TEAM }}"
+          python3 scripts/generate-results.py ${{ matrix.team }}
 
       - name: Upload team results
         uses: actions/upload-artifact@v4
         with:
           name: results-${{ matrix.team }}
-          path: results/${{ matrix.team }}.json
+          path: target/${{ matrix.team }}.json
 
   commit-results:
     needs: process-all-teams
     runs-on: ubuntu-latest
     if: always() && (needs.process-all-teams.result == 'success' || needs.process-all-teams.result == 'failure')
+    outputs:
+      docs-changed: ${{ steps.commit.outputs.changed }}
 
     steps:
       - name: Checkout current repo
@@ -126,41 +77,19 @@ jobs:
           path: results-temp/
           merge-multiple: true
 
-      - name: Copy results to docs
+      - name: Copy results to target and generate docs
         run: |
-          cp -r results-temp/*.json docs/ 2>/dev/null || true
+          mkdir -p target
+          cp -r results-temp/*.json target/ 2>/dev/null || true
           
-          echo "JSON results copied to docs:"
-          ls -la docs/*.json
+          echo "JSON results copied to target:"
+          ls -la target/*.json
           
-          cat > docs/_headers << EOF
-          /*.json
-            Cache-Control: no-cache, no-store, must-revalidate
-            Pragma: no-cache
-            Expires: 0
-          
-          /*.html
-            Cache-Control: no-cache, no-store, must-revalidate
-            Pragma: no-cache
-            Expires: 0
-          EOF
-
-      - name: Determine trigger and commit message
-        id: commit-info
-        run: |
-          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
-            TRIGGER_TEAM="${{ github.event.action }}"
-            echo "message=Update all teams (triggered by $TRIGGER_TEAM)" >> $GITHUB_OUTPUT
-            echo "Triggered by team: $TRIGGER_TEAM"
-          elif [ "${{ github.event_name }}" == "push" ]; then
-            echo "message=Update all teams (manual tests changed)" >> $GITHUB_OUTPUT
-            echo "Triggered by manual-tests.json change"
-          else
-            echo "message=Update all teams (manual run)" >> $GITHUB_OUTPUT
-            echo "Triggered manually"
-          fi
+          chmod +x scripts/generate-docs.sh
+          bash scripts/generate-docs.sh
 
       - name: Commit and push results
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -169,24 +98,23 @@ jobs:
           
           if git diff --staged --quiet; then
             echo "No changes to commit"
+            echo "changed=false" >> $GITHUB_OUTPUT
           else
-            git commit -m "${{ steps.commit-info.outputs.message }}"
+            git commit -m "Update all teams results"
             git push
             echo "All team results committed and pushed"
+            echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
       - name: Summary
         run: |
           echo "Completed processing for ALL teams: alpha, beta, gamma, delta" >> $GITHUB_STEP_SUMMARY
-          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
-            echo "Triggered by: ${{ github.event.action }} team" >> $GITHUB_STEP_SUMMARY
-          fi
           echo "All results updated on GitHub Pages" >> $GITHUB_STEP_SUMMARY
 
   deploy-pages:
     needs: commit-results
     runs-on: ubuntu-latest
-    if: always() && (needs.commit-results.result == 'success')
+    if: always() && needs.commit-results.outputs.docs-changed == 'true'
 
     permissions:
       contents: read
@@ -200,8 +128,6 @@ jobs:
     steps:
       - name: Checkout current repo
         uses: actions/checkout@v4
-        with:
-          ref: main
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
