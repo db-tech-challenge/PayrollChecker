@@ -1,6 +1,6 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-28T23:22:08.360754+00:00",
+  "timestamp": "2025-06-28T23:26:45.384300+00:00",
   "commit": {
     "hash": "f59704fbaf654636d185b56bdb0b4deaf04d198b",
     "message": "fix bug",
@@ -40,12 +40,12 @@
       },
       {
         "task_id": "06",
-        "progress": 60,
+        "progress": 100,
         "type": "automatic"
       },
       {
         "task_id": "07",
-        "progress": 100,
+        "progress": 99,
         "type": "manual"
       },
       {
@@ -60,9 +60,9 @@
       }
     ],
     "score": {
-      "total": 58,
+      "total": 99,
       "max": 100,
-      "percentage": 58
+      "percentage": 99
     }
   }
 }
