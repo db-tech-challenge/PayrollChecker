@@ -1,22 +1,22 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-28T21:56:45.119975+00:00",
+  "timestamp": "2025-06-28T21:58:53.464627+00:00",
   "commit": {
-    "hash": "aedadca8cfc4260100d87f00ca5e96fdf2745fc7",
-    "message": "check",
+    "hash": "580709246a3f9e7a27b8a2089919ca620c9856da",
+    "message": "fix: correct header casing in main_data.csv and update PayrollCalculator instantiation",
     "author": "apozdniakov",
-    "date": "2025-06-23 13:41:20 +0200"
+    "date": "2025-06-28 23:58:23 +0200"
   },
-  "build_status": "compilation_failed",
+  "build_status": "execution_failed",
   "should_show_tests": false,
   "results": {
-    "compiled": false,
+    "compiled": true,
     "executed": false,
     "tasks": [],
     "score": {
-      "total": 0,
+      "total": 20,
       "max": 100,
-      "percentage": 0
+      "percentage": 20
     }
   }
 }
