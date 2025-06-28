@@ -1,22 +1,68 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-28T22:41:05.740822+00:00",
+  "timestamp": "2025-06-28T22:44:33.651327+00:00",
   "commit": {
-    "hash": "3a1c2f4cb43154151b29269ec9eaa7fa1bf27189",
-    "message": "trigger",
+    "hash": "f5fb5ad88dc8284186f90ecae41f5c6fb459f9a8",
+    "message": "fix bug",
     "author": "apozdniakov",
-    "date": "2025-06-29 00:39:40 +0200"
+    "date": "2025-06-29 00:44:01 +0200"
   },
-  "build_status": "execution_failed",
-  "should_show_tests": false,
+  "build_status": "success",
+  "should_show_tests": true,
   "results": {
     "compiled": true,
-    "executed": false,
-    "tasks": [],
+    "executed": true,
+    "tasks": [
+      {
+        "task_id": "01",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "02",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "03",
+        "progress": 100,
+        "type": "manual"
+      },
+      {
+        "task_id": "04",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "05",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "06",
+        "progress": 40,
+        "type": "automatic"
+      },
+      {
+        "task_id": "07",
+        "progress": 77,
+        "type": "manual"
+      },
+      {
+        "task_id": "08",
+        "progress": 0,
+        "type": "automatic"
+      },
+      {
+        "task_id": "09",
+        "progress": 0,
+        "type": "automatic"
+      }
+    ],
     "score": {
-      "total": 20,
+      "total": 37,
       "max": 100,
-      "percentage": 20
+      "percentage": 37
     }
   }
 }
