@@ -1,6 +1,6 @@
 {
   "team": "beta",
-  "timestamp": "2025-06-29T19:49:59.871322+00:00",
+  "timestamp": "2025-06-29T19:54:28.961712+00:00",
   "commit": {
     "hash": "ca2d15beadd814e2c2f7e477b883ec8e5f7e5ea5",
     "message": "application logic",
@@ -60,9 +60,9 @@
       }
     ],
     "score": {
-      "total": 30,
+      "total": 10,
       "max": 100,
-      "percentage": 30
+      "percentage": 10
     }
   }
 }
