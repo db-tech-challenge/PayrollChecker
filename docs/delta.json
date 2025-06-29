@@ -1,68 +1,22 @@
 {
   "team": "delta",
-  "timestamp": "2025-06-28T23:35:50.148900+00:00",
+  "timestamp": "2025-06-29T19:49:48.136367+00:00",
   "commit": {
-    "hash": "fae1f20b78d36bf0b9772060ae427c78e53d1938",
-    "message": "Implement tax factor logic using CSV with variables",
-    "author": "Leander Steffan",
-    "date": "2025-05-12 12:20:22 +0200"
+    "hash": "f6fc7e0f72c9c98e778925174b4b6d2d5e22e511",
+    "message": "add payroll calculation logic",
+    "author": "apozdniakov",
+    "date": "2025-05-06 22:42:12 +0200"
   },
-  "build_status": "success",
-  "should_show_tests": true,
+  "build_status": "compilation_failed",
+  "should_show_tests": false,
   "results": {
-    "compiled": true,
-    "executed": true,
-    "tasks": [
-      {
-        "task_id": "01",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "02",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "03",
-        "progress": 0,
-        "type": "manual"
-      },
-      {
-        "task_id": "04",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "05",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "06",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "07",
-        "progress": 0,
-        "type": "manual"
-      },
-      {
-        "task_id": "08",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "09",
-        "progress": 0,
-        "type": "automatic"
-      }
-    ],
+    "compiled": false,
+    "executed": false,
+    "tasks": [],
     "score": {
-      "total": 36,
+      "total": 0,
       "max": 100,
-      "percentage": 36
+      "percentage": 0
     }
   }
 }

@@ -1,68 +1,22 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-28T23:35:45.892900+00:00",
+  "timestamp": "2025-06-29T19:49:48.094295+00:00",
   "commit": {
-    "hash": "f59704fbaf654636d185b56bdb0b4deaf04d198b",
-    "message": "fix bug",
+    "hash": "f6fc7e0f72c9c98e778925174b4b6d2d5e22e511",
+    "message": "add payroll calculation logic",
     "author": "apozdniakov",
-    "date": "2025-06-29 01:11:34 +0200"
+    "date": "2025-05-06 22:42:12 +0200"
   },
-  "build_status": "success",
-  "should_show_tests": true,
+  "build_status": "compilation_failed",
+  "should_show_tests": false,
   "results": {
-    "compiled": true,
-    "executed": true,
-    "tasks": [
-      {
-        "task_id": "01",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "02",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "03",
-        "progress": 100,
-        "type": "manual"
-      },
-      {
-        "task_id": "04",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "05",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "06",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "07",
-        "progress": 100,
-        "type": "manual"
-      },
-      {
-        "task_id": "08",
-        "progress": 100,
-        "type": "automatic"
-      },
-      {
-        "task_id": "09",
-        "progress": 100,
-        "type": "automatic"
-      }
-    ],
+    "compiled": false,
+    "executed": false,
+    "tasks": [],
     "score": {
-      "total": 100,
+      "total": 0,
       "max": 100,
-      "percentage": 100
+      "percentage": 0
     }
   }
 }

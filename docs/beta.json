@@ -1,11 +1,11 @@
 {
   "team": "beta",
-  "timestamp": "2025-06-28T23:35:43.515620+00:00",
+  "timestamp": "2025-06-29T19:49:59.871322+00:00",
   "commit": {
-    "hash": "0eaf381895d4f5ba482e82f6828c0bd642529110",
-    "message": "Update main_data.csv",
-    "author": "Anatolii",
-    "date": "2025-06-13 09:37:37 +0200"
+    "hash": "ca2d15beadd814e2c2f7e477b883ec8e5f7e5ea5",
+    "message": "application logic",
+    "author": "apozdniakov",
+    "date": "2025-06-29 21:48:38 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -15,7 +15,7 @@
     "tasks": [
       {
         "task_id": "01",
-        "progress": 100,
+        "progress": 0,
         "type": "automatic"
       },
       {
@@ -60,9 +60,9 @@
       }
     ],
     "score": {
-      "total": 33,
+      "total": 30,
       "max": 100,
-      "percentage": 33
+      "percentage": 30
     }
   }
 }

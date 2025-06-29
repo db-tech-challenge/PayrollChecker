@@ -1,11 +1,11 @@
 {
   "team": "alpha",
-  "timestamp": "2025-06-28T23:35:50.970808+00:00",
+  "timestamp": "2025-06-29T19:50:00.342163+00:00",
   "commit": {
-    "hash": "af66d51141b492bb9af668642808cd2fe41d73eb",
-    "message": "tests",
+    "hash": "ca2d15beadd814e2c2f7e477b883ec8e5f7e5ea5",
+    "message": "application logic",
     "author": "apozdniakov",
-    "date": "2025-06-29 01:15:29 +0200"
+    "date": "2025-06-29 21:48:38 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -15,12 +15,12 @@
     "tasks": [
       {
         "task_id": "01",
-        "progress": 100,
+        "progress": 0,
         "type": "automatic"
       },
       {
         "task_id": "02",
-        "progress": 100,
+        "progress": 0,
         "type": "automatic"
       },
       {
@@ -30,17 +30,17 @@
       },
       {
         "task_id": "04",
-        "progress": 100,
+        "progress": 0,
         "type": "automatic"
       },
       {
         "task_id": "05",
-        "progress": 100,
+        "progress": 0,
         "type": "automatic"
       },
       {
         "task_id": "06",
-        "progress": 100,
+        "progress": 0,
         "type": "automatic"
       },
       {
@@ -55,14 +55,14 @@
       },
       {
         "task_id": "09",
-        "progress": 100,
+        "progress": 0,
         "type": "automatic"
       }
     ],
     "score": {
-      "total": 50,
+      "total": 30,
       "max": 100,
-      "percentage": 50
+      "percentage": 30
     }
   }
 }
