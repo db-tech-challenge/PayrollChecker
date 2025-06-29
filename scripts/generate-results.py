@@ -161,18 +161,19 @@ def main():
     all_tasks = sorted(all_tasks_dict.values(), key=lambda t: t['task_id'])
 
     score = 0
-    if compilation_success:
-        score += 20
-    if execution_success:
-        score += 10
-    if should_show_tests and test_status == 0:
-        score += 40
 
-    if all_tasks:
-        total_progress = sum(task['progress'] for task in all_tasks)
-        max_progress = len(all_tasks) * 100
-        task_score = int((total_progress / max_progress) * 30) if max_progress > 0 else 0
-        score += task_score
+    if compilation_success and execution_success:
+        score += 10
+        print("Build successful: +10 points")
+    else:
+        print("Build failed: +0 points")
+
+    for task in all_tasks:
+        task_points = round((task['progress'] / 100) * 10)
+        score += task_points
+        print(f"Task {task['task_id']}: {task['progress']}% = +{task_points} points")
+
+    score = min(score, 100)
 
     try:
         os.chdir(test_dir)
