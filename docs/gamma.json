@@ -1,68 +1,22 @@
 {
   "team": "gamma",
-  "timestamp": "2025-06-29T19:54:24.826091+00:00",
+  "timestamp": "2025-06-29T19:56:17.155695+00:00",
   "commit": {
-    "hash": "ca2d15beadd814e2c2f7e477b883ec8e5f7e5ea5",
+    "hash": "3ac795e43826f48613356b3e54a93494d8bc27c0",
     "message": "application logic",
     "author": "apozdniakov",
     "date": "2025-06-29 21:48:38 +0200"
   },
-  "build_status": "success",
-  "should_show_tests": true,
+  "build_status": "execution_failed",
+  "should_show_tests": false,
   "results": {
     "compiled": true,
-    "executed": true,
-    "tasks": [
-      {
-        "task_id": "01",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "02",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "03",
-        "progress": 100,
-        "type": "manual"
-      },
-      {
-        "task_id": "04",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "05",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "06",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "07",
-        "progress": 100,
-        "type": "manual"
-      },
-      {
-        "task_id": "08",
-        "progress": 0,
-        "type": "automatic"
-      },
-      {
-        "task_id": "09",
-        "progress": 0,
-        "type": "automatic"
-      }
-    ],
+    "executed": false,
+    "tasks": [],
     "score": {
-      "total": 30,
+      "total": 0,
       "max": 100,
-      "percentage": 30
+      "percentage": 0
     }
   }
 }
