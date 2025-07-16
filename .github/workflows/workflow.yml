@@ -23,17 +23,12 @@ jobs:
   process-all-teams:
     runs-on: ubuntu-latest
 
-    # Job-level concurrency - cancel old team runs
-    concurrency:
-      group: team-testing-${{ matrix.team }}
-      cancel-in-progress: true
-
     strategy:
       matrix:
         team: [alpha, beta, gamma, delta]
       fail-fast: false
-      # Limit concurrent jobs to 1 (sequential execution)
-      max-parallel: 1
+      # Allow all teams to run in parallel
+      # max-parallel: removed to enable parallel execution
 
     env:
       JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
