@@ -3,143 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title id="pageTitle">Task Details - Payroll Calculator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <title id="pageTitle">Task Details</title>
     <style>
+        :root {
+            --primary: #1976d2;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --error: #f44336;
+            --surface: #fff;
+            --bg: #f5f5f5;
+            --text: #212121;
+            --text-light: #757575;
+            --border: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --radius: 8px;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f4f5f7;
-            padding: 20px;
-            line-height: 1.5;
-            color: #172b4d;
+            font-family: 'Roboto', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            height: 100vh;
+            overflow: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            height: 100vh;
+        }
+
+        .sidebar {
+            background: var(--surface);
+            box-shadow: var(--shadow);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            overflow-y: auto;
+        }
+
+        .content {
+            padding: 24px;
+            overflow-y: auto;
         }
 
         .back-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #0052cc;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 3px;
+            color: var(--primary);
             text-decoration: none;
-            margin-bottom: 24px;
-            font-size: 14px;
             font-weight: 500;
-            transition: background 0.2s;
+            padding: 8px 0;
+            transition: transform 0.2s;
         }
 
-        .back-btn:hover {
-            background: #0065ff;
-        }
+        .back-btn:hover { transform: translateX(-4px); }
 
         .task-card {
-            background: white;
-            border-radius: 3px;
-            box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25);
-            margin-bottom: 16px;
-            border: 1px solid #dfe1e6;
+            text-align: center;
+            padding: 24px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
         }
 
-        .task-header {
-            padding: 32px 32px 24px 32px;
-            border-bottom: 1px solid #dfe1e6;
+        .task-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
         }
 
-        .task-meta {
+        .task-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: var(--primary);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .task-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .task-subtitle {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 16px;
         }
 
         .task-key {
-            background: #dfe1e6;
-            color: #5e6c84;
-            padding: 6px 10px;
-            border-radius: 3px;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            background: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
         }
 
-        .task-type {
-            display: inline-flex;
+        .meta-section h3 {
+            display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 14px;
-            color: #5e6c84;
+            font-size: 1rem;
             font-weight: 500;
+            margin-bottom: 16px;
         }
 
-        .type-icon {
-            width: 18px;
-            height: 18px;
-            border-radius: 3px;
+        .meta-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .meta-chip {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            color: white;
-            font-weight: 700;
+            justify-content: space-between;
+            padding: 12px;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: #f8f9fa;
+            border: 1px solid var(--border);
         }
 
-        .type-icon.requirement { background: #0052cc; }
-        .type-icon.bug { background: #de350b; }
-        .type-icon.task { background: #0052cc; }
-        .type-icon.story { background: #00875a; }
-
-        .priority-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .priority-icon {
-            width: 18px;
-            height: 18px;
+        .meta-label {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 8px;
         }
 
-        .priority-critical .priority-icon { color: #de350b; }
-        .priority-urgent .priority-icon { color: #ff8b00; }
-        .priority-normal .priority-icon { color: #0052cc; }
+        .meta-icon {
+            font-size: 18px;
+            color: var(--primary);
+        }
 
-        .task-title {
-            font-size: 28px;
+        .type-email { background: rgba(33, 150, 243, 0.1); color: #1976d2; }
+        .type-ticket { background: rgba(255, 152, 0, 0.1); color: #f57c00; }
+        .type-requirement { background: rgba(76, 175, 80, 0.1); color: #388e3c; }
+        .type-support { background: rgba(244, 67, 54, 0.1); color: #d32f2f; }
+
+        .priority-critical { background: rgba(244, 67, 54, 0.1); color: #d32f2f; }
+        .priority-urgent { background: rgba(255, 152, 0, 0.1); color: #f57c00; }
+        .priority-normal { background: rgba(76, 175, 80, 0.1); color: #388e3c; }
+
+        .details-info {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .details-info div {
+            margin-bottom: 4px;
+        }
+
+        .details-info strong {
+            color: var(--text);
+            min-width: 60px;
+            display: inline-block;
+        }
+
+        .content-header {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .content-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.5rem;
             font-weight: 500;
-            color: #172b4d;
-            margin-bottom: 12px;
-            line-height: 1.2;
+            margin-bottom: 8px;
         }
 
-        .task-summary {
-            color: #5e6c84;
-            font-size: 16px;
-            font-weight: 400;
-        }
-
-        .task-content {
-            padding: 32px;
+        .content-subtitle {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
 
         .section:last-child {
@@ -147,149 +215,74 @@
         }
 
         .section-title {
-            font-size: 18px;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #172b4d;
-            margin-bottom: 20px;
+            color: var(--text);
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .content-block {
-            background: #f4f5f7;
-            border: 1px solid #dfe1e6;
-            border-radius: 3px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
             padding: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
         }
 
         .content-block.email {
-            border-left: 4px solid #0052cc;
-            background: #deebff;
+            border-left: 4px solid #1976d2;
+            background: rgba(33, 150, 243, 0.02);
         }
 
         .content-block.ticket {
-            border-left: 4px solid #ff8b00;
-            background: #fff4e6;
+            border-left: 4px solid #f57c00;
+            background: rgba(255, 152, 0, 0.02);
         }
 
         .content-block.support {
-            border-left: 4px solid #de350b;
-            background: #ffebe6;
+            border-left: 4px solid #d32f2f;
+            background: rgba(244, 67, 54, 0.02);
         }
 
         .content-block.requirement {
-            border-left: 4px solid #0052cc;
-            background: #e6fcff;
+            border-left: 4px solid #388e3c;
+            background: rgba(76, 175, 80, 0.02);
         }
 
         .block-header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             font-weight: 600;
-            color: #172b4d;
+            color: var(--text);
             margin-bottom: 16px;
-            font-size: 16px;
+            font-size: 1rem;
         }
 
         .block-subject {
-            font-size: 18px;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #172b4d;
+            color: var(--text);
             margin-bottom: 12px;
         }
 
-        .block-meta {
-            font-size: 13px;
-            color: #5e6c84;
-            margin-bottom: 16px;
-        }
-
         .block-content {
-            color: #172b4d;
+            color: var(--text);
             white-space: pre-line;
-            line-height: 1.7;
-            font-size: 15px;
-        }
-
-        .jira-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0;
-            background: white;
-            border: 1px solid #dfe1e6;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .jira-table th {
-            background: #f4f5f7;
-            color: #5e6c84;
-            font-weight: 600;
-            font-size: 12px;
-            text-transform: uppercase;
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #dfe1e6;
-        }
-
-        .jira-table td {
-            padding: 12px;
-            border-bottom: 1px solid #dfe1e6;
-            color: #172b4d;
-        }
-
-        .jira-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .scope-list {
-            background: white;
-            border: 1px solid #dfe1e6;
-            border-radius: 3px;
-            padding: 16px;
-        }
-
-        .scope-list ul {
-            margin-left: 20px;
-        }
-
-        .scope-list li {
-            margin-bottom: 8px;
-            color: #172b4d;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 60px;
-            color: #5e6c84;
-            font-size: 16px;
-        }
-
-        .error {
-            background: #ffebe6;
-            color: #de350b;
-            padding: 24px;
-            border-radius: 3px;
-            text-align: center;
-            margin: 20px 0;
-            border: 1px solid #ffbdad;
-        }
-
-        .description-text {
-            color: #172b4d;
             line-height: 1.6;
-            white-space: pre-line;
+            font-size: 0.95rem;
         }
 
         .email-header {
-            background: #f4f5f7;
-            padding: 16px;
-            border-radius: 3px;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 12px;
+            border-radius: 6px;
             margin-bottom: 16px;
-            border: 1px solid #dfe1e6;
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .email-field {
@@ -302,55 +295,123 @@
         }
 
         .email-field-label {
-            font-weight: 700;
-            color: #5e6c84;
-            width: 100px;
+            font-weight: 600;
+            color: var(--text-light);
+            width: 80px;
             flex-shrink: 0;
-            font-size: 14px;
+            font-size: 0.85rem;
         }
 
         .email-field-value {
-            color: #172b4d;
-            font-size: 14px;
+            color: var(--text);
+            font-size: 0.85rem;
             font-weight: 500;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
+        .table-wrapper {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
 
-            .task-header, .task-content {
-                padding: 16px;
-            }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-            .task-title {
-                font-size: 20px;
-            }
+        .data-table th {
+            background: #f8f9fa;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
 
-            .task-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
+        .data-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .scope-list {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .scope-list ul {
+            margin-left: 20px;
+        }
+
+        .scope-list li {
+            margin-bottom: 8px;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            gap: 16px;
+        }
+
+        .error {
+            background: rgba(244, 67, 54, 0.1);
+            color: var(--error);
+            padding: 24px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin: 20px 0;
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+
+        .description-text {
+            color: var(--text);
+            line-height: 1.6;
+            white-space: pre-line;
+            font-size: 0.95rem;
+        }
+
+        /* Team colors */
+        .alpha { --team-color: #4caf50; }
+        .beta { --team-color: #2196f3; }
+        .gamma { --team-color: #ff9800; }
+        .delta { --team-color: #f44336; }
+
+        @media (max-width: 968px) {
+            .grid { grid-template-columns: 1fr; }
+            .sidebar { order: 2; height: auto; max-height: 50vh; }
+            .content { order: 1; }
         }
     </style>
 </head>
 <body>
-<div class="container">
-
-    <div id="loading" class="loading">
-        Loading task details...
-    </div>
-
-    <div id="error" class="error" style="display: none;">
-        Task not found
-    </div>
-
-    <div id="taskContent" style="display: none;">
-        <!-- Task content will be populated here -->
-    </div>
+<div id="loading" class="loading">
+    <span class="material-icons">hourglass_empty</span>
+    <div>Loading...</div>
 </div>
+
+<div id="error" class="loading" style="display: none;">
+    <span class="material-icons">error_outline</span>
+    <div>Failed to load</div>
+</div>
+
+<div id="app" style="display: none;"></div>
 
 <script>
   function getTaskId() {
@@ -359,211 +420,259 @@
     return filename.replace('task-', '').replace('.html', '');
   }
 
+  function getTeamFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('team');
+  }
+
   function formatDescription(text) {
     return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   }
 
   function getTypeIcon(type) {
     const icons = {
-      'requirement': 'R',
-      'email': 'E',
-      'ticket': 'T',
-      'support_note': 'S'
+      'requirement': 'assignment',
+      'email': 'mail',
+      'ticket': 'confirmation_number',
+      'support_note': 'support_agent'
     };
-    return icons[type] || 'T';
+    return icons[type] || 'description';
   }
 
   function getTypeLabel(type) {
     const labels = {
       'requirement': 'Requirement',
-      'email': 'Bug',
-      'ticket': 'Story',
-      'support_note': 'Bug'
+      'email': 'Email Report',
+      'ticket': 'Support Ticket',
+      'support_note': 'Critical Issue'
     };
     return labels[type] || 'Task';
   }
 
   function getPriorityIcon(priority) {
-    if (priority === 'critical') return '🔴';
-    if (priority === 'urgent') return '🟠';
-    return '🔵';
+    const icons = {
+      'critical': 'error',
+      'urgent': 'warning',
+      'normal': 'info'
+    };
+    return icons[priority] || 'info';
   }
 
-  function renderTaskContent(task, taskId) {
-    const typeClass = task.type || 'task';
+  function getPriorityClass(priority) {
+    return `priority-${priority}`;
+  }
+
+  function getTypeClass(type) {
+    return `type-${type}`;
+  }
+
+  function createApp(task, taskId, team) {
+    const typeClass = getTypeClass(task.type || 'task');
+    const priorityClass = getPriorityClass(task.priority || 'normal');
     const typeIcon = getTypeIcon(task.type);
     const typeLabel = getTypeLabel(task.type);
     const priorityIcon = getPriorityIcon(task.priority);
 
-    let contentHtml = `
-      <div class="task-card">
-        <div class="task-header">
-          <div class="task-meta">
-            <div class="task-key">TASK-${taskId.padStart(2, '0')}</div>
-            <div class="task-type">
-              <div class="type-icon ${typeClass}">${typeIcon}</div>
-              ${typeLabel}
+    document.title = `TASK-${taskId.padStart(2, '0')} - ${task.title}`;
+
+    return `
+        <div class="grid">
+            <div class="sidebar">
+                ${team ? `
+                <a href="${team}.html" class="back-btn">
+                    <span class="material-icons">arrow_back</span>
+                    Back to Team ${team.toUpperCase()}
+                </a>
+                ` : ''}
+
+                <div class="task-card">
+                    <div class="task-avatar">${taskId}</div>
+                    <h1 class="task-title">${task.title}</h1>
+                    <div class="task-subtitle">Payroll System Issue</div>
+                    <div class="task-key">TASK-${taskId.padStart(2, '0')}</div>
+                </div>
+
+                <div class="meta-section">
+                    <h3><span class="material-icons">info</span>Task Info</h3>
+                    <div class="meta-grid">
+                        <div class="meta-chip ${typeClass}">
+                            <div class="meta-label">
+                                <span class="material-icons meta-icon">${typeIcon}</span>
+                                <span>Type</span>
+                            </div>
+                            <span>${typeLabel}</span>
+                        </div>
+                        <div class="meta-chip ${priorityClass}">
+                            <div class="meta-label">
+                                <span class="material-icons meta-icon">${priorityIcon}</span>
+                                <span>Priority</span>
+                            </div>
+                            <span>${task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}</span>
+                        </div>
+                    </div>
+                </div>
+
+                ${task.ticket || task.employee || task.sender ? `
+                <div class="meta-section">
+                    <h3><span class="material-icons">assignment</span>Details</h3>
+                    <div class="details-info">
+                        ${task.ticket ? `<div><strong>Ticket:</strong> ${task.ticket}</div>` : ''}
+                        ${task.employee ? `<div><strong>Employee:</strong> ${task.employee}</div>` : ''}
+                        ${task.department ? `<div><strong>Department:</strong> ${task.department}</div>` : ''}
+                        ${task.sender ? `<div><strong>From:</strong> ${task.sender}</div>` : ''}
+                        ${task.issue ? `<div><strong>Issue:</strong> ${task.issue}</div>` : ''}
+                    </div>
+                </div>
+                ` : ''}
             </div>
-            <div class="priority-badge priority-${task.priority}">
-              <span class="priority-icon">${priorityIcon}</span>
-              ${task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+
+            <div class="content">
+                <div class="content-header">
+                    <h2 class="content-title">
+                        <span class="material-icons">description</span>
+                        Task Description
+                    </h2>
+                    <div class="content-subtitle">Complete details and requirements</div>
+                </div>
+
+                <div class="section">
+                    ${renderTaskContent(task, taskId)}
+                </div>
+
+                ${task.details && task.details.taxClasses ? `
+                <div class="section">
+                    <div class="section-title">
+                        <span class="material-icons">table_chart</span>
+                        Tax Class Configuration
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Tax Class</th>
+                                    <th>Description</th>
+                                    <th>Approx. Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${task.details.taxClasses.map(tc =>
+      `<tr>
+                                        <td><strong>${tc.class}</strong></td>
+                                        <td>${tc.description}</td>
+                                        <td>${tc.rate}</td>
+                                    </tr>`
+    ).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                ` : ''}
+
+                ${task.details && task.details.scope ? `
+                <div class="section">
+                    <div class="section-title">
+                        <span class="material-icons">check_circle</span>
+                        Acceptance Criteria
+                    </div>
+                    <div class="scope-list">
+                        <ul>
+                            ${task.details.scope.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                ` : ''}
+
+                ${task.emails ? `
+                <div class="section">
+                    <div class="section-title">
+                        <span class="material-icons">email</span>
+                        Related Reports
+                    </div>
+                    ${task.emails.map((email, index) => `
+                        <div class="content-block email">
+                            <div class="block-header">
+                                <span class="material-icons">mail</span>
+                                Report ${index + 1}
+                            </div>
+                            <div class="email-header">
+                                <div class="email-field">
+                                    <div class="email-field-label">From:</div>
+                                    <div class="email-field-value">${email.sender}</div>
+                                </div>
+                                <div class="email-field">
+                                    <div class="email-field-label">Subject:</div>
+                                    <div class="email-field-value">${email.subject}</div>
+                                </div>
+                            </div>
+                            <div class="block-content">${formatDescription(email.content)}</div>
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
             </div>
-          </div>
-          <h1 class="task-title">${task.title}</h1>
-          <div class="task-summary">Payroll System Issue</div>
         </div>
-
-        <div class="task-content">
     `;
+  }
 
-    // Description section
-    contentHtml += `
-      <div class="section">
-        <div class="section-title">📝 Description</div>
-    `;
-
+  function renderTaskContent(task, taskId) {
     if (task.type === 'email') {
-      contentHtml += `
+      return `
         <div class="content-block email">
-          <div class="block-header">📧 Email Report</div>
+          <div class="block-header">
+            <span class="material-icons">mail</span>
+            Email Report
+          </div>
           ${task.subject ? `
             <div class="email-header">
               <div class="email-field">
                 <div class="email-field-label">Subject:</div>
                 <div class="email-field-value">${task.subject}</div>
               </div>
-              ${task.sender ? `
-                <div class="email-field">
-                  <div class="email-field-label">From:</div>
-                  <div class="email-field-value">${task.sender}</div>
-                </div>
-              ` : ''}
             </div>
           ` : ''}
           <div class="block-content">${formatDescription(task.description)}</div>
         </div>
       `;
     } else if (task.type === 'ticket') {
-      contentHtml += `
+      return `
         <div class="content-block ticket">
-          <div class="block-header">🎫 ${task.ticket || 'Support Ticket'}</div>
+          <div class="block-header">
+            <span class="material-icons">confirmation_number</span>
+            Support Ticket
+          </div>
           ${task.subject ? `<div class="block-subject">${task.subject}</div>` : ''}
           <div class="block-content">${formatDescription(task.description)}</div>
         </div>
       `;
     } else if (task.type === 'support_note') {
-      contentHtml += `
+      return `
         <div class="content-block support">
-          <div class="block-header">🆘 Critical Issue Report</div>
-          <div class="email-header">
-            <div class="email-field">
-              <div class="email-field-label">Employee:</div>
-              <div class="email-field-value">${task.employee}</div>
-            </div>
-            <div class="email-field">
-              <div class="email-field-label">Department:</div>
-              <div class="email-field-value">${task.department}</div>
-            </div>
-            <div class="email-field">
-              <div class="email-field-label">Issue Type:</div>
-              <div class="email-field-value">${task.issue}</div>
-            </div>
+          <div class="block-header">
+            <span class="material-icons">support_agent</span>
+            Critical Issue Report
           </div>
           <div class="block-content">${formatDescription(task.description)}</div>
         </div>
       `;
     } else if (task.type === 'requirement') {
-      contentHtml += `
+      return `
         <div class="content-block requirement">
-          <div class="block-header">⚙️ System Requirement</div>
+          <div class="block-header">
+            <span class="material-icons">assignment</span>
+            System Requirement
+          </div>
           <div class="block-content">${formatDescription(task.description)}</div>
         </div>
       `;
     } else {
-      contentHtml += `
-        <div class="description-text">${formatDescription(task.description)}</div>
-      `;
+      return `<div class="description-text">${formatDescription(task.description)}</div>`;
     }
-
-    contentHtml += `</div>`;
-
-    // Additional sections
-    if (task.details && task.details.taxClasses) {
-      contentHtml += `
-        <div class="section">
-          <div class="section-title">📊 Tax Class Configuration</div>
-          <table class="jira-table">
-            <thead>
-              <tr>
-                <th>Tax Class</th>
-                <th>Description</th>
-                <th>Approx. Rate</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${task.details.taxClasses.map(tc =>
-        `<tr>
-                  <td><strong>${tc.class}</strong></td>
-                  <td>${tc.description}</td>
-                  <td>${tc.rate}</td>
-                </tr>`
-      ).join('')}
-            </tbody>
-          </table>
-        </div>
-      `;
-    }
-
-    if (task.details && task.details.scope) {
-      contentHtml += `
-        <div class="section">
-          <div class="section-title">🎯 Acceptance Criteria</div>
-          <div class="scope-list">
-            <ul>
-              ${task.details.scope.map(item => `<li>${item}</li>`).join('')}
-            </ul>
-          </div>
-        </div>
-      `;
-    }
-
-    if (task.emails) {
-      contentHtml += `
-        <div class="section">
-          <div class="section-title">📧 Related Reports</div>
-      `;
-      task.emails.forEach((email, index) => {
-        contentHtml += `
-          <div class="content-block email">
-            <div class="block-header">📧 Report ${index + 1}</div>
-            <div class="email-header">
-              <div class="email-field">
-                <div class="email-field-label">From:</div>
-                <div class="email-field-value">${email.sender}</div>
-              </div>
-              <div class="email-field">
-                <div class="email-field-label">Subject:</div>
-                <div class="email-field-value">${email.subject}</div>
-              </div>
-            </div>
-            <div class="block-content">${formatDescription(email.content)}</div>
-          </div>
-        `;
-      });
-      contentHtml += `</div>`;
-    }
-
-    contentHtml += `
-        </div>
-      </div>
-    `;
-
-    return contentHtml;
   }
 
   async function loadTaskDetails() {
     try {
       const taskId = getTaskId();
+      const team = getTeamFromUrl();
 
       const timestamp = Date.now();
       const response = await fetch(`tasks.json?v=${timestamp}`);
@@ -579,18 +688,15 @@
         throw new Error('Task not found');
       }
 
-      document.getElementById('pageTitle').textContent = `TASK-${taskId.padStart(2, '0')} - ${task.title}`;
-
-      const taskContent = document.getElementById('taskContent');
-      taskContent.innerHTML = renderTaskContent(task, taskId);
+      document.getElementById('app').innerHTML = createApp(task, taskId, team);
 
       document.getElementById('loading').style.display = 'none';
-      document.getElementById('taskContent').style.display = 'block';
+      document.getElementById('app').style.display = 'block';
 
     } catch (error) {
       console.error('Error loading task details:', error);
       document.getElementById('loading').style.display = 'none';
-      document.getElementById('error').style.display = 'block';
+      document.getElementById('error').style.display = 'flex';
     }
   }
 

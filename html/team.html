@@ -208,6 +208,13 @@
             border: 1px solid rgba(255, 152, 0, 0.3);
         }
 
+        .status-disabled {
+            background: rgba(158, 158, 158, 0.1);
+            color: #9e9e9e;
+            border: 1px solid rgba(158, 158, 158, 0.3);
+            opacity: 0.6;
+        }
+
         .commit-info {
             background: #f8f9fa;
             padding: 12px;
@@ -302,12 +309,14 @@
         .task-weight {
             background: rgba(117, 117, 117, 0.1);
             color: var(--text-light);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
             margin-left: 8px;
             flex-shrink: 0;
+            min-width: 28px;
+            text-align: center;
         }
 
         .task-content {
@@ -427,10 +436,6 @@
     const completed = tasks.filter(t => t.progress === 100).length;
     const percentage = results.score?.percentage || 0;
 
-    // Отладка - выводим данные
-    console.log('All data:', data);
-    console.log('Tasks array:', tasks);
-
     document.title = `Team ${team.toUpperCase()}`;
 
     return `
@@ -458,19 +463,19 @@
                             </div>
                             <span class="material-icons">${results.compiled ? 'done' : 'close'}</span>
                         </div>
-                        <div class="status-chip ${results.executed ? 'status-success' : 'status-error'}" ${!results.executed ? 'data-tooltip="Runtime error occurred when starting the project"' : ''}>
+                        <div class="status-chip ${!results.compiled ? 'status-disabled' : (results.executed ? 'status-success' : 'status-error')}" ${!results.compiled ? '' : (!results.executed ? 'data-tooltip="Runtime error occurred when starting the project"' : '')}>
                             <div class="status-label">
-                                <span class="material-icons status-icon">${results.executed ? 'play_circle' : 'error'}</span>
+                                <span class="material-icons status-icon">${!results.compiled ? 'block' : (results.executed ? 'play_circle' : 'error')}</span>
                                 <span>Execution</span>
                             </div>
-                            <span class="material-icons">${results.executed ? 'done' : 'close'}</span>
+                            <span class="material-icons">${!results.compiled ? 'remove' : (results.executed ? 'done' : 'close')}</span>
                         </div>
-                        <div class="status-chip ${results.compatibility ? 'status-success' : 'status-warning'}" ${!results.compatibility ? 'data-tooltip="Some tests cannot be executed due to external test compatibility issues"' : ''}>
+                        <div class="status-chip ${!results.compiled || !results.executed ? 'status-disabled' : (results.compatibility ? 'status-success' : 'status-warning')}" ${!results.compiled || !results.executed ? '' : (!results.compatibility ? 'data-tooltip="Some tests cannot be executed due to external test compatibility issues"' : '')}>
                             <div class="status-label">
-                                <span class="material-icons status-icon">${results.compatibility ? 'verified' : 'warning'}</span>
+                                <span class="material-icons status-icon">${!results.compiled || !results.executed ? 'block' : (results.compatibility ? 'verified' : 'warning')}</span>
                                 <span>Compatibility</span>
                             </div>
-                            <span class="material-icons">${results.compatibility ? 'done' : 'priority_high'}</span>
+                            <span class="material-icons">${!results.compiled || !results.executed ? 'remove' : (results.compatibility ? 'done' : 'priority_high')}</span>
                         </div>
                     </div>
                 </div>
@@ -512,11 +517,13 @@
 
       return `
                     <div class="task-item ${taskItemClass}" onclick="openTaskDetails('${task.task_id}')">
+                        <div class="task-number">${task.task_id}</div>
                         <span class="material-icons task-icon">${getTaskIcon(task.task_id)}</span>
                         <div class="task-content">
                             <div class="task-title">${getTaskTitle(task.task_id)}</div>
                             <div class="task-meta">${getTaskMeta(task.task_id)} ${task.type === 'not_executed' ? '• Not executed' : ''}</div>
                         </div>
+                        <div class="task-weight">${task.weight}×</div>
                         <div class="progress-circle ${progressClass}">
                             ${progressText}
                         </div>
@@ -553,7 +560,11 @@
     }
   }
 
-  function openTaskDetails(taskId) { window.open(`task-${taskId}.html`, '_blank'); }
+  // CHANGED: Open task in same window with team parameter
+  function openTaskDetails(taskId) {
+    const team = window.location.pathname.split('/').pop().replace('.html', '');
+    window.location.href = `task-${taskId}.html?team=${team}`;
+  }
 
   load();
   setInterval(load, 30000);

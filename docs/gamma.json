@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-16T07:42:21.529735+00:00",
+  "timestamp": "2025-07-16T08:10:35.248218+00:00",
   "commit": {
-    "hash": "36a5f198b59c5e1824cd527b81081eb3298df503",
-    "message": "fix-01-broken-name",
+    "hash": "4ded9d143ad7185b48f9f9be13c1c932f9af0b39",
+    "message": "broken",
     "author": "apozdniakov",
-    "date": "2025-07-15 23:48:56 +0200"
+    "date": "2025-07-16 10:08:38 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
