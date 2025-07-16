@@ -1,90 +1,90 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-16T16:00:09.387157+00:00",
+  "timestamp": "2025-07-16T16:16:42.836808+00:00",
   "commit": {
-    "hash": "9f94f72e42e1f4c99c745c38764492ebf761e5bb",
-    "message": "base",
-    "author": "apozdniakov",
-    "date": "2025-07-16 10:17:17 +0200"
+    "hash": "6cd44e4ddb8ac04fd0123ecfe2b2bd54e715f4df",
+    "message": "Update main_data.csv",
+    "author": "Anatolii",
+    "date": "2025-07-16 18:16:07 +0200"
   },
-  "build_status": "execution_failed",
-  "should_show_tests": false,
+  "build_status": "success",
+  "should_show_tests": true,
   "results": {
     "compiled": true,
-    "executed": false,
+    "executed": true,
     "compatibility": true,
     "tasks": [
       {
         "task_id": "01",
         "progress": 0,
-        "type": "not_executed",
+        "type": "automatic",
         "weight": 1
       },
       {
         "task_id": "02",
         "progress": 0,
-        "type": "not_executed",
+        "type": "automatic",
         "weight": 1
       },
       {
         "task_id": "03",
         "progress": 0,
-        "type": "not_executed",
+        "type": "manual",
         "weight": 1
       },
       {
         "task_id": "04",
         "progress": 0,
-        "type": "not_executed",
+        "type": "automatic",
         "weight": 2
       },
       {
         "task_id": "05",
         "progress": 0,
-        "type": "not_executed",
+        "type": "automatic",
         "weight": 2
       },
       {
         "task_id": "06",
         "progress": 0,
-        "type": "not_executed",
+        "type": "automatic",
         "weight": 2
       },
       {
         "task_id": "07",
         "progress": 0,
-        "type": "not_executed",
+        "type": "manual",
         "weight": 1
       },
       {
         "task_id": "08",
         "progress": 0,
-        "type": "not_executed",
+        "type": "automatic",
         "weight": 2
       },
       {
         "task_id": "09",
         "progress": 0,
-        "type": "not_executed",
+        "type": "automatic",
         "weight": 1
       },
       {
         "task_id": "10",
         "progress": 0,
-        "type": "not_executed",
+        "type": "automatic",
         "weight": 3
       },
       {
         "task_id": "11",
         "progress": 0,
-        "type": "not_executed",
+        "type": "automatic",
         "weight": 3
       }
     ],
     "score": {
-      "total": 0,
+      "total": 1,
       "max": 20,
-      "percentage": 0
+      "percentage": 5
     }
   }
 }
