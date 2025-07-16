@@ -92,7 +92,7 @@ class PayrollApplicationTest {
             new Calendar(2025, 6, 14, DayOfWeek.SATURDAY, false),
             new Calendar(2025, 6, 15, DayOfWeek.SUNDAY, false),
             new Calendar(2025, 6, 16, DayOfWeek.MONDAY, false),
-            new Calendar1(2025, 6, 17, DayOfWeek.TUESDAY, false),
+            new Calendar(2025, 6, 17, DayOfWeek.TUESDAY, false),
             new Calendar(2025, 6, 18, DayOfWeek.WEDNESDAY, false),
             new Calendar(2025, 6, 19, DayOfWeek.THURSDAY, false),
             new Calendar(2025, 6, 20, DayOfWeek.FRIDAY, false),

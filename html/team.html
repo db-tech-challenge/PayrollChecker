@@ -128,19 +128,66 @@
         }
 
         .status-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .status-chip {
-            text-align: center;
-            padding: 12px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
             border-radius: var(--radius);
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            transition: all 0.2s;
+            position: relative;
+            cursor: help;
+        }
+
+        .status-chip:hover {
+            transform: translateX(4px);
+        }
+
+        .status-chip[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            z-index: 1000;
+            margin-top: 8px;
+            max-width: 300px;
+            white-space: normal;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .status-chip[data-tooltip]:hover::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid transparent;
+            border-bottom-color: rgba(0, 0, 0, 0.9);
+            margin-top: 4px;
+        }
+
+        .status-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-icon {
+            font-size: 20px;
         }
 
         .status-success {
@@ -153,6 +200,12 @@
             background: rgba(244, 67, 54, 0.1);
             color: var(--error);
             border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+
+        .status-warning {
+            background: rgba(255, 152, 0, 0.1);
+            color: var(--warning);
+            border: 1px solid rgba(255, 152, 0, 0.3);
         }
 
         .commit-info {
@@ -199,8 +252,8 @@
         .task-item {
             display: flex;
             align-items: center;
-            padding: 16px;
-            margin-bottom: 8px;
+            padding: 12px 16px;
+            margin-bottom: 6px;
             background: var(--surface);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -213,10 +266,47 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
+        .task-item.ignored {
+            opacity: 0.5;
+            background: #f5f5f5;
+        }
+
+        .task-item.ignored:hover {
+            opacity: 0.7;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
         .task-icon {
-            margin-right: 16px;
+            margin-right: 12px;
             color: var(--primary);
-            font-size: 24px;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .task-number {
+            min-width: 40px;
+            height: 32px;
+            border-radius: 6px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .task-weight {
+            background: rgba(117, 117, 117, 0.1);
+            color: var(--text-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
             flex-shrink: 0;
         }
 
@@ -227,32 +317,34 @@
 
         .task-title {
             font-weight: 500;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-size: 0.9rem;
         }
 
         .task-meta {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             color: var(--text-light);
         }
 
         .progress-circle {
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            font-size: 0.875rem;
-            margin-left: 16px;
+            font-size: 0.75rem;
+            margin-left: 12px;
             flex-shrink: 0;
         }
 
         .progress-100 { background: rgba(76, 175, 80, 0.15); color: var(--success); }
         .progress-0 { background: rgba(158, 158, 158, 0.15); color: #757575; }
+        .progress-compatibility { background: rgba(255, 152, 0, 0.15); color: var(--warning); }
 
         .loading {
             display: flex;
@@ -335,6 +427,10 @@
     const completed = tasks.filter(t => t.progress === 100).length;
     const percentage = results.score?.percentage || 0;
 
+    // Отладка - выводим данные
+    console.log('All data:', data);
+    console.log('Tasks array:', tasks);
+
     document.title = `Team ${team.toUpperCase()}`;
 
     return `
@@ -355,14 +451,27 @@
                 <div class="status-section">
                     <h3><span class="material-icons">build</span>Build Status</h3>
                     <div class="status-grid">
-                        <div class="status-chip ${results.compiled ? 'status-success' : 'status-error'}">
-                            <div>${results.compiled ? '✓' : '✗'} Compilation</div>
-                        </div>
-                        ${results.compiled ? `
-                            <div class="status-chip ${results.executed ? 'status-success' : 'status-error'}">
-                                <div>${results.executed ? '✓' : '✗'} Execution</div>
+                        <div class="status-chip ${results.compiled ? 'status-success' : 'status-error'}" ${!results.compiled ? 'data-tooltip="Project cannot be compiled due to code errors"' : ''}>
+                            <div class="status-label">
+                                <span class="material-icons status-icon">${results.compiled ? 'check_circle' : 'error'}</span>
+                                <span>Compilation</span>
                             </div>
-                        ` : ''}
+                            <span class="material-icons">${results.compiled ? 'done' : 'close'}</span>
+                        </div>
+                        <div class="status-chip ${results.executed ? 'status-success' : 'status-error'}" ${!results.executed ? 'data-tooltip="Runtime error occurred when starting the project"' : ''}>
+                            <div class="status-label">
+                                <span class="material-icons status-icon">${results.executed ? 'play_circle' : 'error'}</span>
+                                <span>Execution</span>
+                            </div>
+                            <span class="material-icons">${results.executed ? 'done' : 'close'}</span>
+                        </div>
+                        <div class="status-chip ${results.compatibility ? 'status-success' : 'status-warning'}" ${!results.compatibility ? 'data-tooltip="Some tests cannot be executed due to external test compatibility issues"' : ''}>
+                            <div class="status-label">
+                                <span class="material-icons status-icon">${results.compatibility ? 'verified' : 'warning'}</span>
+                                <span>Compatibility</span>
+                            </div>
+                            <span class="material-icons">${results.compatibility ? 'done' : 'priority_high'}</span>
+                        </div>
                     </div>
                 </div>
 
@@ -386,18 +495,34 @@
                     <div class="tasks-hint">Click for details</div>
                 </div>
 
-                ${tasks.map(task => `
-                    <div class="task-item" onclick="openTaskDetails('${task.task_id}')">
+                ${tasks.map(task => {
+      let progressClass = 'progress-0';
+      let progressText = `${task.progress}%`;
+      let taskItemClass = '';
+
+      if (task.progress === 100) {
+        progressClass = 'progress-100';
+      } else if (task.type === 'not_executed' && !results.compatibility) {
+        progressClass = 'progress-compatibility';
+        progressText = '⚠';
+        taskItemClass = 'ignored';
+      } else if (task.type === 'not_executed') {
+        taskItemClass = 'ignored';
+      }
+
+      return `
+                    <div class="task-item ${taskItemClass}" onclick="openTaskDetails('${task.task_id}')">
                         <span class="material-icons task-icon">${getTaskIcon(task.task_id)}</span>
                         <div class="task-content">
                             <div class="task-title">${getTaskTitle(task.task_id)}</div>
-                            <div class="task-meta">${getTaskMeta(task.task_id)}</div>
+                            <div class="task-meta">${getTaskMeta(task.task_id)} ${task.type === 'not_executed' ? '• Not executed' : ''}</div>
                         </div>
-                        <div class="progress-circle ${task.progress === 100 ? 'progress-100' : 'progress-0'}">
-                            ${task.progress}%
+                        <div class="progress-circle ${progressClass}">
+                            ${progressText}
                         </div>
                     </div>
-                `).join('')}
+                `;
+    }).join('')}
             </div>
         </div>
     `;

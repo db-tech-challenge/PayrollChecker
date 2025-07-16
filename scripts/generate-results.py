@@ -6,9 +6,9 @@ from collections import defaultdict
 
 def get_task_weight(task_id):
     task_weights = {
-        '01': 1, '02': 1, '03': 1, '07': 1, '09': 1,
-        '04': 2, '05': 2, '06': 2, '08': 2,
-        '10': 3, '11': 3
+        '01': 1, '02': 1, '03': 1, '04': 2, '05': 2,
+        '06': 2, '07': 1, '08': 2, '09': 1, '10': 3,
+        '11': 3
     }
     return task_weights.get(task_id, 1)
 
@@ -158,22 +158,35 @@ def main():
     print("================== AUTO ===================")
     print(json.dumps(auto_tasks, indent=4))
 
+    # Инициализируем все задачи из task_weights с нулевым прогрессом
     all_tasks_dict = {}
+    task_weights = {
+        '01': 1, '02': 1, '03': 1, '04': 2, '05': 2,
+        '06': 2, '07': 1, '08': 2, '09': 1, '10': 3,
+        '11': 3
+    }
 
+    for task_id, weight in task_weights.items():
+        all_tasks_dict[task_id] = {
+            "task_id": task_id,
+            "progress": 0,
+            "type": "not_executed",
+            "weight": weight
+        }
+
+    # Накладываем результаты автоматических тестов
     for task in auto_tasks:
         all_tasks_dict[task['task_id']] = task
 
+    # Накладываем результаты ручных тестов (приоритет выше)
     for task in manual_tasks:
         task_id = task['task_id']
-        if task_id in all_tasks_dict:
-            all_tasks_dict[task_id] = {
-                "task_id": task_id,
-                "progress": task['progress'],
-                "type": "manual",
-                "weight": get_task_weight(task_id)
-            }
-        else:
-            all_tasks_dict[task_id] = task
+        all_tasks_dict[task_id] = {
+            "task_id": task_id,
+            "progress": task['progress'],
+            "type": "manual",
+            "weight": get_task_weight(task_id)
+        }
 
     all_tasks = sorted(all_tasks_dict.values(), key=lambda t: t['task_id'])
 
@@ -219,7 +232,7 @@ def main():
         "results": {
             "compiled": compilation_success,
             "executed": execution_success,
-            "compatibility": execution_success,
+            "compatibility": compatibility,  # ИСПРАВЛЕНО: было execution_success
             "tasks": all_tasks,
             "score": {
                 "total": score,
