@@ -10,5 +10,8 @@ test-alpha/
 test-beta/
 test-delta/
 test-gamma/
+test-epsilon/
+test-zeta/
+test-omega/
 
 #**/*.html

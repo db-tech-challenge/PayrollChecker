@@ -382,6 +382,9 @@
         .beta { --team-color: #2196f3; }
         .gamma { --team-color: #ff9800; }
         .delta { --team-color: #f44336; }
+        .epsilon { --team-color: #9c27b0; }
+        .zeta { --team-color: #607d8b; }
+        .omega { --team-color: #795548; }
 
         @media (max-width: 968px) {
             .grid { grid-template-columns: 1fr; }
@@ -540,7 +543,7 @@
       await loadTasksData();
       const team = window.location.pathname.split('/').pop().replace('.html', '');
 
-      if (!['alpha', 'beta', 'gamma', 'delta'].includes(team)) throw new Error('Invalid team');
+      if (!['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'omega'].includes(team)) throw new Error('Invalid team');
 
       const response = await fetch(`${team}.json?v=${Date.now()}`);
       if (!response.ok) throw new Error('Failed to fetch data');

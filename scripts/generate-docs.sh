@@ -8,7 +8,7 @@ cp html/_headers docs/_headers
 cp data/tasks.json docs/tasks.json
 cp data/manual-tests.json docs/manual-tests.json
 
-for team in "alpha" "beta" "gamma" "delta" ; do
+for team in "alpha" "beta" "gamma" "delta" "epsilon" "zeta" "omega" ; do
   cp "html/team.html" "docs/${team}.html"
 done
 

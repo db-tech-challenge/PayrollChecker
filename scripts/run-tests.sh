@@ -10,8 +10,8 @@ if [[ -z "$TEAM" ]]; then
     exit 1
 fi
 
-if [[ ! "$TEAM" =~ ^(alpha|beta|gamma|delta)$ ]]; then
-    echo "Error: Invalid team name. Must be one of: alpha, beta, gamma, delta"
+if [[ ! "$TEAM" =~ ^(alpha|beta|gamma|delta|epsilon|zeta|omega)$ ]]; then
+    echo "Error: Invalid team name. Must be one of: alpha, beta, gamma, delta, epsilon, zeta, omega"
     exit 1
 fi
 
