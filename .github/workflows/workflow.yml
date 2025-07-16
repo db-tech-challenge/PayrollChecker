@@ -2,7 +2,7 @@ name: Run Tests for All Teams
 
 on:
   repository_dispatch:
-    types: [alpha, beta, gamma, delta, check-all]
+    types: [alpha, beta, gamma, delta, epsilon, zeta, omega, check-all]
 
   push:
     branches: [ main, master ]
@@ -25,7 +25,7 @@ jobs:
 
     strategy:
       matrix:
-        team: [alpha, beta, gamma, delta]
+        team: [alpha, beta, gamma, delta, epsilon, zeta, omega]
       fail-fast: false
       # Allow all teams to run in parallel
       # max-parallel: removed to enable parallel execution
@@ -123,7 +123,7 @@ jobs:
 
       - name: Summary
         run: |
-          echo "Completed processing for ALL teams: alpha, beta, gamma, delta" >> $GITHUB_STEP_SUMMARY
+          echo "Completed processing for ALL teams: alpha, beta, gamma, delta, epsilon, zeta, omega" >> $GITHUB_STEP_SUMMARY
           echo "All results updated on GitHub Pages" >> $GITHUB_STEP_SUMMARY
 
   deploy-pages:
