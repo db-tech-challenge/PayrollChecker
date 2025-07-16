@@ -127,13 +127,15 @@ def main():
     print(f"Files in {test_dir}:", os.listdir(test_dir) if os.path.exists(test_dir) else "Directory not found")
 
     compile_status = read_status(f'{test_dir}/compile.status')
+    compatibility_status = read_status(f'{test_dir}/test-compile.status')
     run_status     = read_status(f'{test_dir}/run.status')
     test_status    = read_status(f'{test_dir}/test.status')
 
-    print(f"Raw statuses - compile: {compile_status}, run: {run_status}, test: {test_status}")
+    print(f"Raw statuses - compile: {compile_status}, compatibility: {compatibility_status}, run: {run_status}, test: {test_status}")
 
     compilation_success = compile_status == 0
     execution_success = run_status == 0
+    compatibility = compatibility_status == 0
     should_show_tests = compilation_success and execution_success
 
     if not compilation_success:
@@ -150,10 +152,10 @@ def main():
         auto_tasks = []
         manual_tasks = []
 
-    print("============================= MANUAL =============================")
+    print("================= MANUAL ==================")
     print(json.dumps(manual_tasks, indent=4))
 
-    print("============================== AUTO ==============================")
+    print("================== AUTO ===================")
     print(json.dumps(auto_tasks, indent=4))
 
     all_tasks_dict = {}
@@ -217,6 +219,7 @@ def main():
         "results": {
             "compiled": compilation_success,
             "executed": execution_success,
+            "compatibility": execution_success,
             "tasks": all_tasks,
             "score": {
                 "total": score,

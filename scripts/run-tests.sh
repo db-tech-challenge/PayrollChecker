@@ -50,6 +50,11 @@ if git checkout "$TEAM" > checkout.log 2>&1 ; then
   COMPILE_STATUS=$?
   echo $COMPILE_STATUS > compile.status
 
+  echo "Compiling tests..."
+  mvn clean test-compile > test-compile.log 2>&1
+  TEST_COMPILE_STATUS=$?
+  echo $TEST_COMPILE_STATUS > test-compile.status
+
   if [ $COMPILE_STATUS -eq 0 ]; then
     echo "Running app..."
     mvn exec:java -Dexec.mainClass="com.payroll.PayrollApplication" > run.log 2>&1
@@ -80,9 +85,10 @@ fi
 
 echo ""
 echo "═══════════════ TEST RESULTS ═══════════════"
-printf "Compilation Status : %s\n" "$COMPILE_STATUS"
-printf "Run Status         : %s\n" "$RUN_STATUS"
-printf "Test Status        : %s\n" "$TEST_STATUS"
+printf "Compilation Status......... %s\n" "$COMPILE_STATUS"
+printf "Test compilation Status.... %s\n" "$TEST_COMPILE_STATUS"
+printf "Run Status................. %s\n" "$RUN_STATUS"
+printf "Test Status................ %s\n" "$TEST_STATUS"
 echo "════════════════════════════════════════════"
 
 exit 0
