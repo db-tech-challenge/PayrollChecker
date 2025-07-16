@@ -1,8 +1,8 @@
 {
   "team": "alpha",
-  "timestamp": "2025-07-16T16:59:13.706943+00:00",
+  "timestamp": "2025-07-16T18:09:21.954855+00:00",
   "commit": {
-    "hash": "1f4f4fd91a2f6610fa0f6520b57045bcf8c0b2a3",
+    "hash": "3e8cce7de9c83560a44b6b175a6dbfc4707177e4",
     "message": "add branches",
     "author": "apozdniakov",
     "date": "2025-07-16 18:36:12 +0200"
@@ -46,7 +46,7 @@
       },
       {
         "task_id": "06",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 1,
+      "total": 3,
       "max": 20,
-      "percentage": 5
+      "percentage": 15
     }
   }
 }
