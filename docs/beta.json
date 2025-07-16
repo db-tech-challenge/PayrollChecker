@@ -1,18 +1,18 @@
 {
-  "team": "gamma",
-  "timestamp": "2025-07-16T08:24:49.743232+00:00",
+  "team": "beta",
+  "timestamp": "2025-07-16T08:24:54.218455+00:00",
   "commit": {
-    "hash": "8e83bbde79eb50ad27fd5f78091239417d33b09a",
-    "message": "remove tests",
+    "hash": "ca2d15beadd814e2c2f7e477b883ec8e5f7e5ea5",
+    "message": "application logic",
     "author": "apozdniakov",
-    "date": "2025-07-16 00:19:07 +0200"
+    "date": "2025-06-29 21:48:38 +0200"
   },
-  "build_status": "execution_failed",
-  "should_show_tests": false,
+  "build_status": "success",
+  "should_show_tests": true,
   "results": {
     "compiled": true,
-    "executed": false,
-    "compatibility": true,
+    "executed": true,
+    "compatibility": false,
     "tasks": [
       {
         "task_id": "01",
@@ -29,7 +29,7 @@
       {
         "task_id": "03",
         "progress": 0,
-        "type": "not_executed",
+        "type": "manual",
         "weight": 1
       },
       {
@@ -53,7 +53,7 @@
       {
         "task_id": "07",
         "progress": 0,
-        "type": "not_executed",
+        "type": "manual",
         "weight": 1
       },
       {
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 0,
+      "total": 1,
       "max": 20,
-      "percentage": 0
+      "percentage": 5
     }
   }
 }
