@@ -11,16 +11,29 @@ on:
 
   workflow_dispatch:
 
+# Global concurrency - cancel old runs, keep only latest
+concurrency:
+  group: test-pipeline
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
 jobs:
   process-all-teams:
     runs-on: ubuntu-latest
+
+    # Job-level concurrency - cancel old team runs
+    concurrency:
+      group: team-testing-${{ matrix.team }}
+      cancel-in-progress: true
+
     strategy:
       matrix:
         team: [alpha, beta, gamma, delta]
       fail-fast: false
+      # Limit concurrent jobs to 1 (sequential execution)
+      max-parallel: 1
 
     env:
       JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
@@ -46,6 +59,7 @@ jobs:
 
       - name: Run tests for team
         run: |
+          echo "Starting tests for team: ${{ matrix.team }}"
           chmod +x scripts/run-tests.sh
           bash scripts/run-tests.sh ${{ matrix.team }}
 
@@ -63,6 +77,12 @@ jobs:
     needs: process-all-teams
     runs-on: ubuntu-latest
     if: always() && (needs.process-all-teams.result == 'success' || needs.process-all-teams.result == 'failure')
+
+    # Cancel old commit jobs, keep only latest
+    concurrency:
+      group: commit-results
+      cancel-in-progress: true
+
     outputs:
       docs-changed: ${{ steps.commit.outputs.changed }}
 
@@ -100,7 +120,7 @@ jobs:
             echo "No changes to commit"
             echo "changed=false" >> $GITHUB_OUTPUT
           else
-            git commit -m "Update all teams results"
+            git commit -m "Update all teams results - $(date '+%Y-%m-%d %H:%M:%S')"
             git push
             echo "All team results committed and pushed"
             echo "changed=true" >> $GITHUB_OUTPUT
@@ -115,6 +135,11 @@ jobs:
     needs: commit-results
     runs-on: ubuntu-latest
     if: always() && needs.commit-results.outputs.docs-changed == 'true'
+
+    # Cancel old deployments, keep only latest
+    concurrency:
+      group: pages-deployment
+      cancel-in-progress: true
 
     permissions:
       contents: read
