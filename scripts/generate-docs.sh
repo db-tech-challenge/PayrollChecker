@@ -16,6 +16,10 @@ for id in {1..9}; do
   cp "html/task.html" "docs/task-0${id}.html"
 done
 
+for id in {10..11}; do
+  cp "html/task.html" "docs/task-${id}.html"
+done
+
 cp -r target/* docs/
 
 git add docs/*

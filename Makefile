@@ -11,14 +11,9 @@ alpha:
 		https://api.github.com/repos/db-tech-challenge/PayrollChecker/dispatches
 
 test:
-	bash scripts/run-tests.sh alpha
-	@$(PYTHON) scripts/generate-results.py alpha
-	bash scripts/run-tests.sh beta
-	@$(PYTHON) scripts/generate-results.py beta
+
 	bash scripts/run-tests.sh gamma
 	@$(PYTHON) scripts/generate-results.py gamma
-	bash scripts/run-tests.sh delta
-	@$(PYTHON) scripts/generate-results.py delta
 	bash scripts/generate-docs.sh
 	open "http://localhost:63342/payroll-checker/docs/index.html"
 

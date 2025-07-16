@@ -4,6 +4,14 @@ import sys, os, json, xml.etree.ElementTree as ET
 from datetime import datetime, UTC
 from collections import defaultdict
 
+def get_task_weight(task_id):
+    task_weights = {
+        '01': 1, '02': 1, '03': 1, '07': 1, '09': 1,
+        '04': 2, '05': 2, '06': 2, '08': 2,
+        '10': 3, '11': 3
+    }
+    return task_weights.get(task_id, 1)
+
 def read_status(path, default=1):
     try:
         return int(open(path).read().strip())
@@ -70,7 +78,8 @@ def parse_tests(xml_path):
             result_tasks.append({
                 "task_id": task_id,
                 "progress": progress,
-                "type": "automatic"
+                "type": "automatic",
+                "weight": get_task_weight(task_id)
             })
 
         print(f"Parsed {len(result_tasks)} task groups from XML")
@@ -98,7 +107,8 @@ def parse_manual_tests(team, manual_path='data/manual-tests.json'):
             result_tasks.append({
                 "task_id": task_id,
                 "progress": team_data[task_id],
-                "type": "manual"
+                "type": "manual",
+                "weight": get_task_weight(task_id)
             })
 
         print(f"Parsed {len(result_tasks)} manual tasks for team {team}")
@@ -140,6 +150,12 @@ def main():
         auto_tasks = []
         manual_tasks = []
 
+    print("============================= MANUAL =============================")
+    print(json.dumps(manual_tasks, indent=4))
+
+    print("============================== AUTO ==============================")
+    print(json.dumps(auto_tasks, indent=4))
+
     all_tasks_dict = {}
 
     for task in auto_tasks:
@@ -148,12 +164,11 @@ def main():
     for task in manual_tasks:
         task_id = task['task_id']
         if task_id in all_tasks_dict:
-            auto_task = all_tasks_dict[task_id]
-            combined_progress = round((auto_task['progress'] + task['progress']) / 2)
             all_tasks_dict[task_id] = {
                 "task_id": task_id,
-                "progress": combined_progress,
-                "type": "combined"
+                "progress": task['progress'],
+                "type": "manual",
+                "weight": get_task_weight(task_id)
             }
         else:
             all_tasks_dict[task_id] = task
@@ -163,17 +178,20 @@ def main():
     score = 0
 
     if compilation_success and execution_success:
-        score += 10
-        print("Build successful: +10 points")
+        compilation_points = 1
+        score += compilation_points
+        print(f"Build successful: +{compilation_points} points")
     else:
         print("Build failed: +0 points")
 
     for task in all_tasks:
-        task_points = round((task['progress'] / 100) * 10)
+        task_points = round((task['progress'] / 100) * task['weight'])
         score += task_points
-        print(f"Task {task['task_id']}: {task['progress']}% = +{task_points} points")
-
-    score = min(score, 100)
+        task_type_desc = {
+            'automatic': 'auto',
+            'manual': 'manual'
+        }.get(task['type'], task['type'])
+        print(f"Task {task['task_id']} ({task_type_desc}, weight {task['weight']}): {task['progress']}% = +{task_points} points")
 
     try:
         os.chdir(test_dir)
@@ -202,8 +220,8 @@ def main():
             "tasks": all_tasks,
             "score": {
                 "total": score,
-                "max": 100,
-                "percentage": score
+                "max": 20,
+                "percentage": round((score / 20) * 100)
             }
         }
     }

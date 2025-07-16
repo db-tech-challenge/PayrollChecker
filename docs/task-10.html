@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title id="pageTitle">Task Details - Payroll Calculator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f4f5f7;
+            padding: 20px;
+            line-height: 1.5;
+            color: #172b4d;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0052cc;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 3px;
+            text-decoration: none;
+            margin-bottom: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #0065ff;
+        }
+
+        .task-card {
+            background: white;
+            border-radius: 3px;
+            box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25);
+            margin-bottom: 16px;
+            border: 1px solid #dfe1e6;
+        }
+
+        .task-header {
+            padding: 32px 32px 24px 32px;
+            border-bottom: 1px solid #dfe1e6;
+        }
+
+        .task-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .task-key {
+            background: #dfe1e6;
+            color: #5e6c84;
+            padding: 6px 10px;
+            border-radius: 3px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .task-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #5e6c84;
+            font-weight: 500;
+        }
+
+        .type-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .type-icon.requirement { background: #0052cc; }
+        .type-icon.bug { background: #de350b; }
+        .type-icon.task { background: #0052cc; }
+        .type-icon.story { background: #00875a; }
+
+        .priority-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .priority-icon {
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .priority-critical .priority-icon { color: #de350b; }
+        .priority-urgent .priority-icon { color: #ff8b00; }
+        .priority-normal .priority-icon { color: #0052cc; }
+
+        .task-title {
+            font-size: 28px;
+            font-weight: 500;
+            color: #172b4d;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .task-summary {
+            color: #5e6c84;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .task-content {
+            padding: 32px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #172b4d;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-block {
+            background: #f4f5f7;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content-block.email {
+            border-left: 4px solid #0052cc;
+            background: #deebff;
+        }
+
+        .content-block.ticket {
+            border-left: 4px solid #ff8b00;
+            background: #fff4e6;
+        }
+
+        .content-block.support {
+            border-left: 4px solid #de350b;
+            background: #ffebe6;
+        }
+
+        .content-block.requirement {
+            border-left: 4px solid #0052cc;
+            background: #e6fcff;
+        }
+
+        .block-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #172b4d;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .block-subject {
+            font-size: 18px;
+            font-weight: 600;
+            color: #172b4d;
+            margin-bottom: 12px;
+        }
+
+        .block-meta {
+            font-size: 13px;
+            color: #5e6c84;
+            margin-bottom: 16px;
+        }
+
+        .block-content {
+            color: #172b4d;
+            white-space: pre-line;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .jira-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            background: white;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .jira-table th {
+            background: #f4f5f7;
+            color: #5e6c84;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dfe1e6;
+        }
+
+        .jira-table td {
+            padding: 12px;
+            border-bottom: 1px solid #dfe1e6;
+            color: #172b4d;
+        }
+
+        .jira-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .scope-list {
+            background: white;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            padding: 16px;
+        }
+
+        .scope-list ul {
+            margin-left: 20px;
+        }
+
+        .scope-list li {
+            margin-bottom: 8px;
+            color: #172b4d;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #5e6c84;
+            font-size: 16px;
+        }
+
+        .error {
+            background: #ffebe6;
+            color: #de350b;
+            padding: 24px;
+            border-radius: 3px;
+            text-align: center;
+            margin: 20px 0;
+            border: 1px solid #ffbdad;
+        }
+
+        .description-text {
+            color: #172b4d;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+
+        .email-header {
+            background: #f4f5f7;
+            padding: 16px;
+            border-radius: 3px;
+            margin-bottom: 16px;
+            border: 1px solid #dfe1e6;
+        }
+
+        .email-field {
+            display: flex;
+            margin-bottom: 6px;
+        }
+
+        .email-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .email-field-label {
+            font-weight: 700;
+            color: #5e6c84;
+            width: 100px;
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+
+        .email-field-value {
+            color: #172b4d;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .task-header, .task-content {
+                padding: 16px;
+            }
+
+            .task-title {
+                font-size: 20px;
+            }
+
+            .task-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div id="loading" class="loading">
+        Loading task details...
+    </div>
+
+    <div id="error" class="error" style="display: none;">
+        Task not found
+    </div>
+
+    <div id="taskContent" style="display: none;">
+        <!-- Task content will be populated here -->
+    </div>
+</div>
+
+<script>
+  function getTaskId() {
+    const path = window.location.pathname;
+    const filename = path.split('/').pop();
+    return filename.replace('task-', '').replace('.html', '');
+  }
+
+  function formatDescription(text) {
+    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  }
+
+  function getTypeIcon(type) {
+    const icons = {
+      'requirement': 'R',
+      'email': 'E',
+      'ticket': 'T',
+      'support_note': 'S'
+    };
+    return icons[type] || 'T';
+  }
+
+  function getTypeLabel(type) {
+    const labels = {
+      'requirement': 'Requirement',
+      'email': 'Bug',
+      'ticket': 'Story',
+      'support_note': 'Bug'
+    };
+    return labels[type] || 'Task';
+  }
+
+  function getPriorityIcon(priority) {
+    if (priority === 'critical') return '🔴';
+    if (priority === 'urgent') return '🟠';
+    return '🔵';
+  }
+
+  function renderTaskContent(task, taskId) {
+    const typeClass = task.type || 'task';
+    const typeIcon = getTypeIcon(task.type);
+    const typeLabel = getTypeLabel(task.type);
+    const priorityIcon = getPriorityIcon(task.priority);
+
+    let contentHtml = `
+      <div class="task-card">
+        <div class="task-header">
+          <div class="task-meta">
+            <div class="task-key">TASK-${taskId.padStart(2, '0')}</div>
+            <div class="task-type">
+              <div class="type-icon ${typeClass}">${typeIcon}</div>
+              ${typeLabel}
+            </div>
+            <div class="priority-badge priority-${task.priority}">
+              <span class="priority-icon">${priorityIcon}</span>
+              ${task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+            </div>
+          </div>
+          <h1 class="task-title">${task.title}</h1>
+          <div class="task-summary">Payroll System Issue</div>
+        </div>
+
+        <div class="task-content">
+    `;
+
+    // Description section
+    contentHtml += `
+      <div class="section">
+        <div class="section-title">📝 Description</div>
+    `;
+
+    if (task.type === 'email') {
+      contentHtml += `
+        <div class="content-block email">
+          <div class="block-header">📧 Email Report</div>
+          ${task.subject ? `
+            <div class="email-header">
+              <div class="email-field">
+                <div class="email-field-label">Subject:</div>
+                <div class="email-field-value">${task.subject}</div>
+              </div>
+              ${task.sender ? `
+                <div class="email-field">
+                  <div class="email-field-label">From:</div>
+                  <div class="email-field-value">${task.sender}</div>
+                </div>
+              ` : ''}
+            </div>
+          ` : ''}
+          <div class="block-content">${formatDescription(task.description)}</div>
+        </div>
+      `;
+    } else if (task.type === 'ticket') {
+      contentHtml += `
+        <div class="content-block ticket">
+          <div class="block-header">🎫 ${task.ticket || 'Support Ticket'}</div>
+          ${task.subject ? `<div class="block-subject">${task.subject}</div>` : ''}
+          <div class="block-content">${formatDescription(task.description)}</div>
+        </div>
+      `;
+    } else if (task.type === 'support_note') {
+      contentHtml += `
+        <div class="content-block support">
+          <div class="block-header">🆘 Critical Issue Report</div>
+          <div class="email-header">
+            <div class="email-field">
+              <div class="email-field-label">Employee:</div>
+              <div class="email-field-value">${task.employee}</div>
+            </div>
+            <div class="email-field">
+              <div class="email-field-label">Department:</div>
+              <div class="email-field-value">${task.department}</div>
+            </div>
+            <div class="email-field">
+              <div class="email-field-label">Issue Type:</div>
+              <div class="email-field-value">${task.issue}</div>
+            </div>
+          </div>
+          <div class="block-content">${formatDescription(task.description)}</div>
+        </div>
+      `;
+    } else if (task.type === 'requirement') {
+      contentHtml += `
+        <div class="content-block requirement">
+          <div class="block-header">⚙️ System Requirement</div>
+          <div class="block-content">${formatDescription(task.description)}</div>
+        </div>
+      `;
+    } else {
+      contentHtml += `
+        <div class="description-text">${formatDescription(task.description)}</div>
+      `;
+    }
+
+    contentHtml += `</div>`;
+
+    // Additional sections
+    if (task.details && task.details.taxClasses) {
+      contentHtml += `
+        <div class="section">
+          <div class="section-title">📊 Tax Class Configuration</div>
+          <table class="jira-table">
+            <thead>
+              <tr>
+                <th>Tax Class</th>
+                <th>Description</th>
+                <th>Approx. Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${task.details.taxClasses.map(tc =>
+        `<tr>
+                  <td><strong>${tc.class}</strong></td>
+                  <td>${tc.description}</td>
+                  <td>${tc.rate}</td>
+                </tr>`
+      ).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    if (task.details && task.details.scope) {
+      contentHtml += `
+        <div class="section">
+          <div class="section-title">🎯 Acceptance Criteria</div>
+          <div class="scope-list">
+            <ul>
+              ${task.details.scope.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      `;
+    }
+
+    if (task.emails) {
+      contentHtml += `
+        <div class="section">
+          <div class="section-title">📧 Related Reports</div>
+      `;
+      task.emails.forEach((email, index) => {
+        contentHtml += `
+          <div class="content-block email">
+            <div class="block-header">📧 Report ${index + 1}</div>
+            <div class="email-header">
+              <div class="email-field">
+                <div class="email-field-label">From:</div>
+                <div class="email-field-value">${email.sender}</div>
+              </div>
+              <div class="email-field">
+                <div class="email-field-label">Subject:</div>
+                <div class="email-field-value">${email.subject}</div>
+              </div>
+            </div>
+            <div class="block-content">${formatDescription(email.content)}</div>
+          </div>
+        `;
+      });
+      contentHtml += `</div>`;
+    }
+
+    contentHtml += `
+        </div>
+      </div>
+    `;
+
+    return contentHtml;
+  }
+
+  async function loadTaskDetails() {
+    try {
+      const taskId = getTaskId();
+
+      const timestamp = Date.now();
+      const response = await fetch(`tasks.json?v=${timestamp}`);
+
+      if (!response.ok) {
+        throw new Error('Failed to load tasks data');
+      }
+
+      const tasksData = await response.json();
+      const task = tasksData[taskId];
+
+      if (!task) {
+        throw new Error('Task not found');
+      }
+
+      document.getElementById('pageTitle').textContent = `TASK-${taskId.padStart(2, '0')} - ${task.title}`;
+
+      const taskContent = document.getElementById('taskContent');
+      taskContent.innerHTML = renderTaskContent(task, taskId);
+
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('taskContent').style.display = 'block';
+
+    } catch (error) {
+      console.error('Error loading task details:', error);
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error').style.display = 'block';
+    }
+  }
+
+  loadTaskDetails();
+</script>
+</body>
+</html>
