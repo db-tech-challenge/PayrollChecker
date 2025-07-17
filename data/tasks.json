@@ -81,8 +81,8 @@
     "priority": "urgent",
     "type": "email",
     "subject": "12 hours overtime didn't get what expected",
-    "sender": "Juergen Trub",
-    "description": "Dear Payroll Calculator Support team,\n\nI hope this message finds you well. My name is Juergen Trub, and I am writing to bring to your attention a discrepancy in my recent billing statement regarding overtime payments.\n\nOn May 5th, I worked an additional 12 hours due to an incident in production. However, upon reviewing my current billing statement, I noticed that the overtime payments are less than expected. This discrepancy is causing me significant concern and frustration.\n\nI kindly request that you recalculate my payment for the overtime hours worked and rectify this issue as soon as possible. Please provide me with an updated statement reflecting the correct amount.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n\nLudwina Gerlach"
+    "sender": "Ludwina Gerlach",
+    "description": "Dear Payroll Calculator Support team,\n\nI hope this message finds you well. My name is Ludwina Gerlach, and I am writing to bring to your attention a discrepancy in my recent billing statement regarding overtime payments.\n\nOn June 5th, I worked an additional 12 hours due to an incident in production. However, upon reviewing my current billing statement, I noticed that the overtime payments are less than expected. This discrepancy is causing me significant concern and frustration.\n\nI kindly request that you recalculate my payment for the overtime hours worked and rectify this issue as soon as possible. Please provide me with an updated statement reflecting the correct amount.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n\nLudwina Gerlach"
   },
   "08": {
     "title": "Missing Overtime Payments - Multiple Employees",
@@ -114,20 +114,37 @@
     "description": "I am extremely upset and disappointed to find that my salary is missing from my account this month. This situation has caused me significant harm and stress. I depend on my salary to cover essential expenses, and this oversight has left me in a precarious financial position. I have bills to pay, and this delay has already resulted in late fees and penalties. The anxiety and frustration this has caused me are overwhelming, and I need this issue resolved immediately.\n\nThe harm caused by this negligence is both financial and emotional. As a dedicated employee, I expect my salary to be deposited on time. The lack of communication and urgency in addressing this issue is unacceptable. I demand that my salary be deposited into my account without any further delay, and I expect a formal apology for the distress and inconvenience caused. If this issue is not resolved promptly, I will be forced to take further action."
   },
   "10": {
-    "title": "Salary Transfer Not Triggered in Cologne on July 9",
+    "title": "Missing Salary Payments - Multiple Employees",
     "priority": "urgent",
     "type": "ticket",
-    "ticket": "PRCALC-31102",
-    "subject": "Missing Payment Execution – Cologne",
-    "description": "Employees in the Cologne office reported not receiving their salary on July 9 as scheduled.\n\nUpon reviewing internal logs, it appears that no payment process was initiated at all for that day. The incident is limited to this specific location, and there was no prior notice of delay or rescheduling. For all other locations, salary execution occurred normally.\n\nPlease investigate why the payment run was skipped for Cologne and evaluate whether the system behaves consistently across regions in such cases."
+    "ticket": "PRCALC-29510",
+    "subject": "June Salary Not Received",
+    "description": "Multiple employees reported not receiving their salary for June. The issue appears to be localized and not affecting the entire company. Please investigate what may have caused the payment to be skipped and whether there are edge cases in scheduling logic that require adjustment.",
+    "emails": [
+      {
+        "sender": "Franz Zorbach",
+        "subject": "Salary Not Received",
+        "content": "Hi IT Support,\n\nI noticed that I haven’t received my salary for June. Could you please check if there’s an issue on your end or direct me to the right contact to resolve this?\n\nThanks,\nFranz Zorbach"
+      },
+      {
+        "sender": "Elsa Mielcarek",
+        "subject": "Kindly Checking on Salary Payment",
+        "content": "Dear IT Support Team,\n\nI hope you’re doing well! I just wanted to kindly check whether there’s been any issue with the June salary payment, as I haven’t seen it reflected in my account yet.\nIf you could take a quick look or let me know who I should reach out to, I’d really appreciate it!\n\nWarm regards,\nElsa Mielcarek"
+      },
+      {
+        "sender": "Rosalie Schenk",
+        "subject": "Still No Salary – What’s Going On?",
+        "content": "Hi,\n\nThis is getting frustrating. It’s already past the usual payday, and my salary hasn’t arrived. I expect this to be sorted out immediately – please tell me what’s causing the delay and when I can expect payment.\n\nWaiting for a prompt response,\n\nRosalie Schenk"
+      }
+    ]
   },
   "11": {
-    "title": "Inconsistent Salary Breakdown for Selected Employees",
+    "title": "Salary Breakdown Not Visible in Payslip",
     "priority": "normal",
     "type": "ticket",
-    "ticket": "PRCALC-29844",
-    "subject": "Verify Salary Calculation Consistency for June",
-    "description": "We noticed that the salary report for June includes only a total amount for all employees, without further breakdown. While this is acceptable in most cases, for some employees we would appreciate additional information that clarifies how the final amount was calculated.\n\nThis applies in particular to:\n- Adeline Meyer\n- Ellinor Weiß\n- Asta Hoffmann\n\nPlease review whether the current implementation allows tracing the underlying logic for these cases and consider adjustments if needed to improve clarity and transparency in salary calculation."
+    "ticket": "PRCALC-35624",
+    "subject": "Lack of Salary Component Details in Payslip",
+    "description": "Several users have requested a more transparent view of their payslips, specifically asking for a detailed breakdown of the total salary amount. Currently, the payslip only displays the final net or gross amount, which makes it difficult for employees to understand how the figure is composed — e.g., base salary, bonuses, overtime, deductions, etc.\n\nWe’ve received this feedback through multiple channels, and improving this aspect would increase user satisfaction and reduce the number of HR-related inquiries.\n\n**Acceptance Criteria:**\n• Payslip includes a clear itemized breakdown of all salary components.\n• Each component (e.g., base pay, bonus, deductions) is labeled and shows the corresponding amount.\n• No changes to tax reporting or backend salary calculations — purely a presentation-level update."
   }
 
 }
