@@ -1,11 +1,11 @@
 {
   "team": "omega",
-  "timestamp": "2025-07-17T17:45:39.128546+00:00",
+  "timestamp": "2025-07-17T17:46:59.573212+00:00",
   "commit": {
-    "hash": "520d250adef6f903b886651a6e0b9c0bb07bc1b2",
-    "message": "fix-06-layoff",
+    "hash": "2fefab1f810193dab51054b35c8372d0bd5cd71d",
+    "message": "fix-10-queen",
     "author": "apozdniakov",
-    "date": "2025-07-15 21:29:52 +0200"
+    "date": "2025-07-15 23:18:56 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -58,19 +58,19 @@
       },
       {
         "task_id": "08",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
       {
         "task_id": "09",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
       {
         "task_id": "10",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 3
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 14,
+      "total": 20,
       "max": 20,
-      "percentage": 70
+      "percentage": 100
     }
   }
 }
