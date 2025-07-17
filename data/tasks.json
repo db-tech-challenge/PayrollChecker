@@ -10,22 +10,22 @@
     "priority": "urgent",
     "type": "email",
     "subject": "Urgent Payroll Issue for User ID 24778715",
-    "description": "We are writing to formally raise a complaint regarding a critical payroll issue identified in the reconciliation report for the DB payroll department. It has come to our attention that there is no payroll record generated for a specific user.\n\nThis discrepancy, if not addressed immediately, will result in the user not receiving their due payment. The absence of a payroll record for this user is a matter of urgent concern. Failure to resolve this issue promptly could lead to a negative experience for the user and expose the organization to potential legal action.\n\n**Action Required:** Please investigate and rectify this issue as a matter of priority. We request immediate attention and resolution to ensure the user receives their payment without further delay."
+    "description": "We are writing to formally raise a complaint regarding a critical payroll issue identified in the reconciliation report for the DB payroll department. It has come to our attention that there is no payroll record generated for the user with ID 24778715. This discrepancy, if not addressed immediately, will result in the user not receiving their due payment.\n\nThe absence of a payroll record for this user is a matter of urgent concern. Failure to resolve this issue promptly could lead to a negative experience for the user and expose the organization to potential legal action. We request immediate attention and resolution to ensure the user receives their payment without further delay.\n\nAction Required: Please investigate and rectify this issue as a matter of priority. We expect a prompt response and resolution to avoid any further complications. Thank you for your immediate attention to this matter."
   },
   "02": {
-    "title": "Duplicate Salary Payment",
+    "title": "Herr Schröder Received Salary Twice",
     "priority": "urgent",
     "type": "ticket",
     "ticket": "PRCALC-18556",
-    "description": "**Employee received his salary twice.**\n\nAn employee received his salary twice for one month. Please urgently check why it happened and fix the issue.\n\nOur operation team has fixed it and the duplicated transaction was cancelled, but we don't want this to happen again.\n\nThis indicates there's a bug in the payroll system that's causing duplicate payments to be generated for certain employees. The system should ensure each employee receives exactly one payment per period."
+    "description": "Herr Schröder received his salary twice for the one month.\nPlease urgently check why it happened and fix an issue.\n\nOur operation team has fix it and duplicated transaction was cancelled,\nbut we don't want to get this again."
   },
   "03": {
-    "title": "Missing Overtime Payment",
+    "title": "Missing overtime payment",
     "priority": "normal",
     "type": "email",
-    "subject": "Overtime for Previous Month",
+    "subject": "Overtime for the current Month",
     "sender": "Franz Josef Hartmann",
-    "description": "Dear Payroll Calculator Support Team,\n\nI hope this message finds you well.\n\nI am writing to bring to your attention an issue regarding my overtime payment for the month of April. Despite having logged the overtime hours as required, I have not received the corresponding payment.\n\nCould you please investigate this matter and ensure that the payment is processed at the earliest convenience? I have attached the relevant timesheets for your reference.\n\nThank you for your prompt attention to this matter. I look forward to your swift resolution.\n\nBest regards,\nFranz Josef Hartmann"
+    "description": "Dear Payroll Calculator Support Team,\n\nI hope this message finds you well.\n\nI am writing to bring to your attention an issue regarding my overtime payment for the month of July. Despite having logged the overtime hours as required, I have not received the corresponding payment.\n\nCould you please investigate this matter and ensure that the payment is processed at the earliest convenience? I have attached the relevant timesheets for your reference.\n\nThank you for your prompt attention to this matter. I look forward to your swift resolution.\n\nBest regards,\nFranz Josef Hartmann"
   },
   "04": {
     "title": "Tax Class Handling Implementation",
@@ -66,7 +66,7 @@
     "type": "ticket",
     "ticket": "PRCALC-27919",
     "subject": "Fix Payroll Calculation to Accurately Prorate Based on Days Worked per Month",
-    "description": "The current implementation of the Payroll Calculator does not properly account for the number of days worked in relation to the total number of working days in a given month. This leads to incorrect salary proration, especially in cases where employees join, leave, or take unpaid leave during the month.\n\nThese discrepancies frequently result in complaints from employees, which have to be manually investigated and corrected by payroll staff. This not only consumes significant administrative time but also negatively impacts employee trust and satisfaction with the payroll process.\n\nAddressing this issue will ensure that the calculator determines the correct number of working days in each month (excluding weekends and public holidays where applicable) and uses this to prorate salary and deductions accurately.\n\n**Expected Impact:** Fixing this would reduce the number of manual corrections required, saving approximately 15 minutes per case. With an estimated 30–40 such cases per payroll cycle, this change could save up to 10 hours per month for the payroll team. More importantly, it would also save employees time and frustration, helping maintain trust and morale by ensuring their compensation is calculated fairly the first time."
+    "description": "The current implementation of the Payroll Calculator does not properly account for the number of days worked in relation to the total number of working days in a given month. This leads to incorrect salary proration, especially in cases where employees join, leave, or take unpaid leave during the month.\n\nThese discrepancies frequently result in complaints from employees, which have to be manually investigated and corrected by payroll staff. This not only consumes significant administrative time but also negatively impacts employee trust and satisfaction with the payroll process.\n\nAddressing this issue will ensure that the calculator determines the correct number of working days in each month (excluding weekends and public holidays where applicable) and uses this to prorate salary and deductions accurately.\n\nFixing this would reduce the number of manual corrections required, saving approximately 15 minutes per case. With an estimated 30–40 such cases per payroll cycle, this change could save up to 10 hours per month for the payroll team. More importantly, it would also save employees time and frustration, helping maintain trust and morale by ensuring their compensation is calculated fairly the first time."
   },
   "06": {
     "title": "Remove Terminated Employee",
@@ -74,7 +74,7 @@
     "type": "ticket",
     "ticket": "PRCALC-11663",
     "subject": "Persons who already are not working with us got salary",
-    "description": "The salary calculator prepared the salary transaction for individuals who are not working with us anymore. Please, check and fix the issue.\n\n**Example:** Former employee still receiving payments\n\nThis indicates that the payroll system is not properly filtering out terminated employees from payroll processing. The system should only process payments for currently active employees."
+    "description": "The salary calculator prepared the salary transaction for individuals who are not working with us anymore.\nPlease, check and fix an issue.\nExample : Henryk Jüttner"
   },
   "07": {
     "title": "Incorrect Overtime Calculation",
@@ -82,7 +82,7 @@
     "type": "email",
     "subject": "12 hours overtime didn't get what expected",
     "sender": "Juergen Trub",
-    "description": "Dear Payroll Calculator Support team,\n\nI hope this message finds you well. My name is Juergen Trub, and I am writing to bring to your attention a discrepancy in my recent billing statement regarding overtime payments.\n\nOn May 5th, I worked an additional **12 hours** due to an incident in production. However, upon reviewing my current billing statement, I noticed that the overtime payments are less than expected. This discrepancy is causing me significant concern and frustration.\n\nI kindly request that you recalculate my payment for the overtime hours worked and rectify this issue as soon as possible. Please provide me with an updated statement reflecting the correct amount.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\nLudwina Gerlach"
+    "description": "Dear Payroll Calculator Support team,\n\nI hope this message finds you well. My name is Juergen Trub, and I am writing to bring to your attention a discrepancy in my recent billing statement regarding overtime payments.\n\nOn May 5th, I worked an additional 12 hours due to an incident in production. However, upon reviewing my current billing statement, I noticed that the overtime payments are less than expected. This discrepancy is causing me significant concern and frustration.\n\nI kindly request that you recalculate my payment for the overtime hours worked and rectify this issue as soon as possible. Please provide me with an updated statement reflecting the correct amount.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n\nLudwina Gerlach"
   },
   "08": {
     "title": "Missing Overtime Payments - Multiple Employees",
@@ -95,7 +95,7 @@
       {
         "sender": "Miss Schenk",
         "subject": "Assistance Required with Overtime Payment for Last Month",
-        "content": "Dear Tech Support Team,\n\nI hope this message finds you well.\n\nI am writing to seek your assistance regarding an issue with my salary payment for last month. Upon reviewing the amount credited to my account, I noticed that it only reflects my base salary and does not include the overtime payment I am entitled to.\n\nCould you please look into this matter and help ensure that the overtime payment is processed correctly? Your attention to this issue would be greatly appreciated.\n\nThank you for your support.\n\nBest regards,\nMiss Schenk"
+        "content": "Dear Tech Support Team,\n\nI hope this message finds you well.\n\nI am writing to seek your assistance regarding an issue with my salary payment for last month. Upon reviewing the amount credited to my account, I noticed that it only reflects my base salary and does not include the overtime payment I am entitled to.\n\nCould you please look into this matter and help ensure that the overtime payment is processed correctly? Your  attention to this issue would be greatly appreciated.\n\nThank you for your support.\n\nBest regards,\nMiss Schenk"
       },
       {
         "sender": "Mr. Graf",
@@ -111,24 +111,23 @@
     "employee": "Joseph Stahr",
     "department": "Legal and Compliance",
     "issue": "Missing salary in account",
-    "description": "I am extremely upset and disappointed to find that my salary is missing from my account this month. This situation has caused me significant harm and stress. I depend on my salary to cover essential expenses, and this oversight has left me in a precarious financial position.\n\nI have bills to pay, and this delay has already resulted in late fees and penalties. The anxiety and frustration this has caused me are overwhelming, and I need this issue resolved immediately.\n\nThe harm caused by this negligence is both financial and emotional. As a dedicated employee, I expect my salary to be deposited on time. The lack of communication and urgency in addressing this issue is unacceptable.\n\n**Demands:** I demand that my salary be deposited into my account without any further delay, and I expect a formal apology for the distress and inconvenience caused. If this issue is not resolved promptly, I will be forced to take further action."
+    "description": "I am extremely upset and disappointed to find that my salary is missing from my account this month. This situation has caused me significant harm and stress. I depend on my salary to cover essential expenses, and this oversight has left me in a precarious financial position. I have bills to pay, and this delay has already resulted in late fees and penalties. The anxiety and frustration this has caused me are overwhelming, and I need this issue resolved immediately.\n\nThe harm caused by this negligence is both financial and emotional. As a dedicated employee, I expect my salary to be deposited on time. The lack of communication and urgency in addressing this issue is unacceptable. I demand that my salary be deposited into my account without any further delay, and I expect a formal apology for the distress and inconvenience caused. If this issue is not resolved promptly, I will be forced to take further action."
   },
   "10": {
-    "title": "Queen",
+    "title": "Salary Transfer Not Triggered in Cologne on July 9",
     "priority": "urgent",
-    "type": "support_note",
-    "employee": "-",
-    "department": "-",
-    "issue": "Queen",
-    "description": "description will be added"
+    "type": "ticket",
+    "ticket": "PRCALC-31102",
+    "subject": "Missing Payment Execution – Cologne",
+    "description": "Employees in the Cologne office reported not receiving their salary on July 9 as scheduled.\n\nUpon reviewing internal logs, it appears that no payment process was initiated at all for that day. The incident is limited to this specific location, and there was no prior notice of delay or rescheduling. For all other locations, salary execution occurred normally.\n\nPlease investigate why the payment run was skipped for Cologne and evaluate whether the system behaves consistently across regions in such cases."
   },
   "11": {
-    "title": "Report",
-    "priority": "urgent",
-    "type": "support_note",
-    "employee": "-",
-    "department": "-",
-    "issue": "Report",
-    "description": "description will be added"
+    "title": "Inconsistent Salary Breakdown for Selected Employees",
+    "priority": "normal",
+    "type": "ticket",
+    "ticket": "PRCALC-29844",
+    "subject": "Verify Salary Calculation Consistency for June",
+    "description": "We noticed that the salary report for June includes only a total amount for all employees, without further breakdown. While this is acceptable in most cases, for some employees we would appreciate additional information that clarifies how the final amount was calculated.\n\nThis applies in particular to:\n- Adeline Meyer\n- Ellinor Weiß\n- Asta Hoffmann\n\nPlease review whether the current implementation allows tracing the underlying logic for these cases and consider adjustments if needed to improve clarity and transparency in salary calculation."
   }
+
 }
