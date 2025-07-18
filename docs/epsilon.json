@@ -1,11 +1,11 @@
 {
   "team": "epsilon",
-  "timestamp": "2025-07-18T11:22:10.646073+00:00",
+  "timestamp": "2025-07-18T11:25:39.826965+00:00",
   "commit": {
-    "hash": "2b2901604a9a60807b73eaabb44f63b8d1c39986",
-    "message": "possible ticket 11 fix again",
-    "author": "Merthan Erdem",
-    "date": "2025-07-18 13:13:03 +0200"
+    "hash": "1c7930c724d037bf97dd487e1eae68db0544192c",
+    "message": "Merge branch 'epsilon' of https://github.com/db-tech-challenge/PayrollCalculator into epsilon",
+    "author": "nikita.filenko",
+    "date": "2025-07-18 13:23:46 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -28,7 +28,7 @@
       },
       {
         "task_id": "03",
-        "progress": 0,
+        "progress": 100,
         "type": "manual",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 16,
+      "total": 17,
       "max": 20,
-      "percentage": 80
+      "percentage": 85
     }
   }
 }
