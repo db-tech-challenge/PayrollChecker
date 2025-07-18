@@ -1,11 +1,11 @@
 {
   "team": "beta",
-  "timestamp": "2025-07-18T10:00:03.250435+00:00",
+  "timestamp": "2025-07-18T10:03:15.176389+00:00",
   "commit": {
-    "hash": "e25e1bc8a2c9d4444f99dcb478ac32335e938f45",
-    "message": "Issue 9 solved \"Missing Salary\". There was one more semicolon than should be.",
-    "author": "Jan Kalisch",
-    "date": "2025-07-18 11:58:21 +0200"
+    "hash": "a5345846f9464f3de93f08166816213118e918de",
+    "message": "Update main_data.csv",
+    "author": "ShwetaChemate",
+    "date": "2025-07-18 12:02:40 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -16,7 +16,7 @@
     "tasks": [
       {
         "task_id": "01",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 2,
+      "total": 3,
       "max": 20,
-      "percentage": 10
+      "percentage": 15
     }
   }
 }
