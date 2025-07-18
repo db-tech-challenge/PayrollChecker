@@ -1,6 +1,6 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-18T11:20:56.564737+00:00",
+  "timestamp": "2025-07-18T11:22:15.574135+00:00",
   "commit": {
     "hash": "aa947ca8f72da05b749f8da44854ca05a4527336",
     "message": "added tax factor for employees : Task-4",
@@ -28,7 +28,7 @@
       },
       {
         "task_id": "03",
-        "progress": 0,
+        "progress": 100,
         "type": "manual",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 8,
+      "total": 9,
       "max": 20,
-      "percentage": 40
+      "percentage": 45
     }
   }
 }
