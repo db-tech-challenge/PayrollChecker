@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-18T10:39:34.280973+00:00",
+  "timestamp": "2025-07-18T10:45:06.287913+00:00",
   "commit": {
-    "hash": "a3707daf270ecc3e40748b9e1bf467007cc0483b",
-    "message": "task 2: redo, reclaim value",
-    "author": "Dowiw",
-    "date": "2025-07-18 12:18:31 +0200"
+    "hash": "21c1ea19577aeb664e0d9a9f3037c20ff20a5cea",
+    "message": "modified overtime calculation removed overtime_coefficient: Task-7",
+    "author": "Baris Algun",
+    "date": "2025-07-18 12:43:31 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -52,7 +52,7 @@
       },
       {
         "task_id": "07",
-        "progress": 0,
+        "progress": 100,
         "type": "manual",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 4,
+      "total": 5,
       "max": 20,
-      "percentage": 20
+      "percentage": 25
     }
   }
 }

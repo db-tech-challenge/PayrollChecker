@@ -1,11 +1,11 @@
 {
   "team": "epsilon",
-  "timestamp": "2025-07-18T10:39:34.872745+00:00",
+  "timestamp": "2025-07-18T10:45:06.732019+00:00",
   "commit": {
-    "hash": "3ae7f177702743cf53f5803dcd719247a1663384",
-    "message": "If you continue to input incorrect data I won\u2019t give you money",
-    "author": "nikita.filenko",
-    "date": "2025-07-18 12:37:53 +0200"
+    "hash": "ece4e322ff0416c836c0bac1cb8b38972e78bd1e",
+    "message": "ticket 5 fix",
+    "author": "Merthan Erdem",
+    "date": "2025-07-18 12:43:14 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -40,7 +40,7 @@
       },
       {
         "task_id": "05",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 12,
+      "total": 14,
       "max": 20,
-      "percentage": 60
+      "percentage": 70
     }
   }
 }
