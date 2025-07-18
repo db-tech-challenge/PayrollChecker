@@ -1,11 +1,11 @@
 {
   "team": "epsilon",
-  "timestamp": "2025-07-18T10:03:17.167223+00:00",
+  "timestamp": "2025-07-18T10:06:28.503890+00:00",
   "commit": {
-    "hash": "c92e1b3964fe66d2a9efef1067ca226e994e2a85",
-    "message": "Pay the colonge holiday guys",
+    "hash": "7a81df6e0bb940860fdfb8b1204ec5bf191bedc3",
+    "message": "Fix accidentaly wrong date format",
     "author": "nikita.filenko",
-    "date": "2025-07-18 12:02:24 +0200"
+    "date": "2025-07-18 12:05:24 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -70,7 +70,7 @@
       },
       {
         "task_id": "10",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 3
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 5,
+      "total": 8,
       "max": 20,
-      "percentage": 25
+      "percentage": 40
     }
   }
 }
