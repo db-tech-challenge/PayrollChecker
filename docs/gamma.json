@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-18T11:17:51.181637+00:00",
+  "timestamp": "2025-07-18T11:20:56.564737+00:00",
   "commit": {
-    "hash": "4d380b493b9f15f9e1f8bf27bf9964a6381fb58e",
-    "message": "task 8: line updates on 23, 33",
-    "author": "Dowiw",
-    "date": "2025-07-18 13:14:47 +0200"
+    "hash": "aa947ca8f72da05b749f8da44854ca05a4527336",
+    "message": "added tax factor for employees : Task-4",
+    "author": "Baris Algun",
+    "date": "2025-07-18 13:20:21 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
