@@ -1,6 +1,6 @@
 {
   "team": "alpha",
-  "timestamp": "2025-07-18T10:57:59.960136+00:00",
+  "timestamp": "2025-07-18T11:01:08.190292+00:00",
   "commit": {
     "hash": "8ff4618f134c7fc0bc81dcc9927b46c66aee1e63",
     "message": "Fixed the overtime values",
@@ -52,7 +52,7 @@
       },
       {
         "task_id": "07",
-        "progress": 0,
+        "progress": 100,
         "type": "manual",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 5,
+      "total": 6,
       "max": 20,
-      "percentage": 25
+      "percentage": 30
     }
   }
 }
