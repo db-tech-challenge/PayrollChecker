@@ -1,11 +1,11 @@
 {
   "team": "epsilon",
-  "timestamp": "2025-07-18T09:34:24.874363+00:00",
+  "timestamp": "2025-07-18T09:37:33.563510+00:00",
   "commit": {
-    "hash": "c5671ee5064380cc1d2de68cb15c170a0f4fac7d",
-    "message": "Delete column with multiple id in main_data.csv",
+    "hash": "5f1335edeae4cb204e5a5303da22ea55160ca05f",
+    "message": "Delete double semicolon",
     "author": "nikita.filenko",
-    "date": "2025-07-18 11:32:47 +0200"
+    "date": "2025-07-18 11:36:57 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -64,7 +64,7 @@
       },
       {
         "task_id": "09",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 2,
+      "total": 3,
       "max": 20,
-      "percentage": 10
+      "percentage": 15
     }
   }
 }
