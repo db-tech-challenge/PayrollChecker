@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-18T11:04:50.405724+00:00",
+  "timestamp": "2025-07-18T11:08:17.354813+00:00",
   "commit": {
-    "hash": "d990f939cb5e0292d5135dc052f4f4df128bb822",
-    "message": "Task 9: date format",
-    "author": "anushadagar1407",
-    "date": "2025-07-18 13:03:52 +0200"
+    "hash": "ecd64d6f9e36120aaaef0cf436e2bf385d24eca0",
+    "message": "full name fixed. csv header names changed in code : Task-9",
+    "author": "Baris Algun",
+    "date": "2025-07-18 13:07:41 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -16,7 +16,7 @@
     "tasks": [
       {
         "task_id": "01",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -46,7 +46,7 @@
       },
       {
         "task_id": "06",
-        "progress": 100,
+        "progress": 0,
         "type": "automatic",
         "weight": 2
       },
@@ -64,7 +64,7 @@
       },
       {
         "task_id": "09",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
