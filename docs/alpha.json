@@ -1,11 +1,11 @@
 {
   "team": "alpha",
-  "timestamp": "2025-07-18T10:32:22.651854+00:00",
+  "timestamp": "2025-07-18T10:34:01.942100+00:00",
   "commit": {
-    "hash": "974e945b40129e382d7ab8a8bdf682721eae720e",
-    "message": "task - fixed data 2",
-    "author": "Vedant Achtani",
-    "date": "2025-07-18 12:17:41 +0200"
+    "hash": "2ec4c42d4019d781c2eeca5ee0c5a81aec97b646",
+    "message": "Merge branch 'alpha' of https://github.com/db-tech-challenge/PayrollCalculator into alpha",
+    "author": "David",
+    "date": "2025-07-18 12:31:12 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -46,7 +46,7 @@
       },
       {
         "task_id": "06",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 3,
+      "total": 5,
       "max": 20,
-      "percentage": 15
+      "percentage": 25
     }
   }
 }
