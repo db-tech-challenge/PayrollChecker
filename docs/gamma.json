@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-18T11:27:41.161576+00:00",
+  "timestamp": "2025-07-18T11:29:08.757946+00:00",
   "commit": {
-    "hash": "7198270c4ac99ee40fe9b1ec97fb6e5954ad0bdc",
-    "message": "compilation error resolved: updated",
-    "author": "anushadagar1407",
-    "date": "2025-07-18 13:27:01 +0200"
+    "hash": "dba907109d92a2b2950b96c55a90ee2f62211b25",
+    "message": "fixed tax ratio for task4: Task-4",
+    "author": "Baris Algun",
+    "date": "2025-07-18 13:28:34 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -34,7 +34,7 @@
       },
       {
         "task_id": "04",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 9,
+      "total": 11,
       "max": 20,
-      "percentage": 45
+      "percentage": 55
     }
   }
 }
