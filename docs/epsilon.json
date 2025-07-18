@@ -1,11 +1,11 @@
 {
   "team": "epsilon",
-  "timestamp": "2025-07-18T10:33:54.866053+00:00",
+  "timestamp": "2025-07-18T10:36:36.983868+00:00",
   "commit": {
-    "hash": "7b3c129382ff499b551867bb317a417455863cb1",
-    "message": "tax class test, changed tax csv back",
-    "author": "Merthan Erdem",
-    "date": "2025-07-18 12:08:21 +0200"
+    "hash": "5dcdfc6527197ce70722d621dd90cea3c814673a",
+    "message": "Assume that workers incorrectly input the overtime date",
+    "author": "nikita.filenko",
+    "date": "2025-07-18 12:35:57 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -58,7 +58,7 @@
       },
       {
         "task_id": "08",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 10,
+      "total": 12,
       "max": 20,
-      "percentage": 50
+      "percentage": 60
     }
   }
 }
