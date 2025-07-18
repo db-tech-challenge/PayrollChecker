@@ -1,11 +1,11 @@
 {
   "team": "epsilon",
-  "timestamp": "2025-07-18T09:37:33.563510+00:00",
+  "timestamp": "2025-07-18T09:43:06.526048+00:00",
   "commit": {
-    "hash": "5f1335edeae4cb204e5a5303da22ea55160ca05f",
-    "message": "Delete double semicolon",
+    "hash": "7ee138346cfb8b7194c2ac3d4c1e26d6cf35892c",
+    "message": "Skip inactive employee",
     "author": "nikita.filenko",
-    "date": "2025-07-18 11:36:57 +0200"
+    "date": "2025-07-18 11:42:08 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -46,7 +46,7 @@
       },
       {
         "task_id": "06",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 3,
+      "total": 5,
       "max": 20,
-      "percentage": 15
+      "percentage": 25
     }
   }
 }
