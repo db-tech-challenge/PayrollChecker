@@ -1,11 +1,11 @@
 {
   "team": "epsilon",
-  "timestamp": "2025-07-18T10:06:28.503890+00:00",
+  "timestamp": "2025-07-18T10:09:43.423861+00:00",
   "commit": {
-    "hash": "7a81df6e0bb940860fdfb8b1204ec5bf191bedc3",
-    "message": "Fix accidentaly wrong date format",
-    "author": "nikita.filenko",
-    "date": "2025-07-18 12:05:24 +0200"
+    "hash": "7b3c129382ff499b551867bb317a417455863cb1",
+    "message": "tax class test, changed tax csv back",
+    "author": "Merthan Erdem",
+    "date": "2025-07-18 12:08:21 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -34,7 +34,7 @@
       },
       {
         "task_id": "04",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 8,
+      "total": 10,
       "max": 20,
-      "percentage": 40
+      "percentage": 50
     }
   }
 }
