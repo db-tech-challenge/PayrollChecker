@@ -1,11 +1,11 @@
 {
   "team": "beta",
-  "timestamp": "2025-07-18T09:51:01.822909+00:00",
+  "timestamp": "2025-07-18T09:59:02.642840+00:00",
   "commit": {
-    "hash": "2c5b76b4304e42c1fc67e8c5550f55b69f47a957",
-    "message": "fixed Name",
+    "hash": "e25e1bc8a2c9d4444f99dcb478ac32335e938f45",
+    "message": "Issue 9 solved \"Missing Salary\". There was one more semicolon than should be.",
     "author": "Jan Kalisch",
-    "date": "2025-07-18 11:45:52 +0200"
+    "date": "2025-07-18 11:58:21 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -64,7 +64,7 @@
       },
       {
         "task_id": "09",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 1,
+      "total": 2,
       "max": 20,
-      "percentage": 5
+      "percentage": 10
     }
   }
 }
