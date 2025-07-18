@@ -1,11 +1,11 @@
 {
   "team": "alpha",
-  "timestamp": "2025-07-18T11:10:14.666289+00:00",
+  "timestamp": "2025-07-18T11:12:02.915821+00:00",
   "commit": {
-    "hash": "8ff4618f134c7fc0bc81dcc9927b46c66aee1e63",
-    "message": "Fixed the overtime values",
-    "author": "David",
-    "date": "2025-07-18 12:57:22 +0200"
+    "hash": "a765ae5811bf2d447bd7c5fc8c2c194c3f83ad12",
+    "message": "task 2 - fixed data, considering AT3 now only",
+    "author": "Vedant Achtani",
+    "date": "2025-07-18 13:10:50 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -22,7 +22,7 @@
       },
       {
         "task_id": "02",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -46,7 +46,7 @@
       },
       {
         "task_id": "06",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 6,
+      "total": 9,
       "max": 20,
-      "percentage": 30
+      "percentage": 45
     }
   }
 }

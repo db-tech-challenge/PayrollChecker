@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-18T11:10:08.556526+00:00",
+  "timestamp": "2025-07-18T11:12:03.483455+00:00",
   "commit": {
-    "hash": "ecd64d6f9e36120aaaef0cf436e2bf385d24eca0",
-    "message": "full name fixed. csv header names changed in code : Task-9",
+    "hash": "a185577f0fc3a28633a56f39c71a81d91470318d",
+    "message": "added continue to remove inactive employees : Task-6",
     "author": "Baris Algun",
-    "date": "2025-07-18 13:07:41 +0200"
+    "date": "2025-07-18 13:11:15 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -46,7 +46,7 @@
       },
       {
         "task_id": "06",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 5,
+      "total": 7,
       "max": 20,
-      "percentage": 25
+      "percentage": 35
     }
   }
 }
