@@ -1,6 +1,6 @@
 {
   "team": "beta",
-  "timestamp": "2025-07-18T10:20:16.105371+00:00",
+  "timestamp": "2025-07-18T10:28:12.633704+00:00",
   "commit": {
     "hash": "a5345846f9464f3de93f08166816213118e918de",
     "message": "Update main_data.csv",
@@ -22,8 +22,8 @@
       },
       {
         "task_id": "02",
-        "progress": 0,
-        "type": "automatic",
+        "progress": 100,
+        "type": "manual",
         "weight": 1
       },
       {
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 3,
+      "total": 4,
       "max": 20,
-      "percentage": 15
+      "percentage": 20
     }
   }
 }

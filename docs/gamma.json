@@ -1,6 +1,6 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-18T10:20:24.094432+00:00",
+  "timestamp": "2025-07-18T10:28:16.217543+00:00",
   "commit": {
     "hash": "a3707daf270ecc3e40748b9e1bf467007cc0483b",
     "message": "task 2: redo, reclaim value",
@@ -22,8 +22,8 @@
       },
       {
         "task_id": "02",
-        "progress": 0,
-        "type": "automatic",
+        "progress": 100,
+        "type": "manual",
         "weight": 1
       },
       {
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 3,
+      "total": 4,
       "max": 20,
-      "percentage": 15
+      "percentage": 20
     }
   }
 }
