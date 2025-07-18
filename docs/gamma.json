@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-18T11:25:40.147172+00:00",
+  "timestamp": "2025-07-18T11:27:41.161576+00:00",
   "commit": {
-    "hash": "aa947ca8f72da05b749f8da44854ca05a4527336",
-    "message": "added tax factor for employees : Task-4",
-    "author": "Baris Algun",
-    "date": "2025-07-18 13:20:21 +0200"
+    "hash": "7198270c4ac99ee40fe9b1ec97fb6e5954ad0bdc",
+    "message": "compilation error resolved: updated",
+    "author": "anushadagar1407",
+    "date": "2025-07-18 13:27:01 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,

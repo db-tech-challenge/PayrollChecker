@@ -1,11 +1,11 @@
 {
   "team": "beta",
-  "timestamp": "2025-07-18T11:25:38.170515+00:00",
+  "timestamp": "2025-07-18T11:27:40.129232+00:00",
   "commit": {
-    "hash": "10fde8d1fb603a9dee4b572b1a0c32e512799feb",
-    "message": "Reverted wrong changes",
+    "hash": "01d7fe7797eb34a6f8f1794c4329f35fd4dde28c",
+    "message": "Issue 5",
     "author": "Jan Kalisch",
-    "date": "2025-07-18 13:17:12 +0200"
+    "date": "2025-07-18 13:26:35 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -40,7 +40,7 @@
       },
       {
         "task_id": "05",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 8,
+      "total": 10,
       "max": 20,
-      "percentage": 40
+      "percentage": 50
     }
   }
 }
