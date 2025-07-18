@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-18T11:33:30.571154+00:00",
+  "timestamp": "2025-07-18T11:36:00.839860+00:00",
   "commit": {
-    "hash": "dba907109d92a2b2950b96c55a90ee2f62211b25",
-    "message": "fixed tax ratio for task4: Task-4",
-    "author": "Baris Algun",
-    "date": "2025-07-18 13:28:34 +0200"
+    "hash": "6efb0102073a52fb90640f73df44e70f8afc059b",
+    "message": "fix: june holiday skipped for cologne employees",
+    "author": "Dowiw",
+    "date": "2025-07-18 13:33:57 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
