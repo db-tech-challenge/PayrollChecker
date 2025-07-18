@@ -1,6 +1,6 @@
 {
   "team": "beta",
-  "timestamp": "2025-07-18T10:29:15.481329+00:00",
+  "timestamp": "2025-07-18T10:32:25.134886+00:00",
   "commit": {
     "hash": "3fb5e5cca4475dc212ce0a94b6f6511462873c51",
     "message": "Update BasePayServiceIml.java",
@@ -52,7 +52,7 @@
       },
       {
         "task_id": "07",
-        "progress": 0,
+        "progress": 100,
         "type": "manual",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 4,
+      "total": 5,
       "max": 20,
-      "percentage": 20
+      "percentage": 25
     }
   }
 }
