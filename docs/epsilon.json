@@ -1,11 +1,11 @@
 {
   "team": "epsilon",
-  "timestamp": "2025-07-18T10:36:36.983868+00:00",
+  "timestamp": "2025-07-18T10:38:31.910383+00:00",
   "commit": {
-    "hash": "5dcdfc6527197ce70722d621dd90cea3c814673a",
-    "message": "Assume that workers incorrectly input the overtime date",
+    "hash": "3ae7f177702743cf53f5803dcd719247a1663384",
+    "message": "If you continue to input incorrect data I won\u2019t give you money",
     "author": "nikita.filenko",
-    "date": "2025-07-18 12:35:57 +0200"
+    "date": "2025-07-18 12:37:53 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
