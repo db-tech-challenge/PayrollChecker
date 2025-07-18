@@ -1,11 +1,11 @@
 {
   "team": "gamma",
-  "timestamp": "2025-07-18T11:13:04.925488+00:00",
+  "timestamp": "2025-07-18T11:16:27.771198+00:00",
   "commit": {
-    "hash": "a185577f0fc3a28633a56f39c71a81d91470318d",
-    "message": "added continue to remove inactive employees : Task-6",
-    "author": "Baris Algun",
-    "date": "2025-07-18 13:11:15 +0200"
+    "hash": "4d380b493b9f15f9e1f8bf27bf9964a6381fb58e",
+    "message": "task 8: line updates on 23, 33",
+    "author": "Dowiw",
+    "date": "2025-07-18 13:14:47 +0200"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -58,7 +58,7 @@
       },
       {
         "task_id": "08",
-        "progress": 0,
+        "progress": 50,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 7,
+      "total": 8,
       "max": 20,
-      "percentage": 35
+      "percentage": 40
     }
   }
 }
