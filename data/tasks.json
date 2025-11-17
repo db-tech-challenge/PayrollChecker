@@ -25,7 +25,7 @@
     "type": "email",
     "subject": "Overtime for the current Month",
     "sender": "Franz Josef Hartmann",
-    "description": "Dear Payroll Calculator Support Team,\n\nI hope this message finds you well.\n\nI am writing to bring to your attention an issue regarding my overtime payment for the month of July. Despite having logged the overtime hours as required, I have not received the corresponding payment.\n\nCould you please investigate this matter and ensure that the payment is processed at the earliest convenience? I have attached the relevant timesheets for your reference.\n\nThank you for your prompt attention to this matter. I look forward to your swift resolution.\n\nBest regards,\nFranz Josef Hartmann"
+    "description": "Dear Payroll Calculator Support Team,\n\nI hope this message finds you well.\n\nI am writing to bring to your attention an issue regarding my overtime payment for the month of November. Despite having logged the overtime hours as required, I have not received the corresponding payment.\n\nCould you please investigate this matter and ensure that the payment is processed at the earliest convenience? I have attached the relevant timesheets for your reference.\n\nThank you for your prompt attention to this matter. I look forward to your swift resolution.\n\nBest regards,\nFranz Josef Hartmann"
   },
   "04": {
     "title": "Tax Class Handling Implementation",
@@ -82,7 +82,7 @@
     "type": "email",
     "subject": "12 hours overtime didn't get what expected",
     "sender": "Ludwina Gerlach",
-    "description": "Dear Payroll Calculator Support team,\n\nI hope this message finds you well. My name is Ludwina Gerlach, and I am writing to bring to your attention a discrepancy in my recent billing statement regarding overtime payments.\n\nOn June 5th, I worked an additional 12 hours due to an incident in production. However, upon reviewing my current billing statement, I noticed that the overtime payments are less than expected. This discrepancy is causing me significant concern and frustration.\n\nI kindly request that you recalculate my payment for the overtime hours worked and rectify this issue as soon as possible. Please provide me with an updated statement reflecting the correct amount.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n\nLudwina Gerlach"
+    "description": "Dear Payroll Calculator Support team,\n\nI hope this message finds you well. My name is Ludwina Gerlach, and I am writing to bring to your attention a discrepancy in my recent billing statement regarding overtime payments.\n\nOn October 5th, I worked an additional 12 hours due to an incident in production. However, upon reviewing my current billing statement, I noticed that the overtime payments are less than expected. This discrepancy is causing me significant concern and frustration.\n\nI kindly request that you recalculate my payment for the overtime hours worked and rectify this issue as soon as possible. Please provide me with an updated statement reflecting the correct amount.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n\nLudwina Gerlach"
   },
   "08": {
     "title": "Missing Overtime Payments - Multiple Employees",
@@ -118,18 +118,18 @@
     "priority": "urgent",
     "type": "ticket",
     "ticket": "PRCALC-29510",
-    "subject": "June Salary Not Received",
-    "description": "Multiple employees reported not receiving their salary for June. The issue appears to be localized and not affecting the entire company. Please investigate what may have caused the payment to be skipped and whether there are edge cases in scheduling logic that require adjustment.",
+    "subject": "October Salary Not Received",
+    "description": "Multiple employees reported not receiving their salary for October. The issue appears to be localized and not affecting the entire company. Please investigate what may have caused the payment to be skipped and whether there are edge cases in scheduling logic that require adjustment.",
     "emails": [
       {
         "sender": "Franz Zorbach",
         "subject": "Salary Not Received",
-        "content": "Hi IT Support,\n\nI noticed that I haven’t received my salary for June. Could you please check if there’s an issue on your end or direct me to the right contact to resolve this?\n\nThanks,\nFranz Zorbach"
+        "content": "Hi IT Support,\n\nI noticed that I haven’t received my salary for October. Could you please check if there’s an issue on your end or direct me to the right contact to resolve this?\n\nThanks,\nFranz Zorbach"
       },
       {
         "sender": "Elsa Mielcarek",
         "subject": "Kindly Checking on Salary Payment",
-        "content": "Dear IT Support Team,\n\nI hope you’re doing well! I just wanted to kindly check whether there’s been any issue with the June salary payment, as I haven’t seen it reflected in my account yet.\nIf you could take a quick look or let me know who I should reach out to, I’d really appreciate it!\n\nWarm regards,\nElsa Mielcarek"
+        "content": "Dear IT Support Team,\n\nI hope you’re doing well! I just wanted to kindly check whether there’s been any issue with the October salary payment, as I haven’t seen it reflected in my account yet.\nIf you could take a quick look or let me know who I should reach out to, I’d really appreciate it!\n\nWarm regards,\nElsa Mielcarek"
       },
       {
         "sender": "Rosalie Schenk",

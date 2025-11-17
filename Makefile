@@ -30,7 +30,7 @@ test:
 
 clean:
 	@echo "Cleaning up..."
-	@rm -rf test-alpha test-beta test-gamma test-delta docs/* 'docs/.nojekyll' target
+	@rm -rf test-alpha test-beta test-gamma test-delta test-epsilon test-omega test-zeta docs/* 'docs/.nojekyll' target
 	@echo "Cleanup complete."
 
 build-docs:
