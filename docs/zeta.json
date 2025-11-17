@@ -1,18 +1,18 @@
 {
   "team": "zeta",
-  "timestamp": "2025-07-18T11:35:59.023373+00:00",
+  "timestamp": "2025-11-17T07:12:02.387593+00:00",
   "commit": {
-    "hash": "5348fa29a7a986bb91dc9d0d0414cae2482a5174",
-    "message": "add branches",
-    "author": "apozdniakov",
-    "date": "2025-07-16 18:36:12 +0200"
+    "hash": "875f63deb89e7937ec3463dbb0f5e176c1d4a43d",
+    "message": "Revert \"new payroll changes\"",
+    "author": "Abhishek Singh",
+    "date": "2025-07-18 20:18:46 +0200"
   },
-  "build_status": "execution_failed",
+  "build_status": "compilation_failed",
   "should_show_tests": false,
   "results": {
-    "compiled": true,
+    "compiled": false,
     "executed": false,
-    "compatibility": true,
+    "compatibility": false,
     "tasks": [
       {
         "task_id": "01",

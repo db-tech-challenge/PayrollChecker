@@ -1,90 +1,90 @@
 {
   "team": "epsilon",
-  "timestamp": "2025-07-18T11:35:53.338577+00:00",
+  "timestamp": "2025-11-17T07:12:03.116438+00:00",
   "commit": {
-    "hash": "1c7930c724d037bf97dd487e1eae68db0544192c",
-    "message": "Merge branch 'epsilon' of https://github.com/db-tech-challenge/PayrollCalculator into epsilon",
-    "author": "nikita.filenko",
-    "date": "2025-07-18 13:23:46 +0200"
+    "hash": "875f63deb89e7937ec3463dbb0f5e176c1d4a43d",
+    "message": "Revert \"new payroll changes\"",
+    "author": "Abhishek Singh",
+    "date": "2025-07-18 20:18:46 +0200"
   },
-  "build_status": "success",
-  "should_show_tests": true,
+  "build_status": "compilation_failed",
+  "should_show_tests": false,
   "results": {
-    "compiled": true,
-    "executed": true,
-    "compatibility": true,
+    "compiled": false,
+    "executed": false,
+    "compatibility": false,
     "tasks": [
       {
         "task_id": "01",
-        "progress": 100,
-        "type": "automatic",
+        "progress": 0,
+        "type": "not_executed",
         "weight": 1
       },
       {
         "task_id": "02",
-        "progress": 100,
-        "type": "automatic",
+        "progress": 0,
+        "type": "not_executed",
         "weight": 1
       },
       {
         "task_id": "03",
-        "progress": 100,
-        "type": "manual",
+        "progress": 0,
+        "type": "not_executed",
         "weight": 1
       },
       {
         "task_id": "04",
-        "progress": 100,
-        "type": "automatic",
+        "progress": 0,
+        "type": "not_executed",
         "weight": 2
       },
       {
         "task_id": "05",
-        "progress": 100,
-        "type": "automatic",
+        "progress": 0,
+        "type": "not_executed",
         "weight": 2
       },
       {
         "task_id": "06",
-        "progress": 100,
-        "type": "automatic",
+        "progress": 0,
+        "type": "not_executed",
         "weight": 2
       },
       {
         "task_id": "07",
-        "progress": 100,
-        "type": "manual",
+        "progress": 0,
+        "type": "not_executed",
         "weight": 1
       },
       {
         "task_id": "08",
-        "progress": 100,
-        "type": "automatic",
+        "progress": 0,
+        "type": "not_executed",
         "weight": 2
       },
       {
         "task_id": "09",
-        "progress": 100,
-        "type": "automatic",
+        "progress": 0,
+        "type": "not_executed",
         "weight": 1
       },
       {
         "task_id": "10",
-        "progress": 100,
-        "type": "automatic",
+        "progress": 0,
+        "type": "not_executed",
         "weight": 3
       },
       {
         "task_id": "11",
         "progress": 0,
-        "type": "manual",
+        "type": "not_executed",
         "weight": 3
       }
     ],
     "score": {
-      "total": 17,
+      "total": 0,
       "max": 20,
-      "percentage": 85
+      "percentage": 0
     }
   }
 }

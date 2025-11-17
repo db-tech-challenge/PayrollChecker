@@ -1,18 +1,18 @@
 {
   "team": "omega",
-  "timestamp": "2025-07-18T11:35:49.227597+00:00",
+  "timestamp": "2025-11-17T07:12:01.533563+00:00",
   "commit": {
-    "hash": "d8f8a36790b517dfb4852bcfd19d965715f299a9",
-    "message": "test commit",
-    "author": "afomin",
-    "date": "2025-07-18 10:37:50 +0200"
+    "hash": "875f63deb89e7937ec3463dbb0f5e176c1d4a43d",
+    "message": "Revert \"new payroll changes\"",
+    "author": "Abhishek Singh",
+    "date": "2025-07-18 20:18:46 +0200"
   },
-  "build_status": "execution_failed",
+  "build_status": "compilation_failed",
   "should_show_tests": false,
   "results": {
-    "compiled": true,
+    "compiled": false,
     "executed": false,
-    "compatibility": true,
+    "compatibility": false,
     "tasks": [
       {
         "task_id": "01",
