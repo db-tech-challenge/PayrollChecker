@@ -205,32 +205,32 @@ class PayrollApplicationTest {
     @Test
     void test_10_01() {
         dateMatched();
-        assertEquals("11.18.2025", existOne("89847194").date());
+        assertEquals("2025-11-18", existOne("89847194").date());
     }
 
 
     @Test
     void test_10_02() {
         dateMatched();
-        assertEquals("11.18.2025", existOne("96151283").date());
+        assertEquals("2025-11-18", existOne("96151283").date());
     }
 
     @Test
     void test_10_03() {
         dateMatched();
-        assertEquals("11.18.2025", existOne("25837554").date());
+        assertEquals("2025-11-18", existOne("25837554").date());
     }
 
     @Test
     void test_10_04() {
         dateMatched();
-        assertEquals("11.18.2025", existOne("31679018").date());
+        assertEquals("2025-11-18", existOne("31679018").date());
     }
 
     @Test
     void test_10_05() {
         dateMatched();
-        assertEquals("11.18.2025", existOne("37398297").date());
+        assertEquals("2025-11-18", existOne("37398297").date());
     }
 
     @Test
