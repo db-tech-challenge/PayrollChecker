@@ -28,6 +28,11 @@ test:
 	bash scripts/generate-docs.sh
 	open "http://localhost:63342/payroll-checker/docs/index.html"
 
+b:
+	bash scripts/run-tests.sh gamma
+	@$(PYTHON) scripts/generate-results.py gamma
+	open "http://localhost:63342/payroll-checker/docs/index.html"
+
 clean:
 	@echo "Cleaning up..."
 	@rm -rf test-alpha test-beta test-gamma test-delta test-epsilon test-omega test-zeta docs/* 'docs/.nojekyll' target
