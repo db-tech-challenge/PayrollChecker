@@ -1,0 +1,150 @@
+{
+  "00": {
+    "title": "Basic Setup Requirement",
+    "priority": "critical",
+    "type": "requirement",
+    "description": "**PREREQUISITE:** Before any tests can pass, the payroll system must be properly compiled and running.\n\nThe current situation with the payroll calculator is quite challenging. The payroll vendor responsible for managing and maintaining the payroll system has unexpectedly gone out of business, leaving their team unavailable for any support or assistance.\n\nThis sudden disruption has caused significant issues, as the payroll was pre-generated and distributed into checks by various departments. Unfortunately, these departments have started flagging numerous issues with the payroll calculations, indicating potential errors that need immediate attention.\n\n**Your first task:** Successfully compile and run the payroll calculator using the provided source code and input data files. This is essential before you can begin addressing the specific issues reported by the departments.\n\n**Note:** This is not a separate test case, but a fundamental requirement for all other tasks to function."
+  },
+  "01": {
+    "title": "Missing Payroll Record",
+    "priority": "urgent",
+    "type": "email",
+    "subject": "Urgent Payroll Issue for User ID 24778715",
+    "description": "We are writing to formally raise a complaint regarding a critical payroll issue identified in the reconciliation report for the DB payroll department. It has come to our attention that there is no payroll record generated for the user with ID 24778715. This discrepancy, if not addressed immediately, will result in the user not receiving their due payment.\n\nThe absence of a payroll record for this user is a matter of urgent concern. Failure to resolve this issue promptly could lead to a negative experience for the user and expose the organization to potential legal action. We request immediate attention and resolution to ensure the user receives their payment without further delay.\n\nAction Required: Please investigate and rectify this issue as a matter of priority. We expect a prompt response and resolution to avoid any further complications. Thank you for your immediate attention to this matter."
+  },
+  "02": {
+    "title": "Herr Schröder Received Salary Twice",
+    "priority": "urgent",
+    "type": "ticket",
+    "ticket": "PRCALC-18556",
+    "description": "Herr Schröder received his salary twice for the one month.\nPlease urgently check why it happened and fix an issue.\n\nOur operation team has fix it and duplicated transaction was cancelled,\nbut we don't want to get this again."
+  },
+  "03": {
+    "title": "Missing overtime payment",
+    "priority": "normal",
+    "type": "email",
+    "subject": "Overtime for the current Month",
+    "sender": "Franz Josef Hartmann",
+    "description": "Dear Payroll Calculator Support Team,\n\nI hope this message finds you well.\n\nI am writing to bring to your attention an issue regarding my overtime payment for the month of November. Despite having logged the overtime hours as required, I have not received the corresponding payment.\n\nCould you please investigate this matter and ensure that the payment is processed at the earliest convenience? I have attached the relevant timesheets for your reference.\n\nThank you for your prompt attention to this matter. I look forward to your swift resolution.\n\nBest regards,\nFranz Josef Hartmann"
+  },
+  "04": {
+    "title": "Tax Class Handling Implementation",
+    "priority": "normal",
+    "type": "ticket",
+    "ticket": "PRCALC-17359",
+    "subject": "Add Support for Tax Class Handling in Payroll Calculations",
+    "description": "As part of enhancing the Payroll Calculator, we need to introduce support for handling employee tax classes. The tax class should influence the calculation of payroll deductions and net salary. This change ensures better accuracy and compliance with German payroll requirements.",
+    "details": {
+      "taxClasses": [
+        {
+          "class": "1",
+          "description": "Single, not in a partnership",
+          "rate": "20%"
+        },
+        {
+          "class": "3",
+          "description": "Married, higher earner",
+          "rate": "10%"
+        },
+        {
+          "class": "4",
+          "description": "Married, both earn similar",
+          "rate": "15%"
+        }
+      ],
+      "scope": [
+        "Accept tax class as input per employee",
+        "Map tax class to corresponding tax rate",
+        "Apply rate during payroll calculations to determine tax deductions",
+        "Ensure compatibility with existing calculations and outputs"
+      ]
+    }
+  },
+  "05": {
+    "title": "Fix Salary Proration Based on Working Days",
+    "priority": "normal",
+    "type": "ticket",
+    "ticket": "PRCALC-27919",
+    "subject": "Fix Payroll Calculation to Accurately Prorate Based on Days Worked per Month",
+    "description": "The current implementation of the Payroll Calculator does not properly account for the number of days worked in relation to the total number of working days in a given month. This leads to incorrect salary proration, especially in cases where employees join, leave, or take unpaid leave during the month.\n\nThese discrepancies frequently result in complaints from employees, which have to be manually investigated and corrected by payroll staff. This not only consumes significant administrative time but also negatively impacts employee trust and satisfaction with the payroll process.\n\nAddressing this issue will ensure that the calculator determines the correct number of working days in each month (excluding weekends and public holidays where applicable) and uses this to prorate salary and deductions accurately.\n\nFixing this would reduce the number of manual corrections required, saving approximately 15 minutes per case. With an estimated 30–40 such cases per payroll cycle, this change could save up to 10 hours per month for the payroll team. More importantly, it would also save employees time and frustration, helping maintain trust and morale by ensuring their compensation is calculated fairly the first time."
+  },
+  "06": {
+    "title": "Remove Terminated Employee",
+    "priority": "urgent",
+    "type": "ticket",
+    "ticket": "PRCALC-11663",
+    "subject": "Persons who already are not working with us got salary",
+    "description": "The salary calculator prepared the salary transaction for individuals who are not working with us anymore.\nPlease, check and fix an issue.\nExample : Henryk Jüttner"
+  },
+  "07": {
+    "title": "Incorrect Overtime Calculation",
+    "priority": "urgent",
+    "type": "email",
+    "subject": "12 hours overtime didn't get what expected",
+    "sender": "Ludwina Gerlach",
+    "description": "Dear Payroll Calculator Support team,\n\nI hope this message finds you well. My name is Ludwina Gerlach, and I am writing to bring to your attention a discrepancy in my recent billing statement regarding overtime payments.\n\nOn October 5th, I worked an additional 12 hours due to an incident in production. However, upon reviewing my current billing statement, I noticed that the overtime payments are less than expected. This discrepancy is causing me significant concern and frustration.\n\nI kindly request that you recalculate my payment for the overtime hours worked and rectify this issue as soon as possible. Please provide me with an updated statement reflecting the correct amount.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n\nLudwina Gerlach"
+  },
+  "08": {
+    "title": "Missing Overtime Payments - Multiple Employees",
+    "priority": "urgent",
+    "type": "ticket",
+    "ticket": "PRCALC-12334",
+    "subject": "Missing Overtime Payment",
+    "description": "Multiple employees have reported missing overtime payments from their salary calculations.",
+    "emails": [
+      {
+        "sender": "Miss Schenk",
+        "subject": "Assistance Required with Overtime Payment for Last Month",
+        "content": "Dear Tech Support Team,\n\nI hope this message finds you well.\n\nI am writing to seek your assistance regarding an issue with my salary payment for last month. Upon reviewing the amount credited to my account, I noticed that it only reflects my base salary and does not include the overtime payment I am entitled to.\n\nCould you please look into this matter and help ensure that the overtime payment is processed correctly? Your  attention to this issue would be greatly appreciated.\n\nThank you for your support.\n\nBest regards,\nMiss Schenk"
+      },
+      {
+        "sender": "Mr. Graf",
+        "subject": "Immediate Action Required: Missing Overtime Payment",
+        "content": "Hi Tech Support Team,\n\nI'm really frustrated right now. My salary for last month only includes my base pay and is missing the overtime I worked hard for. This is unacceptable, especially since I have a mortgage payment due in a few days.\n\nI need this fixed immediately. Please process my overtime payment ASAP. This is urgent and can't wait.\n\nThanks,\nMr. Graf"
+      }
+    ]
+  },
+  "09": {
+    "title": "Missing Salary",
+    "priority": "urgent",
+    "type": "support_note",
+    "employee": "Joseph Stahr",
+    "department": "Legal and Compliance",
+    "issue": "Missing salary in account",
+    "description": "I am extremely upset and disappointed to find that my salary is missing from my account this month. This situation has caused me significant harm and stress. I depend on my salary to cover essential expenses, and this oversight has left me in a precarious financial position. I have bills to pay, and this delay has already resulted in late fees and penalties. The anxiety and frustration this has caused me are overwhelming, and I need this issue resolved immediately.\n\nThe harm caused by this negligence is both financial and emotional. As a dedicated employee, I expect my salary to be deposited on time. The lack of communication and urgency in addressing this issue is unacceptable. I demand that my salary be deposited into my account without any further delay, and I expect a formal apology for the distress and inconvenience caused. If this issue is not resolved promptly, I will be forced to take further action."
+  },
+  "10": {
+    "title": "Missing Salary Payments - Multiple Employees",
+    "priority": "urgent",
+    "type": "ticket",
+    "ticket": "PRCALC-29510",
+    "subject": "October Salary Not Received",
+    "description": "Multiple employees reported not receiving their salary for October. The issue appears to be localized and not affecting the entire company. Please investigate what may have caused the payment to be skipped and whether there are edge cases in scheduling logic that require adjustment.",
+    "emails": [
+      {
+        "sender": "Franz Zorbach",
+        "subject": "Salary Not Received",
+        "content": "Hi IT Support,\n\nI noticed that I haven’t received my salary for October. Could you please check if there’s an issue on your end or direct me to the right contact to resolve this?\n\nThanks,\nFranz Zorbach"
+      },
+      {
+        "sender": "Elsa Mielcarek",
+        "subject": "Kindly Checking on Salary Payment",
+        "content": "Dear IT Support Team,\n\nI hope you’re doing well! I just wanted to kindly check whether there’s been any issue with the October salary payment, as I haven’t seen it reflected in my account yet.\nIf you could take a quick look or let me know who I should reach out to, I’d really appreciate it!\n\nWarm regards,\nElsa Mielcarek"
+      },
+      {
+        "sender": "Rosalie Schenk",
+        "subject": "Still No Salary – What’s Going On?",
+        "content": "Hi,\n\nThis is getting frustrating. It’s already past the usual payday, and my salary hasn’t arrived. I expect this to be sorted out immediately – please tell me what’s causing the delay and when I can expect payment.\n\nWaiting for a prompt response,\n\nRosalie Schenk"
+      }
+    ]
+  },
+  "11": {
+    "title": "Salary Breakdown Not Visible in Payslip",
+    "priority": "normal",
+    "type": "ticket",
+    "ticket": "PRCALC-35624",
+    "subject": "Lack of Salary Component Details in Payslip",
+    "description": "Several users have requested a more transparent view of their payslips, specifically asking for a detailed breakdown of the total salary amount. Currently, the payslip only displays the final net or gross amount, which makes it difficult for employees to understand how the figure is composed — e.g., base salary, bonuses, overtime, deductions, etc.\n\nWe’ve received this feedback through multiple channels, and improving this aspect would increase user satisfaction and reduce the number of HR-related inquiries.\n\n**Acceptance Criteria:**\n• Payslip includes a clear itemized breakdown of all salary components.\n• Each component (e.g., base pay, bonus, deductions) is labeled and shows the corresponding amount.\n• No changes to tax reporting or backend salary calculations — purely a presentation-level update."
+  }
+
+}

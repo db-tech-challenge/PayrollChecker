@@ -1,0 +1,90 @@
+{
+  "team": "beta",
+  "timestamp": "2025-11-20T19:45:32.269363+00:00",
+  "commit": {
+    "hash": "d4c73eb36d66eff4010a15501cc0510298904cea",
+    "message": "add data",
+    "author": "apozdniakov",
+    "date": "2025-11-17 08:27:41 +0100"
+  },
+  "build_status": "success",
+  "should_show_tests": true,
+  "results": {
+    "compiled": true,
+    "executed": true,
+    "compatibility": true,
+    "tasks": [
+      {
+        "task_id": "01",
+        "progress": 0,
+        "type": "automatic",
+        "weight": 1
+      },
+      {
+        "task_id": "02",
+        "progress": 100,
+        "type": "manual",
+        "weight": 1
+      },
+      {
+        "task_id": "03",
+        "progress": 100,
+        "type": "manual",
+        "weight": 1
+      },
+      {
+        "task_id": "04",
+        "progress": 0,
+        "type": "automatic",
+        "weight": 2
+      },
+      {
+        "task_id": "05",
+        "progress": 0,
+        "type": "automatic",
+        "weight": 2
+      },
+      {
+        "task_id": "06",
+        "progress": 100,
+        "type": "manual",
+        "weight": 2
+      },
+      {
+        "task_id": "07",
+        "progress": 100,
+        "type": "manual",
+        "weight": 1
+      },
+      {
+        "task_id": "08",
+        "progress": 0,
+        "type": "automatic",
+        "weight": 2
+      },
+      {
+        "task_id": "09",
+        "progress": 0,
+        "type": "automatic",
+        "weight": 1
+      },
+      {
+        "task_id": "10",
+        "progress": 0,
+        "type": "automatic",
+        "weight": 3
+      },
+      {
+        "task_id": "11",
+        "progress": 0,
+        "type": "manual",
+        "weight": 3
+      }
+    ],
+    "score": {
+      "total": 6,
+      "max": 20,
+      "percentage": 30
+    }
+  }
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <title>Payroll Calculator Leaderboard</title>
+    <style>
+        :root {
+            --primary: #1976d2;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --error: #f44336;
+            --surface: #fff;
+            --bg: #f5f5f5;
+            --text: #212121;
+            --text-light: #757575;
+            --border: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --radius: 12px;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 24px;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--text);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .header-subtitle {
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+
+
+        .leaderboard {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .team-row {
+            display: flex;
+            align-items: center;
+            padding: 24px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+        }
+
+        .team-row:hover {
+            background: rgba(25, 118, 210, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .team-row:last-child { border-bottom: none; }
+
+        .rank {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-right: 24px;
+            min-width: 80px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rank.first { color: var(--gold); }
+        .rank.second { color: var(--silver); }
+        .rank.third { color: var(--bronze); }
+
+        .team-info {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .team-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .team-avatar.alpha { background: linear-gradient(135deg, #4caf50, #81c784); }
+        .team-avatar.beta { background: linear-gradient(135deg, #2196f3, #64b5f6); }
+        .team-avatar.gamma { background: linear-gradient(135deg, #ff9800, #ffb74d); color: #333; }
+        .team-avatar.delta { background: linear-gradient(135deg, #f44336, #e57373); }
+        .team-avatar.epsilon { background: linear-gradient(135deg, #9c27b0, #ba68c8); }
+        .team-avatar.zeta { background: linear-gradient(135deg, #607d8b, #90a4ae); }
+        .team-avatar.omega { background: linear-gradient(135deg, #795548, #a1887f); }
+
+        .team-details h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .team-subtitle {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .score-section {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .score-display {
+            font-size: 2.2rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .score-display.high { color: var(--success); }
+        .score-display.medium { color: var(--warning); }
+        .score-display.low { color: var(--error); }
+
+        .build-status {
+            background: rgba(244, 67, 54, 0.1);
+            color: var(--error);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+
+        .team-link-icon {
+            position: absolute;
+            right: 24px;
+            opacity: 0;
+            transition: all 0.2s;
+            color: var(--primary);
+        }
+
+        .team-row:hover .team-link-icon {
+            opacity: 1;
+        }
+
+        .loading, .error {
+            text-align: center;
+            padding: 64px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .loading .material-icons, .error .material-icons {
+            font-size: 64px;
+            opacity: 0.5;
+        }
+
+        .error { color: var(--error); }
+
+        .last-updated {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 24px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .header h1 { font-size: 2.2rem; flex-direction: column; gap: 8px; }
+            .team-row { padding: 20px 16px; }
+            .rank { font-size: 2rem; min-width: 60px; margin-right: 16px; }
+            .team-avatar { width: 56px; height: 56px; font-size: 1.3rem; }
+            .team-details h3 { font-size: 1.3rem; }
+            .score-display { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>
+            <span class="material-icons" style="font-size: 3rem; color: var(--gold);">emoji_events</span>
+            Leaderboard
+        </h1>
+        <p class="header-subtitle">
+            <span class="material-icons">info</span>
+            Click on team name for detailed results
+        </p>
+    </div>
+
+    <div id="loading" class="loading">
+        <span class="material-icons">hourglass_empty</span>
+        <div>Loading results...</div>
+    </div>
+
+    <div id="error" class="error" style="display: none;">
+        <span class="material-icons">error_outline</span>
+        <div>Failed to load results</div>
+    </div>
+
+
+    <div id="leaderboard" class="leaderboard" style="display: none;"></div>
+    <div class="last-updated" id="lastUpdated"></div>
+</div>
+
+<script>
+  const getScoreClass = p => p >= 70 ? 'high' : p >= 40 ? 'medium' : 'low';
+  const getRankClass = r => ['', 'first', 'second', 'third'][r] || '';
+  const getRankIcon = r => r <= 3 ? ['', 'emoji_events', 'military_tech', 'workspace_premium'][r] : null;
+
+  function getTeamScore(data) {
+    const failed = data.build_status !== 'success';
+    return {
+      score: failed ? -1 : data.results.score?.percentage || 0,
+      percentage: failed ? 0 : data.results.score?.percentage || 0,
+      failed
+    };
+  }
+
+  function createStats(results) {
+    return '';
+  }
+
+  function createTeamRow(data, rank) {
+    const { team, timestamp } = data;
+    const scoreData = getTeamScore(data);
+    const rankIcon = getRankIcon(rank);
+
+    let scoreSection;
+    if (data.build_status !== 'success') {
+      const status = data.build_status === 'compilation_failed' ? 'Compilation Failed' : 'Execution Failed';
+      scoreSection = `
+            <div class="score-section">
+                <div class="build-status">
+                    <span class="material-icons">error</span>
+                    ${status}
+                </div>
+            </div>
+        `;
+    } else {
+      scoreSection = `
+            <div class="score-section">
+                <div class="score-display ${getScoreClass(scoreData.percentage)}">
+                    <span class="material-icons">check_circle</span>
+                    ${scoreData.percentage}/100
+                </div>
+                <div style="color: var(--text-light); font-size: 1rem;">${scoreData.percentage}% completed</div>
+            </div>
+        `;
+    }
+
+    return `
+        <a href="${team}.html" class="team-row">
+            <div class="rank ${getRankClass(rank)}">
+                ${rankIcon ? `<span class="material-icons" style="font-size: 1.8rem;">${rankIcon}</span>` : `#${rank}`}
+            </div>
+            <div class="team-info">
+                <div class="team-avatar ${team}">
+                    ${team.charAt(0).toUpperCase()}
+                </div>
+                <div class="team-details">
+                    <h3>Team ${team}</h3>
+                    <div class="team-subtitle">
+                        <span class="material-icons" style="font-size: 16px;">schedule</span>
+                        ${new Date(timestamp).toLocaleString()}
+                    </div>
+                </div>
+            </div>
+            ${scoreSection}
+            <span class="material-icons team-link-icon">open_in_new</span>
+        </a>
+    `;
+  }
+
+  async function loadResults() {
+    try {
+      const teams = ['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'omega'];
+      const results = [];
+      const timestamp = Date.now();
+
+      for (const team of teams) {
+        try {
+          const response = await fetch(`${team}.json?v=${timestamp}`);
+          if (response.ok) results.push(await response.json());
+        } catch (e) {
+          console.warn(`Failed to load ${team}:`, e);
+        }
+      }
+
+      if (results.length === 0) throw new Error('No results found');
+
+      // Sort by score
+      results.sort((a, b) => {
+        const aScore = getTeamScore(a);
+        const bScore = getTeamScore(b);
+
+        if (aScore.failed && !bScore.failed) return 1;
+        if (!aScore.failed && bScore.failed) return -1;
+        if (aScore.failed && bScore.failed) return 0;
+
+        return bScore.percentage - aScore.percentage;
+      });
+
+      // Update UI
+      document.getElementById('leaderboard').innerHTML = results.map((team, i) => createTeamRow(team, i + 1)).join('');
+
+      const latestTime = Math.max(...results.map(r => new Date(r.timestamp).getTime()));
+      document.getElementById('lastUpdated').innerHTML = `
+            <span class="material-icons">update</span>
+            Last updated: ${new Date(latestTime).toLocaleString()}
+        `;
+
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('leaderboard').style.display = 'block';
+
+    } catch (error) {
+      console.error('Error:', error);
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error').style.display = 'flex';
+    }
+  }
+
+  loadResults();
+  setInterval(loadResults, 30000);
+</script>
+</body>
+</html>
