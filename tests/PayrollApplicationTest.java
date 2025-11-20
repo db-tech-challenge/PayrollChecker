@@ -172,22 +172,22 @@ class PayrollApplicationTest {
 
     @Test
     void test_08_01() {
-        checkOvertimeSingleWithMonth("21233182", 6); // Shenk
+        checkOvertimeSingleWithMonth("21233182", 10); // Shenk
     }
 
     @Test
     void test_08_02() {
-        checkOvertimeSingleWithMonth("20937689", 6); // Graf
+        checkOvertimeSingleWithMonth("20937689", 10); // Graf
     }
 
     @Test
     void test_08_03() {
-        checkOvertimeSingleWithMonth("88492285", 6); // Trub
+        checkOvertimeSingleWithMonth("88492285", 10); // Trub
     }
 
     @Test
     void test_08_04() {
-        checkOvertimeSingleWithMonth("93564379", 6); // Holt
+        checkOvertimeSingleWithMonth("93564379", 10); // Holt
     }
 
     private static void checkOvertimeSingleWithMonth(String id, int month) {
@@ -205,32 +205,32 @@ class PayrollApplicationTest {
     @Test
     void test_10_01() {
         dateMatched();
-        assertEquals("7.8.2025", existOne("89847194").date());
+        assertEquals("11.18.2025", existOne("89847194").date());
     }
 
 
     @Test
     void test_10_02() {
         dateMatched();
-        assertEquals("7.8.2025", existOne("96151283").date());
+        assertEquals("11.18.2025", existOne("96151283").date());
     }
 
     @Test
     void test_10_03() {
         dateMatched();
-        assertEquals("7.8.2025", existOne("25837554").date());
+        assertEquals("11.18.2025", existOne("25837554").date());
     }
 
     @Test
     void test_10_04() {
         dateMatched();
-        assertEquals("7.8.2025", existOne("31679018").date());
+        assertEquals("11.18.2025", existOne("31679018").date());
     }
 
     @Test
     void test_10_05() {
         dateMatched();
-        assertEquals("7.8.2025", existOne("37398297").date());
+        assertEquals("11.18.2025", existOne("37398297").date());
     }
 
     @Test
@@ -242,8 +242,8 @@ class PayrollApplicationTest {
         assertEquals(1, payments.size());
         Payment payment = payments.getFirst();
         assertEquals(2025, payment.year());
-        assertEquals(7, payment.month());
-        assertEquals(9, payment.paymentDate());
+        assertEquals(11, payment.month());
+        assertEquals(19, payment.paymentDate());
     }
 
 
