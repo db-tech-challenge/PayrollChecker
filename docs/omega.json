@@ -1,11 +1,11 @@
 {
   "team": "omega",
-  "timestamp": "2025-11-20T19:58:47.553800+00:00",
+  "timestamp": "2025-11-20T20:00:12.935700+00:00",
   "commit": {
-    "hash": "176f93b8eba5540ce625a6016e62ea3711ee1eee",
-    "message": "solution-00",
+    "hash": "46dfd6fe2ff612d0813f054a1b69dab783d0cfc7",
+    "message": "solution-01",
     "author": "apozdniakov",
-    "date": "2025-11-20 20:21:43 +0100"
+    "date": "2025-11-20 20:22:18 +0100"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -16,7 +16,7 @@
     "tasks": [
       {
         "task_id": "01",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 1,
+      "total": 2,
       "max": 20,
-      "percentage": 5
+      "percentage": 10
     }
   }
 }
