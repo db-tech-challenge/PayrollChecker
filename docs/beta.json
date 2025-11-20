@@ -1,6 +1,6 @@
 {
   "team": "beta",
-  "timestamp": "2025-11-20T19:45:32.269363+00:00",
+  "timestamp": "2025-11-20T19:48:50.751116+00:00",
   "commit": {
     "hash": "d4c73eb36d66eff4010a15501cc0510298904cea",
     "message": "add data",
@@ -22,13 +22,13 @@
       },
       {
         "task_id": "02",
-        "progress": 100,
-        "type": "manual",
+        "progress": 0,
+        "type": "automatic",
         "weight": 1
       },
       {
         "task_id": "03",
-        "progress": 100,
+        "progress": 0,
         "type": "manual",
         "weight": 1
       },
@@ -47,12 +47,12 @@
       {
         "task_id": "06",
         "progress": 100,
-        "type": "manual",
+        "type": "automatic",
         "weight": 2
       },
       {
         "task_id": "07",
-        "progress": 100,
+        "progress": 0,
         "type": "manual",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 6,
+      "total": 3,
       "max": 20,
-      "percentage": 30
+      "percentage": 15
     }
   }
 }
