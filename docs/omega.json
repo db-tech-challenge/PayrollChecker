@@ -1,6 +1,6 @@
 {
   "team": "omega",
-  "timestamp": "2025-11-20T20:11:25.669308+00:00",
+  "timestamp": "2025-11-20T20:13:24.841899+00:00",
   "commit": {
     "hash": "d4c73eb36d66eff4010a15501cc0510298904cea",
     "message": "add data",
@@ -28,7 +28,7 @@
       },
       {
         "task_id": "03",
-        "progress": 100,
+        "progress": 0,
         "type": "manual",
         "weight": 1
       },
@@ -52,7 +52,7 @@
       },
       {
         "task_id": "07",
-        "progress": 100,
+        "progress": 0,
         "type": "manual",
         "weight": 1
       },
@@ -76,15 +76,15 @@
       },
       {
         "task_id": "11",
-        "progress": 100,
+        "progress": 0,
         "type": "manual",
         "weight": 3
       }
     ],
     "score": {
-      "total": 8,
+      "total": 3,
       "max": 20,
-      "percentage": 40
+      "percentage": 15
     }
   }
 }
