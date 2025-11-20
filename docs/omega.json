@@ -1,11 +1,11 @@
 {
   "team": "omega",
-  "timestamp": "2025-11-20T20:02:49.508660+00:00",
+  "timestamp": "2025-11-20T20:04:32.565939+00:00",
   "commit": {
-    "hash": "46dfd6fe2ff612d0813f054a1b69dab783d0cfc7",
-    "message": "solution-01",
+    "hash": "b74ba8788b431eab503fbafc067f75bc1e5ebf58",
+    "message": "solution-08",
     "author": "apozdniakov",
-    "date": "2025-11-20 20:22:18 +0100"
+    "date": "2025-11-20 20:38:14 +0100"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -22,7 +22,7 @@
       },
       {
         "task_id": "02",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -34,19 +34,19 @@
       },
       {
         "task_id": "04",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
       {
         "task_id": "05",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
       {
         "task_id": "06",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -58,7 +58,7 @@
       },
       {
         "task_id": "08",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 7,
+      "total": 16,
       "max": 20,
-      "percentage": 35
+      "percentage": 80
     }
   }
 }
