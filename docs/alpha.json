@@ -1,6 +1,6 @@
 {
   "team": "alpha",
-  "timestamp": "2025-11-21T10:51:58.772803+00:00",
+  "timestamp": "2025-11-21T11:00:42.760984+00:00",
   "commit": {
     "hash": "f0df149450e290b71eaeba67c1d8fa50e6bc50cc",
     "message": "Aufgabe 9",
@@ -28,7 +28,7 @@
       },
       {
         "task_id": "03",
-        "progress": 0,
+        "progress": 100,
         "type": "manual",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 7,
+      "total": 8,
       "max": 20,
-      "percentage": 35
+      "percentage": 40
     }
   }
 }

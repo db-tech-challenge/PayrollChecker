@@ -1,6 +1,6 @@
 {
   "team": "beta",
-  "timestamp": "2025-11-21T10:51:57.552390+00:00",
+  "timestamp": "2025-11-21T11:00:43.881235+00:00",
   "commit": {
     "hash": "1ae05b4952ec54700c46f107730b6c526b534bb1",
     "message": "switched month and day in overtime_data.csv",
@@ -28,7 +28,7 @@
       },
       {
         "task_id": "03",
-        "progress": 0,
+        "progress": 100,
         "type": "manual",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 8,
+      "total": 9,
       "max": 20,
-      "percentage": 40
+      "percentage": 45
     }
   }
 }
