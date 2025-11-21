@@ -1,11 +1,11 @@
 {
   "team": "beta",
-  "timestamp": "2025-11-21T10:43:52.705231+00:00",
+  "timestamp": "2025-11-21T10:45:49.019702+00:00",
   "commit": {
-    "hash": "87fe8129778d0735ed9a8e9229417dabe99cf538",
-    "message": "change payments.csv to 14",
+    "hash": "fb5e212b76297053a0beb8b58be29613a9e23e7d",
+    "message": "task 2 deleted duplicate Dennis Schr\u00f6der Essen",
     "author": "Nadja Stauber",
-    "date": "2025-11-21 11:43:09 +0100"
+    "date": "2025-11-21 11:44:20 +0100"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -22,7 +22,7 @@
       },
       {
         "task_id": "02",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 6,
+      "total": 7,
       "max": 20,
-      "percentage": 30
+      "percentage": 35
     }
   }
 }

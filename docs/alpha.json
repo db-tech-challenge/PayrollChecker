@@ -1,11 +1,11 @@
 {
   "team": "alpha",
-  "timestamp": "2025-11-21T10:43:46.719865+00:00",
+  "timestamp": "2025-11-21T10:45:51.858841+00:00",
   "commit": {
-    "hash": "7325081a60f01432304016194297ab0837e630ce",
-    "message": "Overtime zur\u00fcckgesetzt",
-    "author": "evel1noo",
-    "date": "2025-11-21 11:12:02 +0100"
+    "hash": "60d9cad10537b3a574995035d54d92d0142057dc",
+    "message": "Joseph Stahr ein ; weggenommen",
+    "author": "Laura",
+    "date": "2025-11-21 11:44:53 +0100"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -64,7 +64,7 @@
       },
       {
         "task_id": "09",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 6,
+      "total": 7,
       "max": 20,
-      "percentage": 30
+      "percentage": 35
     }
   }
 }
