@@ -1,11 +1,11 @@
 {
   "team": "beta",
-  "timestamp": "2025-11-21T09:54:46.635424+00:00",
+  "timestamp": "2025-11-21T10:10:03.051808+00:00",
   "commit": {
-    "hash": "ff107adc8f5fcaa91fb6127cb3f4917b395af93d",
-    "message": "change main_data Apach Zweihundertsieben",
+    "hash": "536c393a20e8d35ca58288fe47da2c66e4dee00f",
+    "message": "change CalculationServiceImpl continue in line 64",
     "author": "Nadja Stauber",
-    "date": "2025-11-21 10:40:50 +0100"
+    "date": "2025-11-21 11:08:12 +0100"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -46,7 +46,7 @@
       },
       {
         "task_id": "06",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 2,
+      "total": 4,
       "max": 20,
-      "percentage": 10
+      "percentage": 20
     }
   }
 }
