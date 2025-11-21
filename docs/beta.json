@@ -1,11 +1,11 @@
 {
   "team": "beta",
-  "timestamp": "2025-11-21T10:45:49.019702+00:00",
+  "timestamp": "2025-11-21T10:47:12.120818+00:00",
   "commit": {
-    "hash": "fb5e212b76297053a0beb8b58be29613a9e23e7d",
-    "message": "task 2 deleted duplicate Dennis Schr\u00f6der Essen",
+    "hash": "1ae05b4952ec54700c46f107730b6c526b534bb1",
+    "message": "switched month and day in overtime_data.csv",
     "author": "Nadja Stauber",
-    "date": "2025-11-21 11:44:20 +0100"
+    "date": "2025-11-21 11:46:31 +0100"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -58,7 +58,7 @@
       },
       {
         "task_id": "08",
-        "progress": 0,
+        "progress": 50,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 7,
+      "total": 8,
       "max": 20,
-      "percentage": 35
+      "percentage": 40
     }
   }
 }
