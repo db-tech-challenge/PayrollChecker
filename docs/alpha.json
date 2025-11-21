@@ -1,11 +1,11 @@
 {
   "team": "alpha",
-  "timestamp": "2025-11-21T10:11:03.962501+00:00",
+  "timestamp": "2025-11-21T10:13:02.938858+00:00",
   "commit": {
-    "hash": "fa4d87293e3ee03c92ab44ef8c3de01a30fd9d10",
-    "message": "Task 2, 6, 7",
+    "hash": "7325081a60f01432304016194297ab0837e630ce",
+    "message": "Overtime zur\u00fcckgesetzt",
     "author": "evel1noo",
-    "date": "2025-11-21 10:53:58 +0100"
+    "date": "2025-11-21 11:12:02 +0100"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -16,7 +16,7 @@
     "tasks": [
       {
         "task_id": "01",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 4,
+      "total": 5,
       "max": 20,
-      "percentage": 20
+      "percentage": 25
     }
   }
 }
