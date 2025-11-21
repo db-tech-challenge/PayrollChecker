@@ -1,11 +1,11 @@
 {
   "team": "alpha",
-  "timestamp": "2025-11-21T09:21:51.771906+00:00",
+  "timestamp": "2025-11-21T09:31:58.477188+00:00",
   "commit": {
-    "hash": "8b80ec0205a5239557430e67e990e19309fc539e",
-    "message": "Fehlerfix",
+    "hash": "bf02dc3e1e5e4845a7f7cd77d1793cdab36a17bd",
+    "message": "Fix",
     "author": "evel1noo",
-    "date": "2025-11-21 10:12:19 +0100"
+    "date": "2025-11-21 10:30:55 +0100"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -46,7 +46,7 @@
       },
       {
         "task_id": "06",
-        "progress": 100,
+        "progress": 0,
         "type": "automatic",
         "weight": 2
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 3,
+      "total": 1,
       "max": 20,
-      "percentage": 15
+      "percentage": 5
     }
   }
 }
