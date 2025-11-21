@@ -1,11 +1,11 @@
 {
   "team": "beta",
-  "timestamp": "2025-11-21T09:32:07.546752+00:00",
+  "timestamp": "2025-11-21T09:41:54.763517+00:00",
   "commit": {
-    "hash": "d67a30f4a9c4f65cccfc2e4fd342f41382a7a3e1",
-    "message": "change main_data.csv",
+    "hash": "ff107adc8f5fcaa91fb6127cb3f4917b395af93d",
+    "message": "change main_data Apach Zweihundertsieben",
     "author": "Nadja Stauber",
-    "date": "2025-11-21 10:20:44 +0100"
+    "date": "2025-11-21 10:40:50 +0100"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -16,7 +16,7 @@
     "tasks": [
       {
         "task_id": "01",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 1,
+      "total": 2,
       "max": 20,
-      "percentage": 5
+      "percentage": 10
     }
   }
 }
