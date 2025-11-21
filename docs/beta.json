@@ -1,11 +1,11 @@
 {
   "team": "beta",
-  "timestamp": "2025-11-21T10:15:03.701511+00:00",
+  "timestamp": "2025-11-21T10:17:21.221290+00:00",
   "commit": {
-    "hash": "536c393a20e8d35ca58288fe47da2c66e4dee00f",
-    "message": "change CalculationServiceImpl continue in line 64",
+    "hash": "dda5342180c83192c734e1aed428e1cf52bc1670",
+    "message": "change main_data.csv, deletete ;",
     "author": "Nadja Stauber",
-    "date": "2025-11-21 11:08:12 +0100"
+    "date": "2025-11-21 11:16:42 +0100"
   },
   "build_status": "success",
   "should_show_tests": true,
@@ -64,7 +64,7 @@
       },
       {
         "task_id": "09",
-        "progress": 0,
+        "progress": 100,
         "type": "automatic",
         "weight": 1
       },
@@ -82,9 +82,9 @@
       }
     ],
     "score": {
-      "total": 4,
+      "total": 5,
       "max": 20,
-      "percentage": 20
+      "percentage": 25
     }
   }
 }
